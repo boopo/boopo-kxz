@@ -20,3 +20,7 @@ Centos:
            
 Apidoc生成：
        apidoc -i src/ -o apidoc/
+
+
+Serverless部署: 
+`sls --debug`

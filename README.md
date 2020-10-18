@@ -14,7 +14,7 @@ Centos:
       
       直接部署：
            pip insall -r requirements.txt
-           gunicorn -w 4 -b 127.0.0.1:5000 manage:app
+           gunicorn -w 4 -b 127.0.0.1:12001 manage:app
            
            
            

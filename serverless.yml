@@ -1,0 +1,14 @@
+component: website
+name: blog
+org: flyingstudio
+app: kxz-api
+stage: dev
+inputs:
+  src:
+    src: ./apidoc
+    dist: ./apidoc
+    index: index.html
+    error: index.html
+  region: ap-guangzhou
+  bucketName: kxz-api
+  protocol: http

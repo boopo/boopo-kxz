@@ -1,9 +1,0 @@
-{
-  "name": "矿小助接口查询",
-  "description": "apidoc",
-  "title": "矿小助",
-  "header": {
-    "title": "文档说明",
-    "filename": "header.md"
-  }
-}

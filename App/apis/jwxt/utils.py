@@ -24,6 +24,7 @@ def encrypt(body):  # 加密算法
     # print(jwt_token)
     return jwt_token
 
+
 def decrypt(token):  # 解密算法
     try:
         #           需要解析的 jwt        密钥                使用和加密时相同的算法
@@ -33,6 +34,7 @@ def decrypt(token):  # 解密算法
     except Exception as e:
         print(e)
         return ('error')
+
 
 def login_required(fun):  # 装饰器用，验证token，实现登录
     def wrapper(*args, **kwargs):
@@ -53,6 +55,7 @@ def login_required(fun):  # 装饰器用，验证token，实现登录
         return fun(*args, **kwargs)
 
     return wrapper
+
 
 def marshal_grade(data):  # 成绩预处理
     # 凑活使用中 绩点与成绩接口不统一
@@ -187,7 +190,24 @@ def marshal_kb(data):  # 课表预处理
     del [data['xsxx']]
     del [data['sjkList']]
     del [data['xsbjList']]
-    return data
+    all_list = []
+
+    for single in data['kbList']:
+        a = {
+            "location": single['cdmc'],
+            "courseName": single['kcmc'],
+            "teacherName": single['xm'],
+            "weeks": single['zcd'],
+            "type": single['xslxbj'],
+            "credit": single['xf'],
+            "lessonDurationStr": single['jc'],
+            "lessonDuration": single['jcs'],
+            "weekDay": single['xqj']
+        }
+        all_list.append(a)
+    courseList = {"courseList": all_list}
+    return courseList
+
 
 def marshal_exam(data):  # 考试预处理
     exam_list = []
@@ -220,6 +240,7 @@ def marshal_exam(data):  # 考试预处理
 
         exam_list.append(location)
     return exam_list
+
 
 def marshal_room(data):  # 空闲教室预处理
     list = []

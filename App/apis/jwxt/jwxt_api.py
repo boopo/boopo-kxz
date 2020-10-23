@@ -80,6 +80,7 @@ class KB(Resource):
 
             if data is not None:
                 return {
+                    "status": 200,
                     "msg": "抓取成功",
                     "data": pre_data
                 }

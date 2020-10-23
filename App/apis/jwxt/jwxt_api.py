@@ -33,6 +33,7 @@ parse_class.add_argument('teacher', type=str, help='请提交正确的参数Key'
 
 login_error = {
     "code": 1,
+    "data": "null",
     "msg": "登录失败,请检查你的用户名或密码！"
 }
 
@@ -54,11 +55,7 @@ class Login(Resource):
             if data:
                 return {
                     "code": 0,
-                    "token": token,
-                    "name": info[0],
-                    "college": info[1],
-                    "grade": info[2],
-                    "classs": info[3],
+                    "data": info,
                     "msg": "登录成功"
                 }
             else:

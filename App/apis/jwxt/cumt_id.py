@@ -186,16 +186,16 @@ class Ids():
         # r = re.findall('<p class="form-control-static">(.*?)</p>',a.text) 只可返回姓名
         soup = BeautifulSoup(a.text, 'html5lib')
         x = soup.find_all('p', class_='form-control-static')
-        ss = []
         data = []
         for a in x:
             data.append(a.string)
         #  格式是固定的
-        ss.append(data[1])  # 姓名
-        ss.append(data[24][7:-4])  # 学院
-        ss.append(data[26][7:-4])  # 年级
-        ss.append(data[28][7:-4])  # 班级
-        return ss
+        self_info = {
+            "name": data[1],
+            "college": data[24][7:-4],
+            "className": data[28][7:-4]
+        }
+        return self_info
 
     def get_empty_room(self, xnm, xqm, build, section, week, weekday):
         if xqm == '1':  # 第一学期

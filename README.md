@@ -13,9 +13,13 @@ Centos:
            docker run -p 12001:12001 -d -it cumt-kxz:1.0  --restrat=always
       
       直接部署：
+           使用gunicorn
            pip insall -r requirements.txt
            gunicorn -w 4 -b 127.0.0.1:12001 manage:app
            
+           使用Tornado
+           pip insall -r requirements.txt
+           python tornado.py
            
            
 Apidoc生成：

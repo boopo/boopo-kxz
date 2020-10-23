@@ -6,3 +6,4 @@ class Content(db.Model):
     data = db.Column(db.String(256))
 
 
+

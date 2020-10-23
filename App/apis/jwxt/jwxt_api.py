@@ -14,6 +14,7 @@ parse_info = reqparse.RequestParser()
 parse_info.add_argument("xnm", type=str, help='请提交正确的参数Key', required=True, location=['args'])
 parse_info.add_argument("xqm", type=str, help='请提交正确的参数Key', required=True, location=['args'])
 
+
 parse_base = reqparse.RequestParser()
 parse_base.add_argument("xnm", type=str, help='请提交正确的参数Key', required=True, location=['json'])
 parse_base.add_argument("xqm", type=str, help='请提交正确的参数Key', required=True, location=['json'])

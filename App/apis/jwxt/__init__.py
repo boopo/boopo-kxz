@@ -12,3 +12,4 @@ jwxt_api.add_resource(SingleJd, '/alljd')
 jwxt_api.add_resource(AverageJd, '/avejd')
 jwxt_api.add_resource(EmptyRoom, '/classroom')
 jwxt_api.add_resource(SpecialCourse, '/course')
+

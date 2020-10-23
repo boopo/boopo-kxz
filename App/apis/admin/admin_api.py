@@ -11,6 +11,7 @@ content_fields = {
     "id": fields.Integer,
     "data": fields.String
 }
+
 multi_content_fields = {
     "status": fields.String,
     "msg": fields.String,

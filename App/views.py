@@ -11,3 +11,4 @@ def init_view(app):
 def index():
     return render_template('index.html')
 
+

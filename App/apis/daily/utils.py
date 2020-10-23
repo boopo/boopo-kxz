@@ -5,6 +5,7 @@ import re
 
 
 
+
 def pc(home,num):
     host = "http://www.houqinbao.com/hydropower/index.php?rebind=1&m=PayWeChat&c=Index&a=bingding&token=&openid=oUiRowd11jcJJHzVjZHgbb7OyWqE&schoolcode=13579&payopenid="
     # home = '梅2楼'

@@ -5,7 +5,10 @@ from tornado.ioloop import IOLoop
 from manage import app
 
 http_server = HTTPServer(WSGIContainer(app))
-http_server.listen(12001)
+http_server.listen(12000)
 IOLoop.instance().start()
+
+
+
 
 #    部署用法 python tornado_server.py

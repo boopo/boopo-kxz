@@ -8,8 +8,6 @@ parse_df.add_argument("home", type=str, help='请提交正确的参数Key', requ
 parse_df.add_argument("num", type=str, help='请提交正确的参数Key', required=True, location=['args'])
 
 
-
-
 class DianFei(Resource):
     def get(self):
         args = parse_df.parse_args()

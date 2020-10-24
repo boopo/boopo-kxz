@@ -15,7 +15,7 @@ Centos:
       直接部署：
            使用gunicorn
            pip insall -r requirements.txt
-           gunicorn -w 4 -b 127.0.0.1:12001 manage:app
+           gunicorn -w 4 -b 127.0.0.1:12001 manage:app    //w为线程数
            
            使用Tornado
            pip insall -r requirements.txt

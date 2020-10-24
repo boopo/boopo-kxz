@@ -17,6 +17,8 @@ def get_book(keyword):  # 图书聚合查询
     data = r.json()
     book_list = []
     for single in data['data']['searchResult']:
+        if not single['groupECount']:
+            single['groupECount'] = 0
         a = {
             "book_id": single['recordId'],
             "name": single['title'],

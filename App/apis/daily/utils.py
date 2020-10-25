@@ -54,20 +54,18 @@ def get_home_image():  # 获取矿大官网首页轮播图
     return l1
 
 
-def get_multiple_sd_news(page='0'):  # 视点新闻列表
-    if page == '0':
-        page = ''
-    url = "http://www.cumt.edu.cn/19673/list" + page + ".htm"  # 第一页为无参数 第二页为1
+def get_multiple_sd_news(page=''):  # 视点新闻列表
+    url = "http://www.cumt.edu.cn/19673/list" + page + ".htm"
     r = requests.get(url=url, headers=headers)
     r.encoding = r.apparent_encoding
-    rse = re.findall('<a href="(.*?)">', r.text)
     soup = BeautifulSoup(r.text, 'html5lib')
-    rs = soup.find_all('span', class_="news_title")
+    rs = soup.find('ul', class_='news_list list2')
     l1 = []
-    for single in rs:
+    for single in rs.find_all('li'):
         l1.append({
             "title": single.a.text,
-            "link": "http://www.cumt.edu.cn" + single.a['href']
+            "link": "http://www.cumt.edu.cn" + single.span.a['href'],
+            "time": single.span.next_sibling.next_sibling.text
         })
     return l1
 
@@ -92,31 +90,50 @@ def get_single_sd_news(url):  # 单个视点新闻详情
     r = requests.get(url=url, headers=_headers)
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, 'html5lib')
-    rs = soup.find_all('p', style="text-indent:2em;text-align:left;font-size:16px;")
-    l1 = []
-    l2 = []
-    l1.append({"title": soup.title.text})
+    rs = soup.find_all('p', style="text-indent:2em;text-align:left;font-size:16px;")  # 查询文章
+    detail = soup.find('div', class_='news_xx')  # 查询作者，时间，浏览次数
+    detail_detail = detail.find_all('span')  # 同一标签先所有子标签，
+    foot = soup.find('p', class_='arti_metas')  # 同上
+    foot_detail = foot.find_all('span')
+
+    dd = []  # detail_detail 存储 作者 时间 浏览次数
+    fd = []  # foot_detail  存储 来源 审核 编辑
+    content = []  # 存储文章
+    for single in detail_detail:  # 遍历
+        dd.append(single.text)
+    for single in foot_detail:
+        fd.append(single.text)
     for single in rs:
-        l2.append(single.text)
-    l1.append({"content": l2})
-    return l1
+        content.append(single.text)
+    # json 序列化
+    ls = {
+        "title": soup.title.text,
+        "header": {
+            "author": dd[1],
+            "time": dd[3]
+        },
+        "about": fd,
+        "content": content
+
+    }
+    return ls
 
 
-def get_multiple_xs_news(page='0'):  # 学术聚焦列表
-    if page == '0':
-        page = ''
-    url = "http://www.cumt.edu.cn/19674/list" + page + ".htm"  # 第一页为0 第二页为1
+def get_multiple_xs_news(page=''):  # 学术聚焦列表
+    url = "http://www.cumt.edu.cn/19674/list" + page + ".htm"
     r = requests.get(url=url, headers=headers)
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, 'html5lib')
-    rs = soup.find_all('span', class_="news_title")
-    l1 = []
-    for single in rs:
-        l1.append({
-            "title": single.a.text,
-            "link": "http://www.cumt.edu.cn" + single.a['href']
+    rs = soup.find('ul', class_="news_list list2")
+    rs_detail = rs.find_all('li')
+    rd = []
+    for single in rs_detail:
+        rd.append({
+            "title": single.span.a['title'],
+            "link": "http://www.cumt.edu.cn" + single.span.a['href'],
+            "time": single.span.next_sibling.next_sibling.text
         })
-    return l1
+    return rd
 
 
 def get_single_xs_news(url):  # 单个学术学术聚焦详情
@@ -137,20 +154,18 @@ def get_single_xs_news(url):  # 单个学术学术聚焦详情
     r = requests.get(url=url, headers=__headers)
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, "html5lib")
-    rs_img = soup.find('p', style="text-align:center;")
+    # rs_img = soup.find('p', style="text-align:center;")
+    # 图片不用了，这里有两张，一个原图一个预览图
     rs = soup.find(attrs={'name': re.compile('description')})
     l1 = {
         "title": soup.title.text,
-        "img": "http://www.cumt.edu.cn" + rs_img.img['src'],
         "content": rs['content']
     }
     return l1
 
-def get_multiple_xx_news(page):  # 信息公告列表，为什么没有单个？不想搞
-    if page == '0':
-        page = ''
+def get_multiple_xx_news(page=''):  # 信息公告列表
     page = page
-    url = "http://www.cumt.edu.cn/19678/list" + page + ".htm"  # 第一页为0 第二页为1
+    url = "http://www.cumt.edu.cn/19678/list" + page + ".htm"
     r = requests.get(url=url, headers=headers)
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, 'html5lib')
@@ -162,31 +177,38 @@ def get_multiple_xx_news(page):  # 信息公告列表，为什么没有单个？
             "link": "http://www.cumt.edu.cn" + single.a['href']
         })
     return l1
-
-
-def get_multiple_rw_news(page):  # 人文讲堂列表
-    if page == '0':
-        page = ''
-    url = "http://www.cumt.edu.cn/19677/list" + page + ".htm"  # 第一页为0 第二页为1
-    r = requests.get(url=url, headers=headers)
-    r.encoding = r.apparent_encoding
-    soup = BeautifulSoup(r.text, 'html5lib')
-    rs = soup.find_all('span', class_="news_title")
-    l1 = []
-    for single in rs:
-        l1.append({
-            "title": single.a.text,
-            "link": "http://www.cumt.edu.cn" + single.a['href']
-        })
-
-    return l1
-
 
 def get_single_rw_news(url):  # 单个人文讲堂详情
     url = url
     r = requests.get(url=url, headers=headers)
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, "html5lib")
-    rs = soup.find(attrs={'name': re.compile('description')})
-    l1 = [{"title": soup.title.text}, {"detail": rs['content']}]
+
+    rs = soup.find('div', class_='wp_articlecontent')
+    rs_detail = rs.find_all('p')
+    rd = []
+    for single in rs_detail:
+        txt = single.text
+        txt = "".join(txt.split())
+        if txt != '':  # if not 不行...
+            rd.append(txt)
+    return rd
+
+
+
+def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
+    url = "http://www.cumt.edu.cn/19677/list" + page + ".htm"
+    r = requests.get(url=url, headers=headers)
+    r.encoding = r.apparent_encoding
+    soup = BeautifulSoup(r.text, 'html5lib')
+    rs = soup.find('ul', class_="news_list list2")
+    l1 = []
+    for single in rs.find_all('li'):
+        l1.append({
+            "title": single.span.a['title'],
+            "time": single.span.next_sibling.next_sibling.text,
+            "detail": get_single_rw_news("http://www.cumt.edu.cn" + single.span.a['href'])  # 在次查询单个人文讲堂信息
+        })
     return l1
+
+

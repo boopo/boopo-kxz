@@ -24,7 +24,7 @@ class DianFei(Resource):
         data = pc(home, num)
         if data:
             return {
-                "status": "200",
+                "status": 200,
                 "msg": "ok",
                 "data": data
             }
@@ -40,7 +40,7 @@ class HomeImage(Resource):
             data = get_home_image(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -57,7 +57,7 @@ class SdNews(Resource):
             data = get_multiple_sd_news(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -74,7 +74,7 @@ class SdNew(Resource):
             data = get_single_sd_news(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -91,24 +91,7 @@ class RwNews(Resource):
             data = get_multiple_rw_news(page)
             if data:
                 return {
-                    "status": "200",
-                    "msg": "ok",
-                    "data": data
-                }
-        except Exception as e:
-            print(e)
-            return data_error
-
-
-class RwNew(Resource):
-    def get(self):
-        args = parse_url.parse_args()
-        page = args.get('url')
-        try:
-            data = get_single_rw_news(page)
-            if data:
-                return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -125,7 +108,7 @@ class XsNews(Resource):
             data = get_multiple_xs_news(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -142,7 +125,7 @@ class XsNew(Resource):
             data = get_single_xs_news(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }
@@ -159,7 +142,7 @@ class XxNews(Resource):
             data = get_multiple_xx_news(page)
             if data:
                 return {
-                    "status": "200",
+                    "status": 200,
                     "msg": "ok",
                     "data": data
                 }

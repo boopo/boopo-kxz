@@ -52,6 +52,7 @@ class Login(Resource):
             }
             token = encrypt(info)
             info = id.get_self_info()
+            info.update({"token": token})
             if data:
                 return {
                     "code": 0,

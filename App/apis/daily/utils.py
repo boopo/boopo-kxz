@@ -1,6 +1,11 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+from flask import request, abort, g
+
+from App.apis.daily.auto_electric_check import SuIds
+from App.apis.jwxt.utils import decrypt
+
 headers = {
 
     "Host": "www.cumt.edu.cn",
@@ -42,6 +47,7 @@ def pc(home, num):
         return df[0]
     except:
         return "null"
+
 
 def get_home_image():  # 获取矿大官网首页轮播图
     url = "http://www.cumt.edu.cn"
@@ -163,6 +169,7 @@ def get_single_xs_news(url):  # 单个学术学术聚焦详情
     }
     return l1
 
+
 def get_multiple_xx_news(page=''):  # 信息公告列表
     page = page
     url = "http://www.cumt.edu.cn/19678/list" + page + ".htm"
@@ -177,6 +184,7 @@ def get_multiple_xx_news(page=''):  # 信息公告列表
             "link": "http://www.cumt.edu.cn" + single.a['href']
         })
     return l1
+
 
 def get_single_rw_news(url):  # 单个人文讲堂详情
     url = url
@@ -195,7 +203,6 @@ def get_single_rw_news(url):  # 单个人文讲堂详情
     return rd
 
 
-
 def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
     url = "http://www.cumt.edu.cn/19677/list" + page + ".htm"
     r = requests.get(url=url, headers=headers)
@@ -212,3 +219,22 @@ def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
     return l1
 
 
+def su_login_required(fun):  # 装饰器用，验证token，实现登录
+    def wrapper(*args, **kwargs):
+        token = request.headers.get('token')
+        print(token)
+        if token is None:
+            abort(401)
+        info = decrypt(token)
+        if info == 'error':
+            abort(401)
+        username = info['data']['username']
+        password = info['data']['password']
+        su_id = SuIds(username, password)
+        data = su_id.login()
+        if data is None:
+            abort(401)
+        g.s_data = data
+        return fun(*args, **kwargs)
+
+    return wrapper

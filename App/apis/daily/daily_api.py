@@ -1,8 +1,9 @@
+from flask import g
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import data_error
 from App.apis.daily.utils import pc, get_home_image, get_multiple_sd_news, get_single_sd_news, get_multiple_rw_news, \
-    get_single_rw_news, get_multiple_xs_news, get_single_xs_news, get_multiple_xx_news
+     get_multiple_xs_news, get_single_xs_news, get_multiple_xx_news, su_login_required
 
 parse_df = reqparse.RequestParser()
 parse_df.add_argument("home", type=str, help='请提交正确的参数Key', required=True, location=['args'])
@@ -29,6 +30,22 @@ class DianFei(Resource):
                 "data": data
             }
         else:
+            return data_error
+
+
+class AutoDianFei(Resource):
+    @su_login_required
+    def get(self):
+        try:
+            data = g.s_data
+            if data:
+                return {
+                    "status": 200,
+                    "msg": "ok",
+                    "data": data
+                }
+        except Exception as e:
+            print(e)
             return data_error
 
 

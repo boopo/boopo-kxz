@@ -6,17 +6,22 @@ headers = {
 }
 
 
-def get_book(keyword):  # 图书聚合查询
+def get_book(keyword, page, row):  # 图书聚合查询
     url = 'https://findcumt.libsp.com/find/unify/search'  # 图书馆查询接口
     s_json = {
         "searchFieldContent": keyword,
-        "rows": 5,
+        "rows": row,
+        "page": page,
         "searchField": "keyWord"
     }
     r = requests.post(url, headers=headers, json=s_json)
     data = r.json()
     book_list = []
     for single in data['data']['searchResult']:
+        if not single['onShelfCountI']:
+            onshelf = '不可借阅'
+        else:
+            onshelf = '可以借阅'
         if not single['groupECount']:
             single['groupECount'] = 0
         a = {
@@ -29,7 +34,8 @@ def get_book(keyword):  # 图书聚合查询
             "ecount": single['groupECount'],
             "search_code": single['callNoOne'],
             "image": get_image(single['isbn'], single['title']),
-            "status_now": check_book(single['recordId'])
+            "status_now": check_book(single['recordId']),
+            "status": onshelf
         }
         book_list.append(a)
     return book_list

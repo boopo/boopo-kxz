@@ -265,3 +265,7 @@ def marshal_course(data):  # 上课条件数据处理
         }
         list.append(a)
     return list
+
+
+def set_cache(s_number, s_session):
+    pass

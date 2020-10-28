@@ -54,15 +54,18 @@ class Login(Resource):
                 "password": password
             }
             token = encrypt(info)
-            info = id.get_self_info()
+            l1 = id.get_self_info()
+            d1 = {
+                "name": l1[0],
+                "college": l1[1],
+                "classname": l1[3],
+                "token": token
+            }
+            info.update({"token": token})
             if data:
                 return {
-                    "code": 0,
-                    "token": token,
-                    "name": info[0],
-                    "college": info[1],
-                    "grade": info[2],
-                    "classs": info[3],
+                     "code": 0,
+                     "data": d1,
                     "msg": "登录成功"
                 }
             else:

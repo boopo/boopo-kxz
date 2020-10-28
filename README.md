@@ -2,7 +2,7 @@
 
 
 
-本地启动方法：
+本地启动方法：(先启动redis)
       python manage.py runserver -r -d
       
       

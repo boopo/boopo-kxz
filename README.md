@@ -1,8 +1,9 @@
 <h2> 矿小助后端代码</h2>
 
+需启动redis
 
+本地启动方法：
 
-本地启动方法：(先启动redis)
       python manage.py runserver -r -d
       
       

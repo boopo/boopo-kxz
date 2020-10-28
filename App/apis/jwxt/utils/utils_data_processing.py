@@ -1,61 +1,12 @@
 import time
 import jwt
+import requests
 from flask import request, g, abort
 
-from App.apis.jwxt.cumt_id import Ids
-
-headers = {
-    "groupCode": "200069",
-    "Referer": "https://findcumt.libsp.com/"
-}
+from App.apis.jwxt.utils.utils_cumt_id import Ids
+from App.ext import redis_client
 
 
-
-def encrypt(body):  # 加密算法
-    token_dict = {
-        'iat': time.time(),
-        'data': body
-    }
-    headers = {
-        'alg': "HS256",  # 声明所使用的算法
-    }
-
-    jwt_token = jwt.encode(token_dict, "uibDeGB3Q8FiQmD", algorithm="HS256", headers=headers).decode('ascii')
-
-    # print(jwt_token)
-    return jwt_token
-
-
-def decrypt(token):  # 解密算法
-    try:
-        #           需要解析的 jwt        密钥                使用和加密时相同的算法
-        data = jwt.decode(token, "uibDeGB3Q8FiQmD", algorithms=['HS256'])
-        #  print(data)
-        return (data)
-    except Exception as e:
-        print(e)
-        return ('error')
-
-
-def login_required(fun):  # 装饰器用，验证token，实现登录
-    def wrapper(*args, **kwargs):
-        token = request.headers.get('token')
-        print(token)
-        if token is None:
-            abort(401)
-        info = decrypt(token)
-        if info == 'error':
-            abort(401)
-        username = info['data']['username']
-        password = info['data']['password']
-        id = Ids(username, password)
-        data = id.login()
-        if data is None:
-            abort(401)
-        g.id = id
-        return fun(*args, **kwargs)
-
-    return wrapper
 
 
 def marshal_grade(data):  # 成绩预处理
@@ -179,7 +130,6 @@ def marshal_grade(data):  # 成绩预处理
             bklt.append(foda)
     return bklt
 
-
 def marshal_kb(data):  # 课表预处理
     del [data['xqbzxxszList']]
     del [data['jxhjkcList']]
@@ -191,24 +141,7 @@ def marshal_kb(data):  # 课表预处理
     del [data['xsxx']]
     del [data['sjkList']]
     del [data['xsbjList']]
-    all_list = []
-
-    for single in data['kbList']:
-        a = {
-            "location": single['cdmc'],
-            "courseName": single['kcmc'],
-            "teacherName": single['xm'],
-            "weeks": single['zcd'],
-            "type": single['xslxbj'],
-            "credit": single['xf'],
-            "lessonDurationStr": single['jc'],
-            "lessonDuration": single['jcs'],
-            "weekDay": single['xqj']
-        }
-        all_list.append(a)
-    courseList = {"courseList": all_list}
-    return courseList
-
+    return data
 
 def marshal_exam(data):  # 考试预处理
     exam_list = []
@@ -242,14 +175,12 @@ def marshal_exam(data):  # 考试预处理
         exam_list.append(location)
     return exam_list
 
-
 def marshal_room(data):  # 空闲教室预处理
     list = []
     for single in data['items']:
         a = {"room": single['cdmc']}
         list.append(a)
     return list
-
 
 def marshal_course(data):  # 上课条件数据处理
     list = []
@@ -266,6 +197,3 @@ def marshal_course(data):  # 上课条件数据处理
         list.append(a)
     return list
 
-
-def set_cache(s_number, s_session):
-    pass

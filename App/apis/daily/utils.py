@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from flask import request, abort, g
 
 from App.apis.daily.auto_electric_check import SuIds
-from App.apis.jwxt.utils import decrypt
+from App.apis.jwxt.utils.utils_cache import decrypt
 
 headers = {
 

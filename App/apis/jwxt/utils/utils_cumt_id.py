@@ -3,6 +3,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
+from App.ext import redis_client
+
 session = requests.session()
 
 headers = {
@@ -10,7 +12,7 @@ headers = {
     "X-Requested-With": "XMLHttpRequest"
 }
 
-
+# 目前Ids仅用于登录获取 cookie，其他函数已搁置（有点慢。。。。。）
 class Ids():
     def __init__(self, username, password):
         self.username = username
@@ -48,7 +50,22 @@ class Ids():
             text = q.headers['Location']
             s = self.session.get(url=text)
             #    print('第三次GET',s.status_code)
-            #    print('ok')
+
+            a = self.session.get('http://jwxt.cumt.edu.cn/sso/jzIdsFivelogin')
+            _data = {
+                    'xnm': '2020',
+                    'xqm': '1',
+            }
+            coo = self.session.cookies
+            l1 = []
+            for single in coo:
+                l1.append(single.value)
+            try:
+                redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
+                print("redis正常", self.username, l1[3])
+            except Exception as e:
+                print("redis异常", e)
+                pass
             return True
         if q.status_code == 200:
             soup_obj = BeautifulSoup(q.text, "html5lib")
@@ -185,16 +202,16 @@ class Ids():
         # r = re.findall('<p class="form-control-static">(.*?)</p>',a.text) 只可返回姓名
         soup = BeautifulSoup(a.text, 'html5lib')
         x = soup.find_all('p', class_='form-control-static')
+        ss = []
         data = []
         for a in x:
             data.append(a.string)
         #  格式是固定的
-        self_info = {
-            "name": data[1],
-            "college": data[24][7:-4],
-            "className": data[28][7:-4]
-        }
-        return self_info
+        ss.append(data[1])  # 姓名
+        ss.append(data[24][7:-4])  # 学院
+        ss.append(data[26][7:-4])  # 年级
+        ss.append(data[28][7:-4])  # 班级
+        return ss
 
     def get_empty_room(self, xnm, xqm, build, section, week, weekday):
         if xqm == '1':  # 第一学期

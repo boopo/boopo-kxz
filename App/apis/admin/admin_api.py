@@ -30,7 +30,7 @@ class FeedBack(Resource):
             db.session.add(fb)
             db.session.commit()
             msg = {
-                "status": "201",
+                "status": 201,
                 "msg": "create ok!",
                 "data": data
             }
@@ -47,7 +47,7 @@ class FeedBack(Resource):
                 abort(404)
 
             msg = {
-                "status": "200",
+                "status": 200,
                 "msg": "ok",
                 "data": content_list
             }

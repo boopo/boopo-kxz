@@ -44,7 +44,7 @@ def pc(home, num):
             ("http://www.houqinbao.com/hydropower/index.php?m=PayWeChat&c=IndexKd&a=find&schoolcode=13579"
              , headers=headers, data=data)
         df = re.findall("dushu\":(.*?),", response.text)
-        return df[0]
+        return float(df[0])
     except:
         return "null"
 

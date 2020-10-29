@@ -301,7 +301,7 @@
         "name": "吕迎朝",
         "college": "计算机科学与技术学院",
         "classname": "数据科学与大数据技术2019-02班",
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDM5ODQ3NDcuNDU3NjkzNiwiZGF0YSI6eyJ1c2VybmFtZSI6IjA4MTkzMTA5IiwicGFzc3dvcmQiOiIwMzAwMTQifX0.KHahG0anf70pP9QPs2iNGLLVT5NgS_zL5aFaIIXH_FM"
+        "token": "eyJ0eXAiOiJKV1QiLChbOiJIUzI1NiJ9.eyJpYXQiOjE2MDM5ODQ3NDcuNDU3NjkwiZGF0YSI6eyJ1c2VybmFSI6IjAMTkzMTA5IiwicGFzc3dvcmQiOiIwMzAwMTQifX0.KHahG0anf70pP9QPs2iNGLLVT5NgS_zL5aFaIIXH_FM"
     },
     "msg": "登录成功"
 }

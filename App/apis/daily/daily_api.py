@@ -51,10 +51,8 @@ class AutoDianFei(Resource):
 
 class HomeImage(Resource):
     def get(self):
-        args = parse_page.parse_args()
-        page = args.get('page')
         try:
-            data = get_home_image(page)
+            data = get_home_image()
             if data:
                 return {
                     "status": 200,

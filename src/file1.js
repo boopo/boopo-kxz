@@ -398,158 +398,291 @@
 {
     "status": 200,
     "msg": "抓取成功",
-    "data": [
-        {
-            "book_id": 413400,
-            "name": "三体.Ⅲ.Ⅲ,死神永生,Dead end.中国科幻基石丛书",
-            "author": "刘慈欣著",
-            "publisher": "重庆出版社",
-            "isbn": "978-7-229-03093-3",
-            "pcount": 3,
-            "ecount": 1,
-            "search_code": "I247.55/L-236.2/3",
-            "image": "https://unicover.duxiu.com/coverNew/CoverNew.dll?iid=6767676766686C706A69666E6A695DA5A696AE98AB9CA9A498A9A25D683130393831383237",
-            "status_now": [
-                {
-                    "bookcode": "C01759935",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "借出-应还日期:2020-12-10"
-                },
-                {
-                    "bookcode": "C01759936",
-                    "location": "文昌校区-文昌社科书阅览室",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C01759934",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "借出-应还日期:2020-09-15"
-                }
-            ],
-            "status": "可以借阅"
-        },
-        {
-            "book_id": 373428,
-            "name": "三体.Ⅹ,观想之宙.中国科幻基石丛书",
-            "author": "宝树著",
-            "publisher": "重庆出版社",
-            "isbn": "978-7-229-03981-3",
-            "pcount": 3,
-            "ecount": 1,
-            "search_code": "I247.5/B-764/5",
-            "image": "https://unicover.duxiu.com/coverNew/CoverNew.dll?iid=696A67706A6C6769716E5EA6A797AF99AC9DAAA599AAA35E693634363432373838",
-            "status_now": [
-                {
-                    "bookcode": "C01697588",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C01697587",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "典藏处理"
-                },
-                {
-                    "bookcode": "C01697589",
-                    "location": "文昌校区-文昌社科书阅览室",
-                    "current": "在架"
-                }
-            ],
-            "status": "可以借阅"
-        },
-        {
-            "book_id": 619579,
-            "name": "三体.中国科幻基石丛书",
-            "author": "刘慈欣著",
-            "publisher": "重庆出版社",
-            "isbn": "978-7-5366-9293-0",
-            "pcount": 3,
-            "ecount": 1,
-            "search_code": "I247.55/L-236.2/1",
-            "image": "https://unicover.duxiu.com/coverNew/CoverNew.dll?iid=62636062696960626265579FA090A892A596A39E92A39C57623835353537313931",
-            "status_now": [
-                {
-                    "bookcode": "C02182110",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C02182109",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "借出-应还日期:2020-12-15"
-                },
-                {
-                    "bookcode": "C02182111",
-                    "location": "文昌校区-文昌社科书阅览室",
-                    "current": "借出-应还日期:2020-11-17"
-                }
-            ],
-            "status": "可以借阅"
-        },
-        {
-            "book_id": 619578,
-            "name": "三体.II,黑暗森林.中国科幻基石丛书",
-            "author": "刘慈欣著",
-            "publisher": "重庆出版社",
-            "isbn": "978-7-5366-9396-8",
-            "pcount": 3,
-            "ecount": 1,
-            "search_code": "I247.55/L-236.2/2",
-            "image": "https://unicover.duxiu.com/coverNew/CoverNew.dll?iid=6565656564666B696B6A646B696E5BA3A494AC96A99AA7A296A7A05B663733333239393235",
-            "status_now": [
-                {
-                    "bookcode": "C02182112",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "借出-应还日期:2020-11-15"
-                },
-                {
-                    "bookcode": "C02182114",
-                    "location": "文昌校区-文昌社科书阅览室",
-                    "current": "借出-应还日期:2020-11-18"
-                },
-                {
-                    "bookcode": "C02182113",
-                    "location": "南湖校区-南湖社科图书阅览室Ⅱ",
-                    "current": "借出-应还日期:2020-12-12"
-                }
-            ],
-            "status": "不可借阅"
-        },
-        {
-            "book_id": 138688,
-            "name": "三体问题",
-            "author": "汪家訸编著",
-            "publisher": "科学出版社",
-            "isbn": null,
-            "pcount": 4,
-            "ecount": 0,
-            "search_code": "O933.3/W419",
-            "image": null,
-            "status_now": [
-                {
-                    "bookcode": "C00140911",
-                    "location": "南湖密集书库-南湖密集书库Ⅰ",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C00140906",
-                    "location": "南湖密集书库-南湖密集书库Ⅰ",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C00141117",
-                    "location": "南湖密集书库-南湖密集书库Ⅰ",
-                    "current": "在架"
-                },
-                {
-                    "bookcode": "C00141116",
-                    "location": "南湖密集书库-南湖密集书库Ⅰ",
-                    "current": "在架"
-                }
-            ],
-            "status": "可以借阅"
-        }
-    ]
+    "data": {
+        "all": 1601,
+        "book_list": [
+            {
+                "book_id": 253498,
+                "name": "论三位一体.世纪人文系列丛书",
+                "author": "[古罗马] 奥古斯丁著",
+                "publisher": "上海人民出版社",
+                "isbn": "7-208-05282-4",
+                "pcount": 3,
+                "ecount": 1,
+                "search_code": "B972/A-361",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C01300810",
+                        "location": "南湖密集书库-南湖密集书库Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01300808",
+                        "location": "文昌校区-文昌社科书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01300809",
+                        "location": "南湖密集书库-南湖密集书库Ⅰ",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 211210,
+                "name": "考研英语三位一体作文法.考研英语口袋系列 ",
+                "author": "吴玮翔编著  ",
+                "publisher": "东南大学出版社",
+                "isbn": "7-81089-633-4",
+                "pcount": 5,
+                "ecount": 1,
+                "search_code": "H315/W-866",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C01137499",
+                        "location": "文昌校区-文昌社科书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01137500",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01137502",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01137503",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01137501",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 729598,
+                "name": "真三轴条件下受载煤体损伤与瓦斯渗流耦合机理研究",
+                "author": "刘佳佳著",
+                "publisher": "煤炭工业出版社",
+                "isbn": "978-7-5020-6433-4",
+                "pcount": 2,
+                "ecount": 0,
+                "search_code": "TD712/L-421",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C02344535",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02344536",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 667413,
+                "name": "金融地理学视角下的金融一体化研究:以长三角核心城市群为例.21世纪海上丝绸之路智库丛书",
+                "author": "周迪著",
+                "publisher": "科学出版社",
+                "isbn": "978-7-03-052125-5",
+                "pcount": 3,
+                "ecount": 0,
+                "search_code": "F832.75/Z-249",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C02300304",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02300305",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02300306",
+                        "location": "文昌校区-文昌社科书阅览室",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 263099,
+                "name": "煤层体三维模型和动态显示研究",
+                "author": "史明寅著",
+                "publisher": "中国矿业大学",
+                "isbn": null,
+                "pcount": 1,
+                "ecount": 0,
+                "search_code": "#/P628/S-537",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "X2293",
+                        "location": "南湖校区-知学空间(硕博论文)",
+                        "current": "在架"
+                    }
+                ],
+                "status": false
+            },
+            {
+                "book_id": 339998,
+                "name": "UG NX三维造型设计教程与实例精讲.CAX一体化解决方案系列丛书",
+                "author": "李锦标等编著",
+                "publisher": "机械工业出版社",
+                "isbn": "978-7-111-28932-6",
+                "pcount": 4,
+                "ecount": 1,
+                "search_code": "TB472-39/L-412.3",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C01546420",
+                        "location": "文昌校区-文昌科技书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01546417",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01546418",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01546419",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 583795,
+                "name": "粤港澳增长三角次区域经济一体化研究",
+                "author": "康学芹著",
+                "publisher": "中国社会科学出版社",
+                "isbn": "978-7-5161-4031-4",
+                "pcount": 3,
+                "ecount": 1,
+                "search_code": "F127.65/K-888",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C02109130",
+                        "location": "文昌校区-文昌社科书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02109128",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02109129",
+                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 674955,
+                "name": "道路三维集成CAD与BIM一体化技术.上册",
+                "author": "娄峰, 王绥庆等编著",
+                "publisher": "人民交通出版社股份有限公司",
+                "isbn": "978-7-114-14040-2",
+                "pcount": 3,
+                "ecount": 0,
+                "search_code": "U412.6/L-316/1",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C02309810",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02309809",
+                        "location": "南湖校区-南湖自然科学图书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C02309811",
+                        "location": "文昌校区-文昌科技书阅览室",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 245068,
+                "name": "小西北经济问题研究:地区经济一体化·产业集群·三农问题",
+                "author": "聂华林, 高凯山, 拜琦瑞编著",
+                "publisher": "中国社会科学出版社",
+                "isbn": "7-5004-5563-1",
+                "pcount": 3,
+                "ecount": 1,
+                "search_code": "F127.4/N-383",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "C01280575",
+                        "location": "文昌校区-文昌社科书阅览室",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01280576",
+                        "location": "南湖密集书库-南湖密集书库Ⅱ",
+                        "current": "在架"
+                    },
+                    {
+                        "bookcode": "C01280577",
+                        "location": "南湖密集书库-南湖密集书库Ⅱ",
+                        "current": "在架"
+                    }
+                ],
+                "status": true
+            },
+            {
+                "book_id": 706908,
+                "name": "基于智能体的三维疏散软件的设计与实现",
+                "author": "黄元凯著",
+                "publisher": "中国矿业大学",
+                "isbn": null,
+                "pcount": 1,
+                "ecount": 0,
+                "search_code": "#/TU998.1/H-922",
+                "image": null,
+                "status_now": [
+                    {
+                        "bookcode": "XS31329",
+                        "location": "南湖校区-知学空间(硕博论文)",
+                        "current": "在架"
+                    }
+                ],
+                "status": false
+            }
+        ]
+    }
 }
  * @apiErrorExample   {json} Response-Example
 * {
@@ -694,7 +827,12 @@
  * {
  *  "status": 200,
     "msg": "抓取成功",
-    "data": "176.35"
+    "data":
+            {
+                "home":"梅2楼",
+                "num":"B4202",
+                "_value":176.5
+            }
  * }
  * @apiErrorExample   {json} Response-Example
  * {

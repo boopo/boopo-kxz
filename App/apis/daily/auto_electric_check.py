@@ -99,10 +99,16 @@ class SuIds():
             }
             r = requests.post(url=s_url, headers=s_headers, data=s_body)
             r.encoding = r.apparent_encoding
+
             home = re.findall("<SSL_displayvalue>(.*?)</SSL_displayvalue>", r.text)
             num = re.findall('<FJH>(.*?)</FJH>', r.text)  # 获取宿舍楼和宿舍号
             data = df_pc(home[0][9:-3], num[0][9:-3])
-            return data
+            l1 = {
+                "home": home[0][9:-3],
+                "num": num[0][9:-3],
+                "_value": data
+            }
+            return l1
         if q.status_code == 200:
             soup_obj = BeautifulSoup(q.text, "html5lib")
             tips = soup_obj.find_all(id="msg")

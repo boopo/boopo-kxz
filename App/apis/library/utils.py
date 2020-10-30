@@ -19,11 +19,14 @@ def get_book(keyword, page, row):  # 图书聚合查询
     book_list = []
     for single in data['data']['searchResult']:
         if not single['onShelfCountI']:
-            onshelf = '不可借阅'
+            onshelf = False
         else:
-            onshelf = '可以借阅'
+            onshelf = True
         if not single['groupECount']:
             single['groupECount'] = 0
+        if not single['groupPhysicalCount']:
+            single['groupPhysicalCount'] = 0
+
         a = {
             "book_id": single['recordId'],
             "name": single['title'],
@@ -38,7 +41,11 @@ def get_book(keyword, page, row):  # 图书聚合查询
             "status": onshelf
         }
         book_list.append(a)
-    return book_list
+        l1 = {
+            "all": data['data']['numFound'],
+            "book_list": book_list
+        }
+    return l1
 
 
 def check_book(_id):  # 检查馆藏

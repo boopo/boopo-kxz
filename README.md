@@ -22,10 +22,18 @@ Centos:
            
            使用Tornado
            pip insall -r requirements.txt
-           python tornado.py
+           python tornado_server.py
+Windosw-server：
+
+       需挂VPN
+       在tornado_server.py下添加：
+           asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+       使用Tornado：
+           python tornado_server.py
            
            
 Apidoc生成：
+
        apidoc -i src/ -o apidoc/
        
        

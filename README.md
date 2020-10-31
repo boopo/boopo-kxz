@@ -1,6 +1,8 @@
 <h2> 矿小助后端代码</h2>
 
-需启动redis
+需先启动redis：
+
+       redis-server
 
 本地启动方法：
 
@@ -20,10 +22,18 @@ Centos:
            
            使用Tornado
            pip insall -r requirements.txt
-           python tornado.py
+           python tornado_server.py
+Windows-server：
+
+       需挂VPN
+       在tornado_server.py下添加：
+           asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+       使用Tornado：
+           python tornado_server.py
            
            
 Apidoc生成：
+
        apidoc -i src/ -o apidoc/
        
        

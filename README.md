@@ -23,7 +23,7 @@ Centos:
            使用Tornado
            pip insall -r requirements.txt
            python tornado_server.py
-Windosw-server：
+Windows-server：
 
        需挂VPN
        在tornado_server.py下添加：

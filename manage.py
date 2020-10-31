@@ -17,7 +17,10 @@ if __name__ == '__main__':
 
 
 # apidoc -i src/ -o apidoc/
-
+# docker build -t cumt-kxz:1.0 --restart=always
+# docker run -p 12000:12000 -d -it cumt-kxz:1.0 --restrat=always
+# docker exec -it cumt-kxz:1.0 /bin/bash
+# redis-server
 
 
 

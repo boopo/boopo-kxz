@@ -38,8 +38,10 @@ def get_book(keyword, page, row):  # 图书聚合查询
             "pcount": single['groupPhysicalCount'],
             "ecount": single['groupECount'],
             "searchCode": single['callNoOne'],
-            "image": get_image(single['isbn'], single['title']),
-            "statusNow": check_book(single['recordId']),
+            #http://127.0.0.1:5000/lib/image?isbn=7-222-02563-4&title=平凡的世界
+            #https://api.kxz.atcumt.com/lib
+            "image": 'https://api.kxz.atcumt.com/lib/image?isbn='+single['isbn']+'&title='+single['title'],
+            "statusNow": 'https://api.kxz.atcumt.com/lib/status?id='+str(single['recordId']),
             "status": onshelf
         }
         book_list.append(a)

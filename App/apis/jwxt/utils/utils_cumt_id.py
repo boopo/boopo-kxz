@@ -3,7 +3,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-from App.ext import redis_client
+from App.ext import redis_client, db
+from App.models import Statistics
 
 session = requests.session()
 
@@ -63,6 +64,21 @@ class Ids():
             try:
                 redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
                 print("redis正常", self.username, l1[3])
+                # 记录一下用户数量 ，SDK有点问题。。。。
+                # user = Statistics()
+                if Statistics.query.get(self.username) is None:
+                    user = Statistics()
+                    user.username = self.username
+                    user.count = 1
+                    db.session.add(user)
+                    db.session.commit()
+                    print("新用户", self.username)
+                else:
+                    old_user = Statistics.query.get(self.username)
+                    old_user.count = old_user.count + 1
+                    db.session.add(old_user)
+                    db.session.commit()
+                    print("老用户", self.username)
             except Exception as e:
                 print("redis异常", e)
                 pass

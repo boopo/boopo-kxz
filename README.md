@@ -1,6 +1,8 @@
 <h2> 矿小助后端代码</h2>
 
-需启动redis
+需先启动redis：
+
+       redis-server
 
 本地启动方法：
 

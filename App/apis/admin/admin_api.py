@@ -134,14 +134,26 @@ class UserId(Resource):
         try:
             parse = parse_user.parse_args()
             username = parse.get('username')
-            user = Statistics.qurey.get(username)
-            id = 1# user.id
-            data = {
-                "status": 200,
-                "msg": "ok",
-                "data": id
-            }
-            return data
+            user = Statistics().query.get(username)
+
+            if user:
+                data = {
+                    "status": 200,
+                    "msg": "ok",
+                    "data": {
+                        "rank": user.id + user.id%100 + 20
+                    }
+                }
+                return data
+            else:
+                return {
+                    "status": 200,
+                    "msg": "ok",
+                    "data": {
+                        "rank": 9999
+                    }
+                }
+
         except Exception as e:
             print(e)
             return sql_error

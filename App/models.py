@@ -7,7 +7,10 @@ class Content(db.Model):
 
 
 class Statistics(db.Model):
-    id = db.Column(db.Integer, autoincrement=True)
+    id = db.Column(db.Integer, unique=True)
     username = db.Column(db.String(64), unique=True, primary_key=True)
     count = db.Column(db.Integer, default=0)
 
+class AllUser(db.Model):
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    num = db.Column(db.Integer, default=0)

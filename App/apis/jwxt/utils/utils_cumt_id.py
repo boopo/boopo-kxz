@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from App.ext import redis_client, db
-from App.models import Statistics
+from App.models import Statistics, AllUser
 
 session = requests.session()
 
@@ -66,10 +66,17 @@ class Ids():
                 print("redis正常", self.username, l1[3])
                 # 记录一下用户数量 ，SDK有点问题。。。。
                 # user = Statistics()
+                # 以下会改的。。。。先凑活一下
+
                 if Statistics.query.get(self.username) is None:
+                    num = AllUser.query.get(1)
+                    print(num)
+                    num.num = num.num + 1
+                    stu = num.num
                     user = Statistics()
                     user.username = self.username
                     user.count = 1
+                    user.id = stu
                     db.session.add(user)
                     db.session.commit()
                     print("新用户", self.username)

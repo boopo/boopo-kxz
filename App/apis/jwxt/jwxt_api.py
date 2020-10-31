@@ -30,7 +30,7 @@ parse_room.add_argument('build', type=str, help='请提交正确的参数Key', r
 parse_room.add_argument('section', type=str, help='请提交正确的参数Key', required=True, location=['json'])
 
 parse_class = parse_base.copy()
-parse_class.add_argument('_id', type=str, help='请提交正确的参数Key', required=True, location=['json'])
+parse_class.add_argument('id', type=str, help='请提交正确的参数Key', required=True, location=['json'])
 parse_class.add_argument('teacher', type=str, help='请提交正确的参数Key', required=True, location=['json'])
 
 
@@ -221,7 +221,7 @@ class SpecialCourse(Resource):
         args = parse_class.parse_args()
         xnm = args.get('xnm')
         xqm = args.get('xqm')
-        _id = args.get('_id')
+        _id = args.get('id')
         weekday = args.get('weekday')
         week = args.get('week')
         section = args.get('section')

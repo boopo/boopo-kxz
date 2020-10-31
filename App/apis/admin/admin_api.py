@@ -12,14 +12,21 @@ content_fields = {
     "data": fields.String
 }
 
+single_content_fields = {
+    "stauts": fields.Integer,
+    "msg": fields.String,
+    "data": fields.Nested(content_fields)
+
+}
+
 multi_content_fields = {
-    "status": fields.String,
+    "status": fields.Integer,
     "msg": fields.String,
     "data": fields.List(fields.Nested(content_fields))
 }
 
 
-class FeedBack(Resource):
+class FeedBacks(Resource):
     def post(self):
         parse = parse_fb.parse_args()
         data = parse.get('data')
@@ -52,6 +59,37 @@ class FeedBack(Resource):
                 "data": content_list
             }
             return msg
+        except Exception as e:
+            print(e)
+            return sql_error
+
+
+class FeedBack(Resource):
+    @marshal_with(single_content_fields)
+    def get(self, id):
+        try:
+            fd = Content.query.get(id)
+            data = {
+                "status": 200,
+                "msg": "ok",
+                "data": fd
+            }
+            return data
+        except Exception as e:
+            print(e)
+            return sql_error
+    def delete(self, id):
+        try:
+            fd = Content.query.get(id)
+            db.session.delete(fd)
+            db.session.commit()
+            data = {
+                "status": 204,
+                "msg": "delete ok",
+                "data": ''
+            }
+            return data
+
         except Exception as e:
             print(e)
             return sql_error

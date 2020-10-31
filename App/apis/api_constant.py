@@ -11,3 +11,12 @@ sql_error = {
     "data": "Null"
 }
 
+book_error = {
+    "status": 404,
+    "msg": "图书获取失败",
+    "data": {
+        "all": 0,
+        "bookList": []
+    }
+}
+

@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 
-from App.apis.api_constant import data_error
+from App.apis.api_constant import book_error
 from App.apis.library.utils import get_book
 
 parse_library = reqparse.RequestParser()
@@ -25,4 +25,4 @@ class Library(Resource):
                 }
         except Exception as e:
             print(e)
-            return data_error
+            return book_error

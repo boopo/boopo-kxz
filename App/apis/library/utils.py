@@ -26,24 +26,26 @@ def get_book(keyword, page, row):  # 图书聚合查询
             single['groupECount'] = 0
         if not single['groupPhysicalCount']:
             single['groupPhysicalCount'] = 0
+        if not single['isbn']:
+            single['isbn'] = ''
 
         a = {
-            "book_id": single['recordId'],
+            "bookId": single['recordId'],
             "name": single['title'],
             "author": single['author'],
             "publisher": single['publisher'],
             "isbn": single['isbn'],
             "pcount": single['groupPhysicalCount'],
             "ecount": single['groupECount'],
-            "search_code": single['callNoOne'],
+            "searchCode": single['callNoOne'],
             "image": get_image(single['isbn'], single['title']),
-            "status_now": check_book(single['recordId']),
+            "statusNow": check_book(single['recordId']),
             "status": onshelf
         }
         book_list.append(a)
         l1 = {
             "all": data['data']['numFound'],
-            "book_list": book_list
+            "bookList": book_list
         }
     return l1
 
@@ -74,5 +76,9 @@ def get_image(isbn, title):  # 获取图书封面
         "title": title
     }
     r = requests.get(url=url, params=params)
-    return r.json()['data']
+    if not r.json()['data']:
+        return ''
+    else:
+        return r.json()['data']
+
     # print(r.json()['data'])

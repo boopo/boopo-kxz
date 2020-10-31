@@ -106,7 +106,7 @@ class SuIds():
             l1 = {
                 "home": home[0][9:-3],
                 "num": num[0][9:-3],
-                "_value": data
+                "balance": data
             }
             return l1
         if q.status_code == 200:

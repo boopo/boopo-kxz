@@ -400,7 +400,7 @@
     "msg": "抓取成功",
     "data": {
         "all": 1601,
-        "book_list": [
+        "bookList": [
             {
                 "book_id": 253498,
                 "name": "论三位一体.世纪人文系列丛书",
@@ -831,7 +831,7 @@
             {
                 "home":"梅2楼",
                 "num":"B4202",
-                "_value":176.5
+                "balance":176.5
             }
  * }
  * @apiErrorExample   {json} Response-Example

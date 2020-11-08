@@ -61,6 +61,7 @@ def check_book(_id):  # 检查馆藏
     r = requests.post(url, headers=headers, json=t_json)
     data = r.json()
     book_status_list = []
+    # print(data['data'])
     for single in data['data']:
         book_code = single['barcode']
         location = single['locationName']

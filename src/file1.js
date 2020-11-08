@@ -387,8 +387,8 @@
  * @apiSuccess {String} status 200
  * @apiSuccess {String} msg    抓取成功
  * @apiSuccess {string} data   返回列表
- * @apiSuccess {string} pcount   物理馆藏
- * @apiSuccess {string} ecount   电子馆藏
+ * @apiSuccess {string} pcount   物理馆藏url
+ * @apiSuccess {string} ecount   电子馆藏url
  *
  * @apiError {String}  status   404
  * @apiError {String}  msg      抓取失败
@@ -402,284 +402,134 @@
         "all": 1601,
         "bookList": [
             {
-                "book_id": 253498,
-                "name": "论三位一体.世纪人文系列丛书",
-                "author": "[古罗马] 奥古斯丁著",
-                "publisher": "上海人民出版社",
-                "isbn": "7-208-05282-4",
-                "pcount": 3,
-                "ecount": 1,
-                "search_code": "B972/A-361",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C01300810",
-                        "location": "南湖密集书库-南湖密集书库Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01300808",
-                        "location": "文昌校区-文昌社科书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01300809",
-                        "location": "南湖密集书库-南湖密集书库Ⅰ",
-                        "current": "在架"
-                    }
-                ],
-                "status": true
-            },
-            {
-                "book_id": 211210,
-                "name": "考研英语三位一体作文法.考研英语口袋系列 ",
-                "author": "吴玮翔编著  ",
-                "publisher": "东南大学出版社",
-                "isbn": "7-81089-633-4",
-                "pcount": 5,
-                "ecount": 1,
-                "search_code": "H315/W-866",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C01137499",
-                        "location": "文昌校区-文昌社科书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01137500",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01137502",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01137503",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01137501",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    }
-                ],
-                "status": true
-            },
-            {
-                "book_id": 729598,
+                "bookId": 729598,
                 "name": "真三轴条件下受载煤体损伤与瓦斯渗流耦合机理研究",
                 "author": "刘佳佳著",
                 "publisher": "煤炭工业出版社",
                 "isbn": "978-7-5020-6433-4",
                 "pcount": 2,
                 "ecount": 0,
-                "search_code": "TD712/L-421",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C02344535",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02344536",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    }
-                ],
+                "searchCode": "TD712/L-421",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-5020-6433-4&title=真三轴条件下受载煤体损伤与瓦斯渗流耦合机理研究",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=729598",
                 "status": true
             },
             {
-                "book_id": 667413,
+                "bookId": 253498,
+                "name": "论三位一体.世纪人文系列丛书",
+                "author": "[古罗马] 奥古斯丁著",
+                "publisher": "上海人民出版社",
+                "isbn": "7-208-05282-4",
+                "pcount": 3,
+                "ecount": 1,
+                "searchCode": "B972/A-361",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=7-208-05282-4&title=论三位一体.世纪人文系列丛书",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=253498",
+                "status": true
+            },
+            {
+                "bookId": 211210,
+                "name": "考研英语三位一体作文法.考研英语口袋系列 ",
+                "author": "吴玮翔编著  ",
+                "publisher": "东南大学出版社",
+                "isbn": "7-81089-633-4",
+                "pcount": 5,
+                "ecount": 1,
+                "searchCode": "H315/W-866",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=7-81089-633-4&title=考研英语三位一体作文法.考研英语口袋系列 ",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=211210",
+                "status": true
+            },
+            {
+                "bookId": 263099,
+                "name": "煤层体三维模型和动态显示研究",
+                "author": "史明寅著",
+                "publisher": "中国矿业大学",
+                "isbn": "",
+                "pcount": 1,
+                "ecount": 0,
+                "searchCode": "#/P628/S-537",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=&title=煤层体三维模型和动态显示研究",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=263099",
+                "status": false
+            },
+            {
+                "bookId": 667413,
                 "name": "金融地理学视角下的金融一体化研究:以长三角核心城市群为例.21世纪海上丝绸之路智库丛书",
                 "author": "周迪著",
                 "publisher": "科学出版社",
                 "isbn": "978-7-03-052125-5",
                 "pcount": 3,
                 "ecount": 0,
-                "search_code": "F832.75/Z-249",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C02300304",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02300305",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02300306",
-                        "location": "文昌校区-文昌社科书阅览室",
-                        "current": "在架"
-                    }
-                ],
+                "searchCode": "F832.75/Z-249",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-03-052125-5&title=金融地理学视角下的金融一体化研究:以长三角核心城市群为例.21世纪海上丝绸之路智库丛书",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=667413",
                 "status": true
             },
             {
-                "book_id": 263099,
-                "name": "煤层体三维模型和动态显示研究",
-                "author": "史明寅著",
-                "publisher": "中国矿业大学",
-                "isbn": null,
-                "pcount": 1,
-                "ecount": 0,
-                "search_code": "#/P628/S-537",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "X2293",
-                        "location": "南湖校区-知学空间(硕博论文)",
-                        "current": "在架"
-                    }
-                ],
-                "status": false
-            },
-            {
-                "book_id": 339998,
+                "bookId": 339998,
                 "name": "UG NX三维造型设计教程与实例精讲.CAX一体化解决方案系列丛书",
                 "author": "李锦标等编著",
                 "publisher": "机械工业出版社",
                 "isbn": "978-7-111-28932-6",
                 "pcount": 4,
                 "ecount": 1,
-                "search_code": "TB472-39/L-412.3",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C01546420",
-                        "location": "文昌校区-文昌科技书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01546417",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01546418",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01546419",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    }
-                ],
+                "searchCode": "TB472-39/L-412.3",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-111-28932-6&title=UG NX三维造型设计教程与实例精讲.CAX一体化解决方案系列丛书",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=339998",
                 "status": true
             },
             {
-                "book_id": 583795,
-                "name": "粤港澳增长三角次区域经济一体化研究",
-                "author": "康学芹著",
-                "publisher": "中国社会科学出版社",
-                "isbn": "978-7-5161-4031-4",
-                "pcount": 3,
-                "ecount": 1,
-                "search_code": "F127.65/K-888",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C02109130",
-                        "location": "文昌校区-文昌社科书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02109128",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02109129",
-                        "location": "南湖校区-南湖社科图书阅览室Ⅰ",
-                        "current": "在架"
-                    }
-                ],
-                "status": true
-            },
-            {
-                "book_id": 674955,
+                "bookId": 674955,
                 "name": "道路三维集成CAD与BIM一体化技术.上册",
                 "author": "娄峰, 王绥庆等编著",
                 "publisher": "人民交通出版社股份有限公司",
                 "isbn": "978-7-114-14040-2",
                 "pcount": 3,
                 "ecount": 0,
-                "search_code": "U412.6/L-316/1",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C02309810",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02309809",
-                        "location": "南湖校区-南湖自然科学图书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C02309811",
-                        "location": "文昌校区-文昌科技书阅览室",
-                        "current": "在架"
-                    }
-                ],
+                "searchCode": "U412.6/L-316/1",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-114-14040-2&title=道路三维集成CAD与BIM一体化技术.上册",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=674955",
                 "status": true
             },
             {
-                "book_id": 245068,
+                "bookId": 245068,
                 "name": "小西北经济问题研究:地区经济一体化·产业集群·三农问题",
                 "author": "聂华林, 高凯山, 拜琦瑞编著",
                 "publisher": "中国社会科学出版社",
                 "isbn": "7-5004-5563-1",
                 "pcount": 3,
                 "ecount": 1,
-                "search_code": "F127.4/N-383",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "C01280575",
-                        "location": "文昌校区-文昌社科书阅览室",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01280576",
-                        "location": "南湖密集书库-南湖密集书库Ⅱ",
-                        "current": "在架"
-                    },
-                    {
-                        "bookcode": "C01280577",
-                        "location": "南湖密集书库-南湖密集书库Ⅱ",
-                        "current": "在架"
-                    }
-                ],
+                "searchCode": "F127.4/N-383",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=7-5004-5563-1&title=小西北经济问题研究:地区经济一体化·产业集群·三农问题",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=245068",
                 "status": true
             },
             {
-                "book_id": 706908,
-                "name": "基于智能体的三维疏散软件的设计与实现",
-                "author": "黄元凯著",
-                "publisher": "中国矿业大学",
-                "isbn": null,
-                "pcount": 1,
-                "ecount": 0,
-                "search_code": "#/TU998.1/H-922",
-                "image": null,
-                "status_now": [
-                    {
-                        "bookcode": "XS31329",
-                        "location": "南湖校区-知学空间(硕博论文)",
-                        "current": "在架"
-                    }
-                ],
-                "status": false
+                "bookId": 583795,
+                "name": "粤港澳增长三角次区域经济一体化研究",
+                "author": "康学芹著",
+                "publisher": "中国社会科学出版社",
+                "isbn": "978-7-5161-4031-4",
+                "pcount": 3,
+                "ecount": 1,
+                "searchCode": "F127.65/K-888",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-5161-4031-4&title=粤港澳增长三角次区域经济一体化研究",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=583795",
+                "status": true
+            },
+            {
+                "bookId": 451570,
+                "name": "后世博效应与长三角一体化发展的区域联动.长三角区域经济一体化系列丛书",
+                "author": "主编徐长乐, 曾群华",
+                "publisher": "格致出版社",
+                "isbn": "978-7-5432-2097-3",
+                "pcount": 3,
+                "ecount": 1,
+                "searchCode": "F127.5/X-223.2",
+                "image": "https://api.kxz.atcumt.com/lib/image?isbn=978-7-5432-2097-3&title=后世博效应与长三角一体化发展的区域联动.长三角区域经济一体化系列丛书",
+                "statusNow": "https://api.kxz.atcumt.com/lib/status?id=451570",
+                "status": true
             }
         ]
     }

@@ -1,16 +1,29 @@
 from App.ext import db
 
+BLACK_USER = 1  # 黑名单
+COMMON_USER = 2  # 普通用户
+VIP_USER = 4  # 白嫖用户
+PREMIUM_USER = 8  # 付费用户
+COOPERATIVE_USER = 16  # 第三方合作用户
+TEACHER = 32  # 老师
+ADMIN = 64  # 管理员
+SUPER_ADMIN = 128  # root
+
 
 class Content(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     data = db.Column(db.String(256))
 
 
-class Statistics(db.Model):
-    id = db.Column(db.Integer, unique=True)
-    username = db.Column(db.String(64), unique=True, primary_key=True)
-    count = db.Column(db.Integer, default=0)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(64), index=True)
+    permission = db.Column(db.Integer, default=COMMON_USER)
 
-class AllUser(db.Model):
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    num = db.Column(db.Integer, default=0)
+    def check_permission(self, permission):
+        if self.permission == SUPER_ADMIN:
+            return True
+        if (BLACK_USER & self.permission) == BLACK_USER:
+            return False
+        else:
+            return (permission & self.permission) == permission

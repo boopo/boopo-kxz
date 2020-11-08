@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from App.ext import redis_client, db
-from App.models import Statistics, AllUser
+from App.models import User
 
 session = requests.session()
 
@@ -64,31 +64,15 @@ class Ids():
             try:
                 redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
                 print("redis正常", self.username, l1[3])
-                # 记录一下用户数量 ，SDK有点问题。。。。
-                # user = Statistics()
-                # 以下会改的。。。。先凑活一下
-
-                if Statistics.query.get(self.username) is None:
-                    num = AllUser.query.get(1)
-                    print(num)
-                    num.num = num.num + 1
-                    stu = num.num
-                    user = Statistics()
+                if User.query.filter(User.username.__eq__(self.username)).first() is None:
+                    user = User()
                     user.username = self.username
-                    user.count = 1
-                    user.id = stu
+                    user.permission = 2
                     db.session.add(user)
                     db.session.commit()
                     print("新用户", self.username)
-                else:
-                    old_user = Statistics.query.get(self.username)
-                    old_user.count = old_user.count + 1
-                    db.session.add(old_user)
-                    db.session.commit()
-                    print("老用户", self.username)
             except Exception as e:
                 print("redis异常", e)
-                pass
             return True
         if q.status_code == 200:
             soup_obj = BeautifulSoup(q.text, "html5lib")

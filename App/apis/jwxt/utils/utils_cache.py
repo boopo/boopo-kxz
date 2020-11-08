@@ -1,3 +1,4 @@
+import re
 import time
 
 import jwt
@@ -34,19 +35,22 @@ def encrypt(body):  # 加密算法
     jwt_token = jwt.encode(token_dict, "uibDeGB3Q8FiQmD", algorithm="HS256", headers=headers).decode('ascii')
 
     # print(jwt_token)
-    return jwt_token
+    return '[' + body['username'] + ']' + '<' + jwt_token + '>'
+
+
 
 
 def decrypt(token):  # 解密算法
+
     try:
+        _token = re.findall('<(.*?)>', token)[0]
         #           需要解析的 jwt        密钥                使用和加密时相同的算法
-        data = jwt.decode(token, "uibDeGB3Q8FiQmD", algorithms=['HS256'])
+        data = jwt.decode(_token, "uibDeGB3Q8FiQmD", algorithms=['HS256'])
         #  print(data)
         return (data)
     except Exception as e:
         print(e)
         return ('error')
-
 
 def login_required(fun):  # 装饰器用，验证token，读取缓存，验证缓存，实现登录
     def wrapper(*args, **kwargs):

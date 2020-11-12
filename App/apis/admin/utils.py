@@ -34,3 +34,6 @@ def require_permission(permission):
         return wrapper
 
     return require_permission_wrapper
+
+def token_generator():
+    pass

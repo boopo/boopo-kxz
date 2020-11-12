@@ -5,7 +5,7 @@ from flask_restful import Resource, reqparse, fields, marshal_with, abort, marsh
 from App.apis.admin.utils import require_permission
 from App.apis.api_constant import sql_error
 from App.ext import db
-from App.models import Content, User, ADMIN, SUPER_ADMIN
+from App.models import Content, User, ADMIN, SUPER_ADMIN, COOPERATIVE_USER
 
 parse_fb = reqparse.RequestParser()
 parse_fb.add_argument("data", type=str, help='请输入反馈内容', required=True, location=['json'])
@@ -16,6 +16,11 @@ parse_user.add_argument("username", type=str, help='请输入学号', required=T
 parse_root = reqparse.RequestParser()
 parse_root.add_argument("username", type=str, help='请输入学号', required=True, location=['json'])
 parse_root.add_argument("permission", type=str, help='请输入权限', required=True, location=['json'])
+
+parse_third = reqparse.RequestParser()
+parse_third.add_argument("username", type=str, help='请输入学号', require=True, location=['json'])
+parse_third.add_argument("password", type=str, help='请输入学号', require=True, location=['json'])
+
 
 content_fields = {
     "id": fields.Integer,
@@ -186,3 +191,13 @@ class RootResource(Resource):
             print(e)
             return sql_error
 
+
+class ThirdPartyLogin(Resource):
+    @require_permission(COOPERATIVE_USER)
+    def post(self):
+        args = parse_third.parse_args()
+        username = args.get('username')
+        password = args.get('password')
+        return {
+            "msg": "接口开发中"
+        }

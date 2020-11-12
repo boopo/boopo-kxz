@@ -29,7 +29,8 @@ def get_kblist(xnm, xqm, cook):
 
 def get_grade(xnm, xqm, cook):
     # 成绩查询
-
+    if xnm == '0':
+        xnm = ''
     if xqm == '2':
         xqm = '12'  # 第二学期
     if xqm == '3':

@@ -18,8 +18,8 @@ parse_root.add_argument("username", type=str, help='请输入学号', required=T
 parse_root.add_argument("permission", type=str, help='请输入权限', required=True, location=['json'])
 
 parse_third = reqparse.RequestParser()
-parse_third.add_argument("username", type=str, help='请输入学号', require=True, location=['json'])
-parse_third.add_argument("password", type=str, help='请输入学号', require=True, location=['json'])
+parse_third.add_argument("username", type=str, help='请输入学号', required=True, location=['json'])
+parse_third.add_argument("password", type=str, help='请输入学号', required=True, location=['json'])
 
 
 content_fields = {

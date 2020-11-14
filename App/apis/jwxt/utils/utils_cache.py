@@ -7,6 +7,7 @@ from flask import request, abort, g
 
 from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.ext import redis_client
+from App.settings import SecretKey
 
 
 class CookieCache():
@@ -32,7 +33,7 @@ def encrypt(body):  # 加密算法
         'alg': "HS256",  # 声明所使用的算法
     }
 
-    jwt_token = jwt.encode(token_dict, "uibDeGB3Q8FiQmD", algorithm="HS256", headers=headers).decode('ascii')
+    jwt_token = jwt.encode(token_dict, SecretKey, algorithm="HS256", headers=headers).decode('ascii')
 
     # print(jwt_token)
     return jwt_token
@@ -44,7 +45,7 @@ def decrypt(token):  # 解密算法
 
     try:
         #           需要解析的 jwt        密钥                使用和加密时相同的算法
-        data = jwt.decode(token, "uibDeGB3Q8FiQmD", algorithms=['HS256'])
+        data = jwt.decode(token, SecretKey, algorithms=['HS256'])
         #  print(data)
         return (data)
     except Exception as e:

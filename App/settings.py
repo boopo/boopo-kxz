@@ -1,3 +1,6 @@
+
+SecretKey = 'uibDeGB3Q8FiQmD'
+
 def get_db_uri(dbinfo):
     engine = dbinfo.get('ENGINE')
     driver = dbinfo.get('DRIVER')
@@ -22,16 +25,14 @@ class DevelopConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "PASSWORD": "123456-abc",
+        "HOST": "sh-cynosdbmysql-grp-db1zer1y.sql.tencentcdb.com",
+        "PORT": 28737,
         "NAME": "kxz"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
-
-    REDIS_URL = "redis://@localhost:6379/0"
-
+    REDIS_URL = "redis://:123456-abc@202.119.206.98:6379/0"
 
 class TestingConfig(Config):
     TESTING = True
@@ -40,15 +41,14 @@ class TestingConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "PASSWORD": "123456-abc",
+        "HOST": "sh-cynosdbmysql-grp-db1zer1y.sql.tencentcdb.com",
+        "PORT": 28737,
         "NAME": "kxz"
     }
-
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
 
-    REDIS_URL = "redis://@localhost:6379/0"
+    REDIS_URL = "redis://:123456-abc@202.119.206.98:6379/0"
 
 
 class StagingConfig(Config):
@@ -56,15 +56,16 @@ class StagingConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "PASSWORD": "123456-abc",
+        "HOST": "sh-cynosdbmysql-grp-db1zer1y.sql.tencentcdb.com",
+        "PORT": 28737,
         "NAME": "kxz"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
 
-    REDIS_URL = "redis://@localhost:6379/0"
+   # REDIS_URL = "redis://@localhost:6379/0"
+    REDIS_URL = "redis://:123456-abc@202.119.206.98:6379/0"
 
 
 class ProductConfig(Config):
@@ -72,15 +73,15 @@ class ProductConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "PASSWORD": "123456-abc",
+        "HOST": "sh-cynosdbmysql-grp-db1zer1y.sql.tencentcdb.com",
+        "PORT": 28737,
         "NAME": "kxz"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
 
-    REDIS_URL = "redis://@localhost:6379/0"
+    REDIS_URL = "redis://:123456-abc@202.119.206.98:6379/0"
 
 
 envs = {

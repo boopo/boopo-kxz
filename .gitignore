@@ -288,3 +288,6 @@ fabric.properties
 .gitignore
 
 App/settings.py
+settings.py
+_settings.py
+App/_settings.py

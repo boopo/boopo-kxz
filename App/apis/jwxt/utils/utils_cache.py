@@ -7,7 +7,7 @@ from flask import request, abort, g
 
 from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.ext import redis_client
-from App.settings import SecretKey
+from App._settings import SecretKey
 
 
 class CookieCache():

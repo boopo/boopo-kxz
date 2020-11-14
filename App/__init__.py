@@ -2,7 +2,7 @@ import redis
 from flask import Flask
 from App.apis import init_api
 from App.ext import init_ext, db
-from App.settings import envs
+from App._settings import envs
 from App.views import init_view
 
 

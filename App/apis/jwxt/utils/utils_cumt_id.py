@@ -78,7 +78,7 @@ class Ids():
             soup_obj = BeautifulSoup(q.text, "html5lib")
             tips = soup_obj.find_all(id="msg")
             span = tips[0].string
-            print(span)  # 打印错误原因
+            #    print(span)  # 打印错误原因
             return False
 
     '''       if span == "您提供的用户名或者密码有误。":

@@ -4,7 +4,7 @@ from flask_restful import Resource, reqparse, fields, marshal_with, abort, marsh
 
 from App.apis.admin.utils import require_permission
 from App.apis.api_constant import sql_error
-from App.ext import db, redis_third
+from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN, COOPERATIVE_USER
 
 parse_fb = reqparse.RequestParser()
@@ -198,8 +198,6 @@ class ThirdPartyLogin(Resource):
         args = parse_third.parse_args()
         username = args.get('username')
         password = args.get('password')
-        #redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
-        redis_third.set(name='k1', value='v1', ex=60)
         return {
             "msg": "接口开发中"
         }

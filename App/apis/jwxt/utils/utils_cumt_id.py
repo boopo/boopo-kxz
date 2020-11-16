@@ -8,11 +8,11 @@ from App.models import User
 
 session = requests.session()
 
+
 headers = {
     'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 FireFox / 29.0",
     "X-Requested-With": "XMLHttpRequest"
 }
-
 # 目前Ids仅用于登录获取 cookie，其他函数已搁置（有点慢。。。。。）
 class Ids():
     def __init__(self, username, password):

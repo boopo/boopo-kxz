@@ -17,9 +17,7 @@ parse_root = reqparse.RequestParser()
 parse_root.add_argument("username", type=str, help='请输入学号', required=True, location=['json'])
 parse_root.add_argument("permission", type=str, help='请输入权限', required=True, location=['json'])
 
-parse_third = reqparse.RequestParser()
-parse_third.add_argument("username", type=str, help='请输入学号', required=True, location=['json'])
-parse_third.add_argument("password", type=str, help='请输入学号', required=True, location=['json'])
+
 
 
 content_fields = {
@@ -192,14 +190,3 @@ class RootResource(Resource):
             return sql_error
 
 
-class ThirdPartyLogin(Resource):
-    @require_permission(COOPERATIVE_USER)
-    def post(self):
-        args = parse_third.parse_args()
-        username = args.get('username')
-        password = args.get('password')
-        #redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
-        redis_third.set(name='k1', value='v1', ex=60)
-        return {
-            "msg": "接口开发中"
-        }

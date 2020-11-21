@@ -1,24 +1,10 @@
 import time
 
-import jwt
 import requests
 from bs4 import BeautifulSoup
 
-from App._settings import ThirdSecretKey
-
-
-def token_generator(username, password):
-    body = {
-        "username": username,
-        "password": password
-    }
-    headers = {
-        'alg': "HS256",  # 声明所使用的算法
-    }
-
-    jwt_token = jwt.encode(body, ThirdSecretKey, algorithm="HS256", headers=headers).decode('ascii')
-    return '<' + username + '>' + jwt_token
-
+from App.ext import redis_client, db
+from App.models import User
 
 headers = {
     'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 FireFox / 29.0",
@@ -26,14 +12,14 @@ headers = {
 }
 
 
-class ThirdIds():
+class Pids():
     def __init__(self, username, password):
+        self.err = []
         self.username = username
         self.password = password
         self.session = requests.session()
 
     def login(self):
-        self.err = []
         r = self.session.get(
             url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
             headers=headers)
@@ -68,35 +54,32 @@ class ThirdIds():
                 'xnm': '2020',
                 'xqm': '1',
             }
+            coo = self.session.cookies
+            l1 = []
+            for single in coo:
+                l1.append(single.value)
+            try:
+                redis_client.set(name=self.username, value='JSESSIONID=' + l1[3], ex=43200)
+                print("redis正常", self.username, l1[3])
+                if User.query.filter(User.username.__eq__(self.username)).first() is None:
+                    user = User()
+                    user.username = self.username
+                    user.permission = 2
+                    db.session.add(user)
+                    db.session.commit()
+                    print("新用户", self.username)
+            except Exception as e:
+                print("redis异常", e)
             return True
         if q.status_code == 200:
+            soup_obj = BeautifulSoup(q.text, "html5lib")
+            tips = soup_obj.find_all(id="msg")
+            span = tips[0].string
+            print(span)  # 打印错误原因
             return False
-    def get_self_info(self):  # 只爬到一个html，emmm。。。
-        a = self.session.get('http://jwxt.cumt.edu.cn/sso/jzIdsFivelogin')
-        form_data = {
-            'gndm': 'N100801'
-        }
-
-        a = self.session.post(
-            'http://jwxt.cumt.edu.cn/jwglxt/xsxxxggl/xsgrxxwh_cxXsgrxx.html?gnmkdm=N100801&layout=default',
-            data=form_data)
-        a.encoding = a.apparent_encoding
-        # r = re.findall('<p class="form-control-static">(.*?)</p>',a.text) 只可返回姓名
-        soup = BeautifulSoup(a.text, 'html5lib')
-        x = soup.find_all('p', class_='form-control-static')
-        ss = []
-        data = []
-        for a in x:
-            data.append(a.string)
-        #  格式是固定的
-        ss.append(data[1])  # 姓名
-        ss.append(data[24][7:-4])  # 学院
-        ss.append(data[26][7:-4])  # 年级
-        ss.append(data[28][7:-4])  # 班级
-        return ss
 
 
-def t_check_captcha(username):
+def check_captcha(username):
     url = 'http://ids.cumt.edu.cn/authserver/needCaptcha.html?username=' + username + '&_=' + str(int(time.time()))
     r = requests.get(url=url)
     if 'true' in r.text:

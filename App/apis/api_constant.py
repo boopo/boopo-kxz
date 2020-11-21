@@ -6,7 +6,6 @@ data_error = {
 }
 
 sql_error = {
-    "ststus": 500,
     "msg": "获取失败,数据添加或查询出现错误",
     "data": "Null"
 }

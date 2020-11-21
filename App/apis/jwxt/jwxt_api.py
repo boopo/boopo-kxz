@@ -66,7 +66,7 @@ class Login(Resource):
                 return {
                      "code": 0,
                      "data": d1,
-                    "msg": "登录成功"
+                     "msg": "登录成功"
                 }
             else:
                 return login_error

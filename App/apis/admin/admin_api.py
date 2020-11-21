@@ -1,11 +1,10 @@
-import json
 
-from flask_restful import Resource, reqparse, fields, marshal_with, abort, marshal
+from flask_restful import Resource, reqparse, fields, abort, marshal
 
 from App.apis.admin.utils import require_permission
 from App.apis.api_constant import sql_error
-from App.ext import db, redis_third
-from App.models import Content, User, ADMIN, SUPER_ADMIN, COOPERATIVE_USER
+from App.ext import db
+from App.models import Content, User, ADMIN, SUPER_ADMIN
 
 parse_fb = reqparse.RequestParser()
 parse_fb.add_argument("data", type=str, help='请输入反馈内容', required=True, location=['json'])
@@ -17,8 +16,9 @@ parse_root = reqparse.RequestParser()
 parse_root.add_argument("username", type=str, help='请输入学号', required=True, location=['json'])
 parse_root.add_argument("permission", type=str, help='请输入权限', required=True, location=['json'])
 
-
-
+parse_paginate = reqparse.RequestParser()
+parse_paginate.add_argument("page", type=str, help='请输入页码', required=True, location=['args'])
+parse_paginate.add_argument("perPage", type=str, help='请输入页面大小', required=True, location=['args'])
 
 content_fields = {
     "id": fields.Integer,
@@ -26,14 +26,13 @@ content_fields = {
 }
 
 single_content_fields = {
-    "stauts": fields.Integer,
     "msg": fields.String,
     "data": fields.Nested(content_fields)
 
 }
 
 multi_content_fields = {
-    "status": fields.Integer,
+    "num": fields.Integer,
     "msg": fields.String,
     "data": fields.List(fields.Nested(content_fields))
 }
@@ -43,8 +42,8 @@ user_fields = {
     "permission": fields.Integer
 }
 multi_user_fields = {
-    "status": fields.Integer,
-    "msg": fields.Integer,
+    "num": fields.Integer,
+    "msg": fields.String,
     "data": fields.List(fields.Nested(user_fields))
 }
 
@@ -73,18 +72,19 @@ class FeedBacks(Resource):
     def get(self):
         try:
             content_list = Content.query.all()
+            num = Content.query.count()
             if not content_list:
                 abort(404)
 
             msg = {
-                "status": 200,
+                "num": num,
                 "msg": "ok",
-                "data": content_list
+                "data": content_list,
             }
             return marshal(msg, multi_content_fields)
         except Exception as e:
             print(e)
-            return sql_error
+            return sql_error, 500
 
 
 class FeedBack(Resource):
@@ -93,14 +93,13 @@ class FeedBack(Resource):
         try:
             fd = Content.query.get(id)
             data = {
-                "status": 200,
                 "msg": "ok",
                 "data": fd
             }
             return marshal(data, single_content_fields)
         except Exception as e:
             print(e)
-            return sql_error
+            return sql_error, 500
 
     @require_permission(ADMIN)
     def delete(self, id):
@@ -109,15 +108,50 @@ class FeedBack(Resource):
             db.session.delete(fd)
             db.session.commit()
             data = {
-                "status": 204,
                 "msg": "delete ok",
                 "data": id
             }
-            return data
+            return data, 204
 
         except Exception as e:
             print(e)
-            return sql_error
+            return sql_error, 500
+
+
+class PageFeedBacks(Resource):
+    @require_permission(ADMIN)
+    def get(self):
+        try:
+            args = parse_paginate.parse_args()
+            page = int(args.get("page"))
+            per_page = int(args.get("perPage"))
+            feed_list = Content.query.offset(per_page * (page - 1)).limit(per_page)
+            feed_num = Content.query.count()
+            msg = {
+                "num": feed_num,
+                "msg": "ok",
+                "data": feed_list
+            }
+            return marshal(msg, multi_content_fields)
+        except Exception as e:
+            print(e)
+            return sql_error, 500
+
+
+class UserNumber(Resource):
+    @require_permission(ADMIN)
+    def get(self):
+        try:
+            num = User.query.count()
+            return {
+                "msg": "ok",
+                "data": num
+            }
+        except Exception as e:
+            return {
+                       "msg": "error",
+                       "data": "数据查询失败，请重试"
+                   }, 500
 
 
 class Amount(Resource):
@@ -129,14 +163,35 @@ class Amount(Resource):
             if not user:
                 abort(401)
             data = {
-                "status": 200,
-                "msg": num,
+                "num": num,
+                "msg": "ok",
                 "data": user
             }
             return marshal(data, multi_user_fields)
         except Exception as e:
             print(e)
-            return sql_error
+            return sql_error, 500
+
+
+class PageAmount(Resource):
+    @require_permission(ADMIN)
+    def get(self):
+        try:
+            args = parse_paginate.parse_args()
+            page = int(args.get("page"))
+            per_page = int(args.get("perPage"))
+            user_list = User.query.offset(per_page * (page - 1)).limit(per_page)
+            user_num = User.query.count()
+            msg = {
+                "num": user_num,
+                "msg": "ok",
+                "data": user_list
+            }
+            return marshal(msg, multi_user_fields)
+
+        except Exception as e:
+            print(e)
+            return sql_error, 500
 
 
 class UserId(Resource):
@@ -166,7 +221,7 @@ class UserId(Resource):
 
         except Exception as e:
             print(e)
-            return sql_error
+            return sql_error, 500
 
 
 class RootResource(Resource):
@@ -181,12 +236,10 @@ class RootResource(Resource):
             db.session.add(user)
             db.session.commit()
             return {
-                "status": 201,
-                "msg": "权限已更改",
-                "data": username
-            }
+                       "msg": "权限已更改",
+                       "data": username
+                   }, 201
         except Exception as e:
             print(e)
-            return sql_error
-
+            return sql_error, 500
 

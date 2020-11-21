@@ -43,7 +43,6 @@ class Ids():
         q = self.session.post(
             url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
             data=From_Data, headers=headers, allow_redirects=False)
-        # print(q.status_code)
         self.err.append(q.status_code)
         if q.status_code == 302:
             self.cookies = q.cookies

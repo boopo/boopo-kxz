@@ -25,7 +25,6 @@ def require_permission(permission):
             get_username()
             if not g.user.check_permission(permission):
                 abort(403, msg='permission not allowed')
-
             return fun(*args, **kwargs)
 
         return wrapper

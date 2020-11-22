@@ -89,10 +89,11 @@ class ThirdIds():
         for a in x:
             data.append(a.string)
         #  格式是固定的
-        ss.append(data[1])  # 姓名
+        ss.append(data[1])         # 姓名
         ss.append(data[24][7:-4])  # 学院
         ss.append(data[26][7:-4])  # 年级
-        ss.append(data[28][7:-4])  # 班级
+        ss.append(data[28][7:-4])  # 班机
+        ss.append(data[7][7:-4])   # 性别
         return ss
 
 

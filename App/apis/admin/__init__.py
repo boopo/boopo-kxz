@@ -1,7 +1,7 @@
 from flask_restful import Api
 
 from App.apis.admin.admin_api import FeedBacks, FeedBack, Amount, UserId, RootResource, UserNumber, PageFeedBacks, \
-    PageAmount
+    PageAmount, VersionResource
 
 admin_api = Api(prefix='/admin')
 
@@ -14,4 +14,4 @@ admin_api.add_resource(RootResource, '/permission')          # 修改用户权�
 admin_api.add_resource(UserNumber, '/user_number')           # 查询用户总数
 admin_api.add_resource(PageFeedBacks, '/page_feedback')      # 分页意见反馈
 admin_api.add_resource(PageAmount, '/page_amount')           # 分页用户信息
-
+admin_api.add_resource(VersionResource, '/version')

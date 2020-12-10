@@ -1,27 +1,31 @@
+import base64
 import time
 import re
 import requests
 from bs4 import BeautifulSoup
 
+from App.apis.third.third_utils import get_captcha_code
 from App.ext import redis_client, db
 from App.models import User
 
 session = requests.session()
 
-
 headers = {
     'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 FireFox / 29.0",
     "X-Requested-With": "XMLHttpRequest"
 }
+
+
 # 目前Ids仅用于登录获取 cookie，其他函数已搁置（有点慢。。。。。）
 class Ids():
     def __init__(self, username, password):
         self.username = username
         self.password = password
         self.session = requests.session()
+        self.err = []
 
     def login(self):
-        self.err = []
+
         r = self.session.get(
             url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
             headers=headers)
@@ -53,15 +57,15 @@ class Ids():
 
             a = self.session.get('http://jwxt.cumt.edu.cn/sso/jzIdsFivelogin')
             _data = {
-                    'xnm': '2020',
-                    'xqm': '1',
+                'xnm': '2020',
+                'xqm': '1',
             }
             coo = self.session.cookies
             l1 = []
             for single in coo:
                 l1.append(single.value)
             try:
-                redis_client.set(name=self.username, value='JSESSIONID='+l1[3], ex=43200)
+                redis_client.set(name=self.username, value='JSESSIONID=' + l1[3], ex=43200)
                 print("redis正常", self.username, l1[3])
                 if User.query.filter(User.username.__eq__(self.username)).first() is None:
                     user = User()
@@ -85,6 +89,51 @@ class Ids():
         else:
             return False
     '''
+
+    # 带验证码的
+    def login_pro(self):
+        _r = self.session.get(
+            url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
+            headers=headers)
+        text = _r.text
+        soup = BeautifulSoup(text, 'html5lib')
+        lt = soup.find('input', {'name': 'lt'})['value']
+        execution = soup.find('input', {'name': 'execution'})['value']
+        _url = 'http://ids.cumt.edu.cn/authserver/captcha.html'
+        _rs = self.session.get(url=_url)
+        _rs_data = base64.b64encode(_rs.content)
+        _rs_data_base64 = _rs_data.decode()
+        _data = get_captcha_code(_rs_data_base64)
+        From_Data = {
+            'username': self.username,
+            'password': self.password,
+            'lt': lt,
+            'execution': execution,
+            '_eventId': 'submit',
+            'rmShown': '1',
+            'signln': '',
+            'captchaResponse': _data
+        }
+        self.err.append(From_Data)
+        q = self.session.post(
+            url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
+            data=From_Data, headers=headers, allow_redirects=False)
+        self.err.append(q.status_code)
+        if q.status_code == 302:
+            self.cookies = q.cookies
+            #    print('第二次POST',q.cookies)
+            text = q.headers['Location']
+            s = self.session.get(url=text)
+            #    print('第三次GET',s.status_code)
+
+            a = self.session.get('http://jwxt.cumt.edu.cn/sso/jzIdsFivelogin')
+            _data = {
+                'xnm': '2020',
+                'xqm': '1',
+            }
+            return True
+        else:
+            return False
 
     def get_kblist(self, xnm, xqm):
         # 课表查询

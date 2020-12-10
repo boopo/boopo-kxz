@@ -11,6 +11,7 @@ parse_third.add_argument("extra", type=str, help='请输入选项', required=Tru
 parse_captcha = reqparse.RequestParser()
 parse_captcha.add_argument("")
 
+
 # 写的有亿点点乱，但毕竟特殊情况嘛
 class ThirdPartyLogin(Resource):
     def post(self):
@@ -20,16 +21,39 @@ class ThirdPartyLogin(Resource):
             password = args.get('password')
             extra = args.get('extra')
             if t_check_captcha(username):
-                return {
-                           "msg": "需要验证码",
-                           "data": ''
-                       }, 203
+                p_id = ThirdIds(username, password)
+                if p_id.login_pro():
+                    pro_token = token_generator(username, password)
+                    redis_third.set(name=username, value=pro_token)
+                    if 'true' in extra:
+                        _l1 = p_id.get_self_info()
+                        d1 = {
+                            "name": _l1[0],
+                            "college": _l1[1],
+                            "classname": _l1[3],
+                            "sex": _l1[4]
+                        }
+                        return {
+                            "msg": "登陆成功",
+                            "data": d1,
+                            "token": pro_token
+                        }
+                    else:
+                        return {
+                                   "msg": "登陆成功，验证码已自动为您填写",
+                                   "token": pro_token
+                               }
+                else:
+                    return {
+                        "msg": "登陆失败,你的密码可能大概也许真的输错了",
+                        "token": ''
+                    }, 401
             id = ThirdIds(username, password)
             if id.login():
                 _token = token_generator(username, password)
                 redis_third.set(name=username, value=_token)
 
-                if 'true' in extra:      # 2s
+                if 'true' in extra:  # 2s
                     l1 = id.get_self_info()
                     d1 = {
                         "name": l1[0],
@@ -42,7 +66,7 @@ class ThirdPartyLogin(Resource):
                         "data": d1,
                         "token": _token
                     }
-                else:                 # 700ms
+                else:  # 700ms
                     return {
                         "msg": "登陆成功",
                         "token": _token

@@ -39,8 +39,6 @@ def encrypt(body):  # 加密算法
     return jwt_token
 
 
-
-
 def decrypt(token):  # 解密算法
 
     try:
@@ -51,6 +49,7 @@ def decrypt(token):  # 解密算法
     except Exception as e:
         print(e)
         return ('error')
+
 
 def login_required(fun):  # 装饰器用，验证token，读取缓存，验证缓存，实现登录
     def wrapper(*args, **kwargs):
@@ -103,3 +102,12 @@ def get_test(username):  # 验证cookie是否可用
         return False
     else:
         return True
+
+
+def check_captcha(username):
+    url = 'http://ids.cumt.edu.cn/authserver/needCaptcha.html?username=' + username + '&_=' + str(int(time.time()))
+    r = requests.get(url=url)
+    if 'true' in r.text:
+        return True
+    else:
+        return False

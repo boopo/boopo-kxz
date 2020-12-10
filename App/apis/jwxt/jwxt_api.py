@@ -1,8 +1,9 @@
 from flask import g
 from flask_restful import reqparse, Resource
 
+
 from App.apis.api_constant import data_error
-from App.apis.jwxt.utils.utils_cache import encrypt, login_required
+from App.apis.jwxt.utils.utils_cache import encrypt, login_required, check_captcha
 from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.apis.jwxt.utils.utils_data_processing import marshal_kb, marshal_grade, marshal_exam, marshal_room, \
     marshal_course
@@ -46,13 +47,43 @@ class Login(Resource):
         args = parse_login.parse_args()
         username = args.get("username")
         password = args.get("password")
+        # 验证码识别
         try:
+            if check_captcha(username):
+                id_pro = Ids(username, password)
+                if id_pro.login_pro():
+
+                    info_pro = {
+                        "username": username,
+                        "password": password
+                    }
+                    token = encrypt(info_pro)
+                    l1_pro = id_pro.get_self_info()
+                    d1_pro = {
+                        "name": l1_pro[0],
+                        "college": l1_pro[1],
+                        "classname": l1_pro[3],
+                        "token": token
+                    }
+                    info_pro.update({"token": token})
+                    return {
+                            "code": 0,
+                            "data": d1_pro,
+                            "msg": "登录成功"
+                        }
+                else:
+                    return {
+                        "code": 1,
+                        "data": "",
+                        "msg": "请重试"
+                    }
+
             id = Ids(username, password)
             data = id.login()
             info = {
                 "username": username,
                 "password": password
-            }
+             }
             token = encrypt(info)
             l1 = id.get_self_info()
             d1 = {
@@ -64,9 +95,9 @@ class Login(Resource):
             info.update({"token": token})
             if data:
                 return {
-                     "code": 0,
-                     "data": d1,
-                     "msg": "登录成功"
+                    "code": 0,
+                    "data": d1,
+                    "msg": "登录成功"
                 }
             else:
                 return login_error

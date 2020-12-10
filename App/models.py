@@ -27,3 +27,18 @@ class User(db.Model):
             return False
         else:
             return (permission & self.permission) == permission
+
+
+
+
+
+
+'''
+
+class Apk(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    version = db.Column(db.String)
+    upgrade = db.Integer(db.Integer(16))
+    desc = db.Column(db.String(256))
+    url = db.Column(db.String(256))
+'''

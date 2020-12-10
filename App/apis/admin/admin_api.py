@@ -1,7 +1,6 @@
-
 from flask_restful import Resource, reqparse, fields, abort, marshal
 
-from App.apis.admin.utils import require_permission
+from App.apis.admin.utils import require_permission, set_version, get_version
 from App.apis.api_constant import sql_error
 from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN
@@ -19,6 +18,15 @@ parse_root.add_argument("permission", type=str, help='请输入权限', required
 parse_paginate = reqparse.RequestParser()
 parse_paginate.add_argument("page", type=str, help='请输入页码', required=True, location=['args'])
 parse_paginate.add_argument("perPage", type=str, help='请输入页面大小', required=True, location=['args'])
+
+parse_version = reqparse.RequestParser()
+parse_version.add_argument("version", type=str, help='请输入版本号', required=True, location=['json'])
+parse_version.add_argument("url", type=str, help='请输入url', required=True, location=['json'])
+parse_version.add_argument("description", type=str, help='请输入描述', required=True, location=['json'])
+parse_version.add_argument("isForceUpgrade", type=str, help='请输入描述', required=True, location=['json'])
+
+parse_update = reqparse.RequestParser()
+parse_update.add_argument("version", type=str, help='请输入版本号', required=True, location=['args'])
 
 content_fields = {
     "id": fields.Integer,
@@ -243,3 +251,58 @@ class RootResource(Resource):
             print(e)
             return sql_error, 500
 
+
+class VersionResource(Resource):
+    @require_permission(SUPER_ADMIN)
+    def post(self):
+        try:
+            args = parse_version.parse_args()
+            version = args.get("version")
+            upgrade = args.get("isForceUpgrade")
+            desc = args.get("description")
+            url = args.get("url")
+            l1 = {
+                "version": version,
+                "upgrade": upgrade,
+                "url": url,
+                "desc": desc
+            }
+            if set_version(l1):
+                return {
+                    "status": 200,
+                    "msg": "ok",
+                    "data": url
+                }
+            else:
+                return sql_error
+        except Exception as e:
+            print(e)
+            return sql_error, 500
+
+    def get(self):
+        args = parse_update.parse_args()
+        version = args.get('version')
+        try:
+            isForce = False
+            check = False
+            data = get_version(version)
+            if 'True' in data[1]:
+                isForce = True
+            if version != data[0]:
+                check = True
+            return {
+                "status": 200,
+                "check": check,
+                "isForceUpgrade": isForce,
+                "description": data[3],
+                "apkUrl": data[2]
+            }
+        except Exception as e:
+            print(e)
+            return {
+                "status": 404,
+                "check": False,
+                "isForceUpgrade": False,
+                "description": "找不到资源",
+                "apkUrl": ""
+            }

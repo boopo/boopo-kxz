@@ -17,7 +17,7 @@ headers = {
 
 
 # 目前Ids仅用于登录获取 cookie，其他函数已搁置（有点慢。。。。。）
-class Ids():
+class Ids:
     def __init__(self, username, password):
         self.username = username
         self.password = password

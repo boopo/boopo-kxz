@@ -65,7 +65,7 @@ class Ids:
             for single in coo:
                 l1.append(single.value)
             try:
-                redis_client.set(name=self.username, value='JSESSIONID=' + l1[3], ex=43200)
+                redis_client.set(name=self.username, value='JSESSIONID=' + l1[3], ex=83200)
                 print("redis正常", self.username, l1[3])
                 if User.query.filter(User.username.__eq__(self.username)).first() is None:
                     user = User()

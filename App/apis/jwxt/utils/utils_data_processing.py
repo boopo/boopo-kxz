@@ -7,8 +7,6 @@ from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.ext import redis_client
 
 
-
-
 def marshal_grade(data):  # 成绩预处理
     # 凑活使用中 绩点与成绩接口不统一
     bklt = []  # 接受处理过的成绩
@@ -130,6 +128,7 @@ def marshal_grade(data):  # 成绩预处理
             bklt.append(foda)
     return bklt
 
+
 def marshal_kb(data):  # 课表预处理
     del [data['xqbzxxszList']]
     del [data['jxhjkcList']]
@@ -142,6 +141,7 @@ def marshal_kb(data):  # 课表预处理
     del [data['sjkList']]
     del [data['xsbjList']]
     return data
+
 
 def marshal_exam(data):  # 考试预处理
     exam_list = []
@@ -175,12 +175,14 @@ def marshal_exam(data):  # 考试预处理
         exam_list.append(location)
     return exam_list
 
+
 def marshal_room(data):  # 空闲教室预处理
     list = []
     for single in data['items']:
         a = {"room": single['cdmc']}
         list.append(a)
     return list
+
 
 def marshal_course(data):  # 上课条件数据处理
     list = []
@@ -196,4 +198,3 @@ def marshal_course(data):  # 上课条件数据处理
         }
         list.append(a)
     return list
-

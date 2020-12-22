@@ -41,11 +41,13 @@ class ThirdPartyLogin(Resource):
                     else:
                         return {
                                    "msg": "登陆成功，验证码已自动为您填写",
+                                   "data": '',
                                    "token": pro_token
                                }
                 else:
                     return {
                         "msg": "登陆失败,你的密码可能大概也许真的输错了",
+                        'data': '',
                         "token": ''
                     }, 401
             id = ThirdIds(username, password)
@@ -69,18 +71,21 @@ class ThirdPartyLogin(Resource):
                 else:  # 700ms
                     return {
                         "msg": "登陆成功",
+                        'data': '',
                         "token": _token
                     }
             else:
                 return {
                            "msg": "用户名或密码错误",
-                           "data": ""
+                           'data': '',
+                           "token": ""
                        }, 401
         except Exception as e:
             print(e)
         return {
                    "msg": "认证失败，请重试",
-                   "data": ""
+                   "data": "",
+                   "token": ''
                }, 500
 
 

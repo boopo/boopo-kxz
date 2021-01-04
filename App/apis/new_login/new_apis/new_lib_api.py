@@ -3,6 +3,7 @@ from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import data_response
 from App.apis.new_login.utils.utils_cache import new_login_required
+from App.apis.new_login.utils.utils_data_processing import marshal_library_list, marshal_library_history_list
 from App.apis.new_login.utils.utils_request import get_library_list, get_library_history_list, get_library_favorite
 
 parse_list = reqparse.RequestParser()
@@ -19,7 +20,8 @@ class libraryList(Resource):
         try:
             if g.is_cook:
                 data = get_library_list(g.jwt_cook, page, rows)
-                return data_response(200, '请求成功', data)
+                msg = marshal_library_list(data)
+                return data_response(200, '请求成功', msg)
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
@@ -35,7 +37,8 @@ class libraryHistoryList(Resource):
         try:
             if g.is_cook:
                 data = get_library_history_list(g.jwt_cook, page, rows)
-                return data_response(200, '请求成功', data)
+                msg = marshal_library_history_list(data)
+                return data_response(200, '请求成功', msg)
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:

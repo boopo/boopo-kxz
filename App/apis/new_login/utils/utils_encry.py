@@ -1,9 +1,4 @@
-import time
-
 import execjs
-import jwt
-
-from App._settings import SecretKey
 
 js = '''var CryptoJS = CryptoJS || function (u, p) {
     var d = {}, l = d.lib = {}, s = function () {

@@ -12,7 +12,7 @@ from App.views import init_view
 def create_app(env):
     app = Flask(__name__)
     # 跨域设置
-    CORS(app, supports_credentials=True)
+    CORS(app, supports_credentials=True, origns="*")
     # 初始化配置
     app.config.from_object(envs.get(env))
     # 初始化API

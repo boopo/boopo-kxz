@@ -4,6 +4,8 @@ from flask_restful import Resource, reqparse
 from App.apis.api_constant import login_response, data_response
 from App.apis.jwxt.utils.utils_cache import encrypt
 from App.apis.new_login.utils.utils_cache import new_login_required
+from App.apis.new_login.utils.utils_data_processing import marshal_simple_balance, marshal_simple_library, \
+    marshal_simple_balance_history
 from App.apis.new_login.utils.utils_new_id import newIds
 from App.apis.new_login.utils.utils_request import get_balance_simple, get_library_simple, get_balance_history_simple
 
@@ -28,7 +30,7 @@ class newLogin(Resource):
                 return login_response(1, '登录失败,请检查用户名或密码', 'null', 404)
         except Exception as e:
             print(e)
-            return login_response(1, '登录失败,请检查用户名或密码', 'null', 404)
+            return login_response(1, e, 'null', 404)
 
 
 class simpleBalance(Resource):
@@ -37,7 +39,8 @@ class simpleBalance(Resource):
         try:
             if g.is_cook:
                 data = get_balance_simple(g.sess_cook)
-                return data_response(200, '请求成功', data)
+                msg = marshal_simple_balance(data)
+                return data_response(200, '请求成功', msg)
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
@@ -50,7 +53,8 @@ class simpleLibrary(Resource):
         try:
             if g.is_cook:
                 data = get_library_simple(g.sess_cook)
-                return data_response(200, '请求成功', data)
+                msg = marshal_simple_library(data)
+                return data_response(200, '请求成功', msg)
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
@@ -63,7 +67,8 @@ class simpleBalanceHistory(Resource):
         try:
             if g.is_cook:
                 data = get_balance_history_simple(g.sess_cook)
-                return data_response(200, '请求成功', data)
+                msg = marshal_simple_balance_history(data)
+                return data_response(200, '请求成功', msg)
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:

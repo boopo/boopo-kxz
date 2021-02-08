@@ -1,5 +1,7 @@
 import requests
 
+from App.ext import redis_client
+
 headers = {
     "groupCode": "200069",
     "Referer": "https://findcumt.libsp.com/"
@@ -39,8 +41,8 @@ def get_book(keyword, page, row):  # 图书聚合查询
             "ecount": single['groupECount'],
             "searchCode": single['callNoOne'],
             #http://127.0.0.1:5000/lib/image?isbn=7-222-02563-4&title=平凡的世界
-            #https://api.kxz.atcumt.com/lib
-            "image": 'https://api.kxz.atcumt.com/lib/image?isbn='+single['isbn']+'&title='+single['title'],
+            #https://api.kxz.atcumt.com/lib'
+            "image": get_image_pro(single['isbn'],single['title']),
             "statusNow": 'https://api.kxz.atcumt.com/lib/status?id='+str(single['recordId']),
             "status": onshelf
         }
@@ -80,8 +82,15 @@ def get_image(isbn, title):  # 获取图书封面
     }
     r = requests.get(url=url, params=params)
     if not r.json()['data']:
-        return ''
+        return 'null'
     else:
         return r.json()['data']
 
-    # print(r.json()['data'])
+def get_image_pro(isbn, title):
+    if redis_client.get(isbn+title):
+        return str(redis_client.get(isbn+title), encoding='utf-8')
+    else:
+        url =get_image(isbn, title)
+        redis_client.set(name=isbn+title,value=url)
+        return url
+

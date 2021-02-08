@@ -164,7 +164,7 @@ def get_access_token():
 
 
 def get_captcha_code(image_base64):
-    access_token = '24.3b0b165e850a631ffe5a4a8f16ae11f1.2592000.1610087487.282335-23122968'
+    access_token = '24.206fcbd2838aa199b358948770fdb5ca.2592000.1612714667.282335-23122968'
     url_ocr = 'https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=' + access_token
     _headers = {
         'Content-Type': 'application/x-www-form-urlencoded'

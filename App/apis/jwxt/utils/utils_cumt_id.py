@@ -66,14 +66,14 @@ class Ids:
                 l1.append(single.value)
             try:
                 redis_client.set(name=self.username, value='JSESSIONID=' + l1[3], ex=83200)
-                print("redis正常", self.username, l1[3])
+                print("redis正常")
                 if User.query.filter(User.username.__eq__(self.username)).first() is None:
                     user = User()
                     user.username = self.username
                     user.permission = 2
                     db.session.add(user)
                     db.session.commit()
-                    print("新用户", self.username)
+                    print("新用户")
             except Exception as e:
                 print("redis异常", e)
             return True

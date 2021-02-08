@@ -16,7 +16,6 @@ def marshal_grade(data):  # 成绩预处理
     qm = 0  # 期末
     sy = 0  # 实验
     qz = 0  # 期中
-    # print(data)
     for single_data in data['items']:
 
         foda = {
@@ -29,8 +28,7 @@ def marshal_grade(data):  # 成绩预处理
 
         if '平时' in single_data['xmblmc']:
             ps = 1
-            if 'xmcj' not in single_data.keys():
-                print("没有平时分")
+            if 'xmcj' not in single_data.keys():  # 没有平时分
                 single_data.update(kd)
 
             pscj = {'name': single_data['xmblmc'], 'score': single_data['xmcj']}
@@ -47,12 +45,10 @@ def marshal_grade(data):  # 成绩预处理
                 single_data.update(kd)
 
             sycj = {'name': single_data['xmblmc'], 'score': single_data['xmcj']}
-            print(single_data['kcmc'])
         #   print(foda)
         if '期末' in single_data['xmblmc']:
             qm = 1
-            if 'xmcj' not in single_data.keys():
-                print(single_data['kcmc'], "旷考")
+            if 'xmcj' not in single_data.keys():  # 旷考
                 single_data.update(kd)
 
             qmcj = {'name': single_data['xmblmc'], 'score': single_data['xmcj']}

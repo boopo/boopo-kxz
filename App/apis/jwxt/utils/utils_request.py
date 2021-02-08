@@ -23,7 +23,6 @@ def get_kblist(xnm, xqm, cook):
         'Cookie': cook,
     }
     a = requests.post(url=url, data=form_data, headers=headers)
-    print(a.status_code)
     return a.json()
 
 
@@ -39,7 +38,7 @@ def get_grade(xnm, xqm, cook):
         xqm = ''  # 全部
     if xqm == '1':
         xqm = '3'  # 第一学期
-    url = 'http://jwxt.cumt.edu.cn/jwglxt/cjcx/cjcx_cxXsKccjList.html?gnmkdm=N305007'
+    url = 'http://jwxt.cumt.edu.cn/jwglxt/cjcx/cjcx_cxXsKccjList.html?doType=query&gnmkdm=N305005'
     headers = {
         'X-Requested-With': 'XMLHttpRequest',
         'Cookie': cook

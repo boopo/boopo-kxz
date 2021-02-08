@@ -104,6 +104,7 @@ def get_test(username):  # 验证cookie是否可用
 
 def check_captcha(username):
     url = 'http://ids.cumt.edu.cn/authserver/needCaptcha.html?username=' + username + '&_=' + str(int(time.time()))
+
     r = requests.get(url=url)
     if 'true' in r.text:
         return True

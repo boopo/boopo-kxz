@@ -222,7 +222,6 @@ def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
 def su_login_required(fun):  # 装饰器用，验证token，实现登录
     def wrapper(*args, **kwargs):
         token = request.headers.get('token')
-        print(token)
         if token is None:
             abort(401)
         info = decrypt(token)

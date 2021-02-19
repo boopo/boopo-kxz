@@ -1,3 +1,5 @@
+import json
+
 from flask_restful import Resource, reqparse, fields, abort, marshal
 
 from App._settings import BaiduClientId, BaiduClientSecret
@@ -29,6 +31,9 @@ parse_version.add_argument("isForceUpgrade", type=str, help='请输入描述', r
 
 parse_update = reqparse.RequestParser()
 parse_update.add_argument("version", type=str, help='请输入版本号', required=True, location=['args'])
+
+parse_self_kb = reqparse.RequestParser()
+parse_self_kb.add_argument("data", type=str, help="自定义课表", required=True, location=['json'])
 
 content_fields = {
     "id": fields.Integer,
@@ -311,5 +316,11 @@ class VersionResource(Resource):
 
 class TestResource(Resource):
     def get(self):
-
+        args = parse_self_kb.parse_args()
+        data = args.get("data")
+        #print(data)
+        print(type(data))
+        print(data)
+        data.replace("\'\'","\"\"")
+        j = json.loads(data)
         return "hello"

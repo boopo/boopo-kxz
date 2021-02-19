@@ -8,3 +8,4 @@ asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 http_server = HTTPServer(WSGIContainer(app))
 http_server.listen(22222)
 IOLoop.instance().start()
+# windows

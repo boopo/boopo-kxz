@@ -4,9 +4,11 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-from App.apis.third.third_utils import get_captcha_code
+from App._settings import BaiduClientSecret, BaiduClientId
+
 from App.ext import redis_client, db
 from App.models import User
+from App.utils.captcha import Captcha
 
 session = requests.session()
 
@@ -16,7 +18,7 @@ headers = {
 }
 
 
-# 目前Ids仅用于登录获取 cookie，其他函数已搁置（有点慢。。。。。）
+# 目前Ids仅用于登录获取 cookie，其他函数已搁置（未完成持久化）
 class Ids:
     def __init__(self, username, password):
         self.username = username
@@ -92,6 +94,7 @@ class Ids:
 
     # 带验证码的
     def login_pro(self):
+
         _r = self.session.get(
             url='http://ids.cumt.edu.cn/authserver/login?service = http%3A%2F%2Fmy.cumt.edu.cn%2Flogin.portal',
             headers=headers)
@@ -101,9 +104,9 @@ class Ids:
         execution = soup.find('input', {'name': 'execution'})['value']
         _url = 'http://ids.cumt.edu.cn/authserver/captcha.html'
         _rs = self.session.get(url=_url)
-        _rs_data = base64.b64encode(_rs.content)
-        _rs_data_base64 = _rs_data.decode()
-        _data = get_captcha_code(_rs_data_base64)
+        _rs_data_base64 = base64.b64encode(_rs.content).decode()
+        capcha = Captcha(BaiduClientSecret, BaiduClientId, _rs_data_base64)
+        _data = capcha.get_result()
         From_Data = {
             'username': self.username,
             'password': self.password,

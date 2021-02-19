@@ -9,3 +9,4 @@ http_server.listen(22222)
 IOLoop.instance().start()
 
 # 部署用法 python tornado_server.py
+# linux

@@ -1,9 +1,11 @@
 from flask_restful import Resource, reqparse, fields, abort, marshal
 
+from App._settings import BaiduClientId, BaiduClientSecret
 from App.apis.admin.utils import require_permission, set_version, get_version
 from App.apis.api_constant import sql_error
 from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN
+from App.utils.captcha import Captcha
 
 parse_fb = reqparse.RequestParser()
 parse_fb.add_argument("data", type=str, help='请输入反馈内容', required=True, location=['json'])
@@ -306,3 +308,8 @@ class VersionResource(Resource):
                 "description": "找不到资源",
                 "apkUrl": ""
             }
+
+class TestResource(Resource):
+    def get(self):
+
+        return "hello"

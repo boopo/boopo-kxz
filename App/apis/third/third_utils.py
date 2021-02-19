@@ -5,7 +5,8 @@ import jwt
 import requests
 from bs4 import BeautifulSoup
 
-from App._settings import ThirdSecretKey
+from App._settings import ThirdSecretKey, BaiduClientSecret, BaiduClientId
+from App.utils.captcha import Captcha
 
 
 def token_generator(username, password):
@@ -84,11 +85,9 @@ class ThirdIds():
         execution = soup.find('input', {'name': 'execution'})['value']
         _url = 'http://ids.cumt.edu.cn/authserver/captcha.html'
         _rs = self.session.get(url=_url)
-        _rs_data = base64.b64encode(_rs.content)
-        _rs_data_base64 = _rs_data.decode()
-        # print("base64", _rs_data_base64)
-        _data = get_captcha_code(_rs_data_base64)
-        # print("验证码为", _data)
+        _rs_data_base64 = base64.b64encode(_rs.content).decode()
+        capcha = Captcha(BaiduClientSecret, BaiduClientId, _rs_data_base64)
+        _data = capcha.get_result()
         From_Data = {
             'username': self.username,
             'password': self.password,
@@ -155,26 +154,3 @@ def t_check_captcha(username):
         return False
 
 
-def get_access_token():
-    url = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=avCnCK6HjFTcneeTWhlOsnzy&client_secret=v0XE79GT9nsHpmnd5nRwNVVPfTndwgqz'
-    r = requests.post(url=url)
-    if r.status_code == '200':
-        secret = r.json()['session_key']
-        return secret
-
-
-def get_captcha_code(image_base64):
-    access_token = '24.206fcbd2838aa199b358948770fdb5ca.2592000.1612714667.282335-23122968'
-    url_ocr = 'https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=' + access_token
-    _headers = {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-    body = {
-        'image': image_base64
-    }
-    ocr_data = requests.post(url=url_ocr, data=body, headers=_headers)
-    if ocr_data.status_code == 200:
-        print("ok")
-        return ocr_data.json()['words_result'][0]['words'].replace(" ", "")
-    else:
-        return False

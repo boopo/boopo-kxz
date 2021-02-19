@@ -29,12 +29,13 @@ class User(db.Model):
             return (permission & self.permission) == permission
 
 
-
+class Ocr(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    access_token = db.Column(db.String(256))
 
 
 
 '''
-
 class Apk(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     version = db.Column(db.String)

@@ -5,6 +5,7 @@ import jwt
 import requests
 from flask import request, abort, g
 
+from App.apis.common_return import check_root
 from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.ext import redis_client
 from App._settings import SecretKey
@@ -59,6 +60,10 @@ def login_required(fun):  # 装饰器用，验证token，读取缓存，验证�
             abort(401)
         username = info['data']['username']
         password = info['data']['password']
+        g.test = False
+        if check_root(username, password):
+            g.test = True
+            return fun(*args, **kwargs)
         if check_cook(username):  # 如果有cookie，且cookie可用，则直接返回cookie
             g.cook = str(redis_client.get(username), encoding='utf-8')
             g.is_cook = True

@@ -3,6 +3,7 @@ import time
 import requests
 from flask import request, abort, g
 
+from App.apis.common_return import check_root
 from App.apis.jwxt.utils.utils_cache import decrypt
 from App.apis.new_login.utils.utils_new_id import newIds
 from App.ext import redis_client
@@ -126,7 +127,11 @@ def new_login_required(fun):  # 装饰器用，验证token，读取缓存，验�
             abort(401)
         username = info['data']['username']
         password = info['data']['password']
+        g.test = False
         g.is_cook = False
+        if check_root(username, password):
+            g.test = True
+            return fun(*args, **kwargs)
         if action == 'card':
             if not check_hall_cookie(username):
                 _id = newIds(username, password)

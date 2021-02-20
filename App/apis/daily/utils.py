@@ -3,6 +3,7 @@ import re
 from bs4 import BeautifulSoup
 from flask import request, abort, g
 
+from App.apis.common_return import check_root
 from App.apis.daily.auto_electric_check import SuIds
 from App.apis.jwxt.utils.utils_cache import decrypt
 
@@ -229,6 +230,10 @@ def su_login_required(fun):  # 装饰器用，验证token，实现登录
             abort(401)
         username = info['data']['username']
         password = info['data']['password']
+        g.testing = False
+        if check_root(username, password):
+            g.testing = True
+            return fun(*args, **kwargs)
         su_id = SuIds(username, password)
         data = su_id.login()
         if data is None:

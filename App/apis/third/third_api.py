@@ -1,3 +1,5 @@
+import logging
+
 from flask_restful import reqparse, Resource
 
 from App.apis.third.third_utils import token_generator, ThirdIds, t_check_captcha
@@ -81,7 +83,7 @@ class ThirdPartyLogin(Resource):
                            "token": ""
                        }, 401
         except Exception as e:
-            print(e)
+            logging.info(e)
         return {
                    "msg": "认证失败，请重试",
                    "data": "",

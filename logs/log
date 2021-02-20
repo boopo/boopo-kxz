@@ -14,3 +14,16 @@ INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 11:59:15] "[37mGET /admin/tes
 INFO admin_api.py: 325 hello
 INFO admin_api.py: 330 kkk
 INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 11:59:16] "[37mGET /admin/test HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:13:10] "[37mPOST /jwxt/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:13:26] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:13:36] "[37mGET /jwxt/grade?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:13:47] "[37mGET /jwxt/exam?xnm=2019&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:14:10] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:14:16] "[37mGET /new/simpleBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:14:40] "[37mGET /daily/au_df HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:15:11] "[37mPOST /jwxt/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [20/Feb/2021 16:15:25] "[37mGET /jwxt/grade?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -

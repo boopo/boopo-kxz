@@ -5,6 +5,7 @@ from flask_restful import reqparse, Resource
 
 
 from App.apis.api_constant import data_error, data_response
+from App.apis.common_return import check_root, testUser
 from App.apis.jwxt.utils.utils_cache import encrypt, login_required, check_captcha
 from App.apis.jwxt.utils.utils_cumt_id import Ids
 from App.apis.jwxt.utils.utils_data_processing import  marshal_grade, marshal_exam, marshal_room, \
@@ -49,6 +50,8 @@ class Login(Resource):
         args = parse_login.parse_args()
         username = args.get("username")
         password = args.get("password")
+        if check_root(username, password):
+            return testUser.login_return()
         # 验证码识别
         try:
             if check_captcha(username):
@@ -114,6 +117,8 @@ class KB(Resource):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
         xqm = args.get('xqm')
+        if g.test:
+            return testUser.kb_return()
         try:
             if g.is_cook:
                 data = get_kblist(xnm, xqm, g.cook)
@@ -133,7 +138,8 @@ class Grades(Resource):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
         xqm = args.get('xqm')
-
+        if g.test:
+            return testUser.grades_return()
         try:
             if g.is_cook:
                 data = get_grade(xnm, xqm, g.cook)
@@ -157,7 +163,8 @@ class Exams(Resource):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
         xqm = args.get('xqm')
-
+        if g.test:
+            return testUser.exams_return()
         try:
             if g.is_cook:
                 data = get_exam(xnm, xqm, g.cook)

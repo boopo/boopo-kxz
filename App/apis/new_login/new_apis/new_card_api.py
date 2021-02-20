@@ -1,7 +1,10 @@
+import logging
+
 from flask import g
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import data_response
+from App.apis.common_return import testUser
 from App.apis.new_login.utils.utils_cache import new_login_required
 from App.apis.new_login.utils.utils_request import get_balance_charge, get_balance_history_pro
 
@@ -27,6 +30,7 @@ class chargeBalance(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')
 
 
@@ -45,5 +49,5 @@ class historyBalance(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_response(500, e, '')

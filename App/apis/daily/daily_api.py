@@ -1,7 +1,10 @@
+import logging
+
 from flask import g
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import data_error
+from App.apis.common_return import testUser
 from App.apis.daily.utils import pc, get_home_image, get_multiple_sd_news, get_single_sd_news, get_multiple_rw_news, \
      get_multiple_xs_news, get_single_xs_news, get_multiple_xx_news, su_login_required
 
@@ -37,6 +40,8 @@ class AutoDianFei(Resource):
     @su_login_required
     def get(self):
         try:
+            if g.testing:
+                return testUser.autodianfei_return()
             data = g.s_data
             if data:
                 return {
@@ -45,7 +50,7 @@ class AutoDianFei(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -60,7 +65,7 @@ class HomeImage(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -77,7 +82,7 @@ class SdNews(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -94,7 +99,7 @@ class SdNew(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -111,7 +116,7 @@ class RwNews(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -128,7 +133,7 @@ class XsNews(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -145,7 +150,7 @@ class XsNew(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -162,5 +167,5 @@ class XxNews(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error

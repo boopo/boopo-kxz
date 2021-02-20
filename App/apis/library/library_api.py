@@ -1,3 +1,5 @@
+import logging
+
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import book_error
@@ -31,7 +33,7 @@ class Library(Resource):
                     "data": data
                 }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return book_error
 
 
@@ -47,7 +49,7 @@ class OnShelf(Resource):
                 "data": data
             }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return book_error
 
 
@@ -64,5 +66,5 @@ class BookImage(Resource):
                 "data": data
             }
         except Exception as e:
-            print(e)
+            logging.info(e)
             return book_error

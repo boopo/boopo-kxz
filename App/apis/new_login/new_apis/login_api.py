@@ -1,7 +1,10 @@
+import logging
+
 from flask import g
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import login_response, data_response
+from App.apis.common_return import check_root, testUser
 from App.apis.jwxt.utils.utils_cache import encrypt
 from App.apis.new_login.utils.utils_cache import new_login_required
 from App.apis.new_login.utils.utils_data_processing import marshal_simple_balance, marshal_simple_library, \
@@ -19,7 +22,8 @@ class newLogin(Resource):
         args = parse_new_login.parse_args()
         username = args.get("username")
         password = args.get("password")
-
+        if check_root(username, password):
+            return testUser.newlogin_return()
         try:
             # 这里会更新验证码填充功能
             user = newIds(username, password)
@@ -29,7 +33,7 @@ class newLogin(Resource):
             else:
                 return login_response(1, '登录失败,请检查用户名或密码', 'null', 404)
         except Exception as e:
-            print(e)
+            logging.info(e)
             return login_response(1, e, 'null', 404)
 
 
@@ -37,6 +41,8 @@ class simpleBalance(Resource):
     @new_login_required
     def get(self):
         try:
+            if g.test:
+                return testUser.simpleBalance_return()
             if g.is_cook:
                 data = get_balance_simple(g.sess_cook)
                 msg = marshal_simple_balance(data)
@@ -44,6 +50,7 @@ class simpleBalance(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')
 
 
@@ -51,6 +58,8 @@ class simpleLibrary(Resource):
     @new_login_required
     def get(self):
         try:
+            if g.test:
+                return testUser.simplelibrary_return()
             if g.is_cook:
                 data = get_library_simple(g.sess_cook)
                 msg = marshal_simple_library(data)
@@ -58,6 +67,7 @@ class simpleLibrary(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')
 
 
@@ -65,6 +75,8 @@ class simpleBalanceHistory(Resource):
     @new_login_required
     def get(self):
         try:
+            if g.test:
+                return testUser.simplebalancehistory_return()
             if g.is_cook:
                 data = get_balance_history_simple(g.sess_cook)
                 msg = marshal_simple_balance_history(data)
@@ -72,4 +84,5 @@ class simpleBalanceHistory(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')

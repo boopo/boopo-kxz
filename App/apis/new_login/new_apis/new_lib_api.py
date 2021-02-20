@@ -1,3 +1,5 @@
+import logging
+
 from flask import g
 from flask_restful import Resource, reqparse
 
@@ -25,6 +27,7 @@ class libraryList(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')
 
 
@@ -42,6 +45,7 @@ class libraryHistoryList(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')
 
 
@@ -58,4 +62,5 @@ class libraryFavorite(Resource):
             else:
                 return data_response(500, 'Cookie错误', '')
         except Exception as e:
+            logging.info(e)
             return data_response(500, e, '')

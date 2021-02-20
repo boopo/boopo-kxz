@@ -1,12 +1,14 @@
+import logging
+
 from flask import g
 from flask_restful import reqparse, Resource
 
 
-from App.apis.api_constant import data_error
+from App.apis.api_constant import data_error, data_response
 from App.apis.jwxt.utils.utils_cache import encrypt, login_required, check_captcha
 from App.apis.jwxt.utils.utils_cumt_id import Ids
-from App.apis.jwxt.utils.utils_data_processing import marshal_kb, marshal_grade, marshal_exam, marshal_room, \
-    marshal_course
+from App.apis.jwxt.utils.utils_data_processing import  marshal_grade, marshal_exam, marshal_room, \
+    marshal_course, marshal_new_kb
 from App.apis.jwxt.utils.utils_request import get_kblist, get_grade, get_exam, get_single_jd, get_average_jd, \
     get_empty_room, get_special_course
 
@@ -102,7 +104,7 @@ class Login(Resource):
             else:
                 return login_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return login_error
 
 
@@ -115,16 +117,13 @@ class KB(Resource):
         try:
             if g.is_cook:
                 data = get_kblist(xnm, xqm, g.cook)
-                msg = marshal_kb(data)
+                msg = marshal_new_kb(data)
                 if data:
-                    return {
-                        "msg": "抓取成功",
-                        "data": msg
-                    }
+                    return data_response(200, "抓取成功", data)
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -148,7 +147,7 @@ class Grades(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -172,7 +171,7 @@ class Exams(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -196,7 +195,7 @@ class SingleJd(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -215,7 +214,7 @@ class AverageJd(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -242,7 +241,7 @@ class EmptyRoom(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error
 
 
@@ -270,5 +269,5 @@ class SpecialCourse(Resource):
             else:
                 return data_error
         except Exception as e:
-            print(e)
+            logging.info(e)
             return data_error

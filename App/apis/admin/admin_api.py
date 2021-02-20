@@ -1,5 +1,7 @@
 import json
+import logging
 
+from flask import current_app
 from flask_restful import Resource, reqparse, fields, abort, marshal
 
 from App._settings import BaiduClientId, BaiduClientSecret
@@ -8,6 +10,7 @@ from App.apis.api_constant import sql_error
 from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN
 from App.utils.captcha import Captcha
+
 
 parse_fb = reqparse.RequestParser()
 parse_fb.add_argument("data", type=str, help='请输入反馈内容', required=True, location=['json'])
@@ -80,7 +83,7 @@ class FeedBacks(Resource):
             }
             return msg
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error
 
     @require_permission(ADMIN)
@@ -98,7 +101,7 @@ class FeedBacks(Resource):
             }
             return marshal(msg, multi_content_fields)
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -113,7 +116,7 @@ class FeedBack(Resource):
             }
             return marshal(data, single_content_fields)
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
     @require_permission(ADMIN)
@@ -129,7 +132,7 @@ class FeedBack(Resource):
             return data, 204
 
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -149,7 +152,7 @@ class PageFeedBacks(Resource):
             }
             return marshal(msg, multi_content_fields)
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -184,7 +187,7 @@ class Amount(Resource):
             }
             return marshal(data, multi_user_fields)
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -205,7 +208,7 @@ class PageAmount(Resource):
             return marshal(msg, multi_user_fields)
 
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -235,7 +238,7 @@ class UserId(Resource):
                 }
 
         except Exception as e:
-            print(e)
+            logging.info(e)
             return sql_error, 500
 
 
@@ -255,7 +258,7 @@ class RootResource(Resource):
                        "data": username
                    }, 201
         except Exception as e:
-            print(e)
+            logging.info("权限"+e)
             return sql_error, 500
 
 
@@ -283,7 +286,7 @@ class VersionResource(Resource):
             else:
                 return sql_error
         except Exception as e:
-            print(e)
+            logging.info("version"+e)
             return sql_error, 500
 
     def get(self):
@@ -305,7 +308,6 @@ class VersionResource(Resource):
                 "apkUrl": data[2]
             }
         except Exception as e:
-            print(e)
             return {
                 "status": 404,
                 "check": False,
@@ -319,8 +321,10 @@ class TestResource(Resource):
         args = parse_self_kb.parse_args()
         data = args.get("data")
         #print(data)
+        logging.info("hello")
         print(type(data))
-        print(data)
+        #print(data)
         data.replace("\'\'","\"\"")
-        j = json.loads(data)
+        #print(data)
+        current_app.logger.info("kkk")
         return "hello"

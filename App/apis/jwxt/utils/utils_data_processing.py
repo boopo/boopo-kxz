@@ -139,6 +139,80 @@ def marshal_kb(data):  # 课表预处理
     return data
 
 
+def get_list(str1):
+    a1 = []
+    if "," in str1:
+        sub_str = str1.split(",")
+        for l1 in sub_str:
+            if "-" in l1:
+                if "单" in l1:
+                    b1 = int(l1.split("-")[0])
+                    b2 = int(l1.split("-")[1].replace("周(单)", ""))
+                    while (b1 <= b2):
+                        if b1 % 2 == 1:
+                            a1.append(b1)
+                        b1 = b1 + 1
+                elif "双" in l1:
+                    b1 = int(l1.split("-")[0])
+                    b2 = int(l1.split("-")[1].replace("周(双)", ""))
+                    while (b1 <= b2):
+                        if b1 % 2 == 0:
+                            a1.append(b1)
+                        b1 = b1 + 1
+                else:
+                    b1 = int(l1.split("-")[0])
+                    b2 = int(l1.split("-")[1].replace("周", ""))
+                    while (b1 <= b2):
+                        a1.append(b1)
+                        b1 = b1 + 1
+            else:
+                a1.append(int(l1.replace("周", "")))
+    elif "-" in str1:
+        if "单" in str1:
+            b1 = int(str1.split("-")[0])
+            b2 = int(str1.split("-")[1].replace("周(单)", ""))
+            while (b1 <= b2):
+                if b1 % 2 == 1:
+                    a1.append(b1)
+                b1 = b1 + 1
+        elif "双" in str1:
+            b1 = int(str1.split("-")[0])
+            b2 = int(str1.split("-")[1].replace("周(双)", ""))
+            while (b1 <= b2):
+                if b1 % 2 == 0:
+                    a1.append(b1)
+                b1 = b1 + 1
+        else:
+            b1 = int(str1.split("-")[0])
+            b2 = int(str1.split("-")[1].replace("周", ""))
+            while (b1 <= b2):
+                a1.append(b1)
+                b1 = b1 + 1
+    else:
+        a1.append(int(str1.replace("周", "")))
+    return a1
+
+
+def marshal_new_kb(data):
+    l1 = data['kbList']
+    f1 = []
+    for l2 in l1:
+        d1 = {}
+        d1.update({
+            "title": l2['kcmc'],
+            "location": l2['cdmc'],
+            "teacher": l2['xm'],
+            "credit": l2['xf'],
+            "weekList": get_list(l2['zcd']),
+            "weekNum": int(l2['xqj']),
+            "lessonNum": int(l2['jcs'].split("-")[0]),
+            "durationNum": int(l2['jcs'].split("-")[1]) - int(l2['jcs'].split("-")[0]) + 1,
+            "remark": ""
+        })
+        f1.append(d1)
+    return f1
+
+
 def marshal_exam(data):  # 考试预处理
     exam_list = []
     # 删除无用数据

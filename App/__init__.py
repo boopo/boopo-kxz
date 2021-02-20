@@ -7,6 +7,7 @@ from App.apis import init_api
 from App.ext import init_ext, db
 
 from App.views import init_view
+from logs.logs import setup_log
 
 
 def create_app(env):
@@ -21,5 +22,7 @@ def create_app(env):
     init_view(app)
     # 初始化第三方扩展
     init_ext(app)
+    # 日志记录
+    setup_log()
 
     return app

@@ -8,8 +8,8 @@ from App.apis.api_constant import data_error, data_response
 from App.apis.common_return import check_root, testUser
 from App.apis.jwxt.utils.utils_cache import encrypt, login_required, check_captcha
 from App.apis.jwxt.utils.utils_cumt_id import Ids
-from App.apis.jwxt.utils.utils_data_processing import  marshal_grade, marshal_exam, marshal_room, \
-    marshal_course, marshal_new_kb
+from App.apis.jwxt.utils.utils_data_processing import marshal_grade, marshal_exam, marshal_room, \
+    marshal_course, marshal_new_kb, marshal_kb
 from App.apis.jwxt.utils.utils_request import get_kblist, get_grade, get_exam, get_single_jd, get_average_jd, \
     get_empty_room, get_special_course
 
@@ -122,7 +122,7 @@ class KB(Resource):
         try:
             if g.is_cook:
                 data = get_kblist(xnm, xqm, g.cook)
-                msg = marshal_new_kb(data)
+                msg = marshal_kb(data)
                 if data:
                     return data_response(200, "抓取成功", data)
             else:

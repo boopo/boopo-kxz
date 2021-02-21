@@ -1,6 +1,6 @@
-SecretKey = ''
+SecretKey = 'jwt 密钥'
 
-ThirdSecretKey = ''
+ThirdSecretKey = '单点登录 jwt 密钥'
 
 
 def get_db_uri(dbinfo):
@@ -26,11 +26,11 @@ class DevelopConfig(Config):
     dbinfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "root",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": '',
-        "NAME": ""
+        "USER": "你的用户名",
+        "PASSWORD": "你的密码",
+        "HOST": "你的ip地址",
+        "PORT": '你的端口号',
+        "NAME": "你的库名"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)

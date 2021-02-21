@@ -2,8 +2,10 @@ import redis
 from flask import Flask
 from flask_cors import CORS
 
-from App._settings import envs
+
+from App._settings import envs, Redis_local
 from App.apis import init_api
+from App.celery import celery_app
 from App.ext import init_ext, db
 
 from App.views import init_view
@@ -24,5 +26,10 @@ def create_app(env):
     init_ext(app)
     # 日志记录
     setup_log()
+    #celery
+    celery_app.conf.update({
+        "broker_url": Redis_local,
+        "result_backend": Redis_local
+    })
 
     return app

@@ -7,6 +7,8 @@ from flask_restful import Resource, reqparse, fields, abort, marshal
 from App._settings import BaiduClientId, BaiduClientSecret
 from App.apis.admin.utils import require_permission, set_version, get_version
 from App.apis.api_constant import sql_error
+from App.apis.jwxt.utils.utils_cache import encrypt
+from App.celery import new_login, new_id_login
 from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN
 from App.utils.captcha import Captcha
@@ -319,12 +321,9 @@ class VersionResource(Resource):
 class TestResource(Resource):
     def get(self):
         args = parse_self_kb.parse_args()
-        data = args.get("data")
-        #print(data)
-        logging.info("hello")
-        print(type(data))
-        #print(data)
-        data.replace("\'\'","\"\"")
-        #print(data)
-        current_app.logger.info("kkk")
-        return "hello"
+        current_app.logger.info("日志测试")
+        #a = new_login.delay()
+        b = new_id_login.delay("08193109","k1333csn")
+        return {
+            "data": encrypt({"username": "08193109", "password": "k1333csn"})
+        }

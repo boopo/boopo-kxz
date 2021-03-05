@@ -1,8 +1,6 @@
 <h2> 矿小助后端代码</h2>
 
-矿小助Python版(采用Flask实现)
-
-Spring Cloud版正在开发中
+矿小助单机版(采用Flask实现)
 
 配置文件:
    

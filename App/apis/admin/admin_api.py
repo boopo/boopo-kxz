@@ -1,17 +1,17 @@
-import json
+
 import logging
 
-from flask import current_app
+
 from flask_restful import Resource, reqparse, fields, abort, marshal
 
-from App._settings import BaiduClientId, BaiduClientSecret
+
 from App.apis.admin.utils import require_permission, set_version, get_version
 from App.apis.api_constant import sql_error
-from App.apis.jwxt.utils.utils_cache import encrypt
-from App.celery import new_login, new_id_login
+from App.apis.new_login.utils.utils_new_id import newIds
+
 from App.ext import db
 from App.models import Content, User, ADMIN, SUPER_ADMIN
-from App.utils.captcha import Captcha
+
 
 
 parse_fb = reqparse.RequestParser()
@@ -320,10 +320,12 @@ class VersionResource(Resource):
 
 class TestResource(Resource):
     def get(self):
-        args = parse_self_kb.parse_args()
-        current_app.logger.info("日志测试")
-        #a = new_login.delay()
-        b = new_id_login.delay("08193109","k1333csn")
-        return {
-            "data": encrypt({"username": "08193109", "password": "k1333csn"})
-        }
+        # args = parse_self_kb.parse_args()
+        # current_app.logger.info("日志测试")
+        # #a = new_login.delay()
+        # b = new_id_login.delay("08193109","xxxx‘")
+        # return {
+        #     "data": encrypt({"username": "08193109", "password": "xxxx"})
+        # }
+
+        return "test"

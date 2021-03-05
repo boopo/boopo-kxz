@@ -4,7 +4,6 @@ from flask import g
 from flask_restful import Resource, reqparse
 
 from App.apis.api_constant import data_response
-from App.apis.common_return import testUser
 from App.apis.new_login.utils.utils_cache import new_login_required
 from App.apis.new_login.utils.utils_request import get_balance_charge, get_balance_history_pro
 
@@ -18,6 +17,9 @@ parse_history.add_argument("page", type=str, help='请输入第几页', required
 parse_history.add_argument("rows", type=str, help='请输入多少行', required=True, location=['json'])
 
 
+
+
+
 class chargeBalance(Resource):
     @new_login_required
     def get(self):
@@ -25,7 +27,7 @@ class chargeBalance(Resource):
         money = args.get("money")
         try:
             if g.is_cook:
-                data = get_balance_charge(g.sess_cook, g.hall_cook, money)
+                data = get_balance_charge(g.portal_cook, g.card_cook, money)
                 return data_response(200, '请求成功', data)
             else:
                 return data_response(500, 'Cookie错误', '')
@@ -44,7 +46,7 @@ class historyBalance(Resource):
         rows = args.get('rows')
         try:
             if g.is_cook:
-                data = get_balance_history_pro(g.sess_cook, g.hall_cook, s_date, e_date, page, rows)
+                data = get_balance_history_pro(g.portal_cook, g.card_cook, s_date, e_date, page, rows)
                 return data_response(200, '请求成功', data)
             else:
                 return data_response(500, 'Cookie错误', '')

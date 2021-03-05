@@ -84,6 +84,8 @@ def marshal_grade(data):  # 成绩预处理
                 if foda['zongping'] == '100':
                     foda['jidian'] = 5.0
 
+            if foda['zongping'] == '免修':
+                foda['zongping'] = '100'
             if foda['zongping'] == '优秀':
                 foda['zongping'] = '90'
                 foda['jidian'] = 4.5
@@ -268,3 +270,20 @@ def marshal_course(data):  # 上课条件数据处理
         }
         list.append(a)
     return list
+
+
+def marshal_make_up_gardes(data): # 补考成绩查询  包含每次
+    grades_list = data['items']
+    l1 = []
+    for a in grades_list:
+        d1 = {}
+        d1.update({
+            "courseName": a['kcmc'],
+            "xuefen": a['xf'],
+            "jidian": a['jd'],
+            "zongping": a['bfzcj'],
+            "type": a['ksxz'],
+
+        })
+        l1.append(d1)
+    return l1

@@ -26,10 +26,10 @@ def create_app(env):
     init_ext(app)
     # 日志记录
     setup_log()
-    #celery
-    celery_app.conf.update({
-        "broker_url": Redis_local,
-        "result_backend": Redis_local
-    })
+    # celery 暂停使用
+    # celery_app.conf.update({
+    #     "broker_url": Redis_local,
+    #     "result_backend": Redis_local
+    # })
 
     return app

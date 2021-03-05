@@ -1,6 +1,6 @@
 import requests
 
-from App.ext import redis_client
+from App.ext import redis_client, redis_third
 
 headers = {
     "groupCode": "200069",
@@ -88,9 +88,11 @@ def get_image(isbn, title):  # 获取图书封面
 
 def get_image_pro(isbn, title):
     if redis_client.get(isbn+title):
-        return str(redis_client.get(isbn+title), encoding='utf-8')
+        return str(redis_third.get(isbn+title), encoding='utf-8')
+        #return str(redis_client.get(isbn+title), encoding='utf-8')
     else:
         url =get_image(isbn, title)
-        redis_client.set(name=isbn+title,value=url)
+        redis_third.set(name=isbn+title,value=url)
+        #redis_client.set(name=isbn+title,value=url)
         return url
 

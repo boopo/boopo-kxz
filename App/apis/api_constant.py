@@ -24,8 +24,8 @@ def login_response(code=0, msg='', token='', r_code=200):
     return {
                "code": code,
                "msg": msg,
-               "token": token
-           }, r_code
+               "data": token
+    }, r_code
 
 
 data_error = {

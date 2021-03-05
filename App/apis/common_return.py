@@ -17,7 +17,7 @@ class testUser:
         data = {
             "code": 0,
             "data": {
-                "name": "测试用户",
+                "name": "游客",
                 "college": "计算机科学与技术学院",
                 "classname": "xx-xx班",
                 "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTM4MDc0MzMuOTI0MzEzOCwiZGF0YSI6eyJ1c2VybmFtZSI6IjEyMzQ1Njc4IiwicGFzc3dvcmQiOiIxMjM0NTY3OCJ9fQ.1g8ZxM-xPZxsXv-pwAP3-Ju8G5psoQtZHY1B-2GYyR8"
@@ -2926,6 +2926,12 @@ class testUser:
                 ]
             }
         }
+        return data
+
+    @staticmethod
+    def makeup_return():
+        data = [{'courseName': 'Web应用开发技术B', 'xuefen': '2', 'jidian': '4.50', 'zongping': '94', 'type': '正常考试'}, {'courseName': '数字信号处理', 'xuefen': '3', 'jidian': '2.50', 'zongping': '73', 'type': '重修'}, {'courseName': '近距离无线通信技术', 'xuefen': '2.0', 'jidian': '2.00', 'zongping': '69', 'type': '正常考试'}, {'courseName': '通信原理', 'xuefen': '3.5', 'jidian': '1.00', 'zongping': '64', 'type': '重修'}, {'courseName': '无线通信基础', 'xuefen': '2', 'jidian': '1.00', 'zongping': '60', 'type': '补考一'}, {'courseName': '专业实习实训（生产实习）', 'xuefen': '4', 'jidian': '2.50', 'zongping': '72', 'type': '正常考试'}, {'courseName': '电子信息学科前沿讲座', 'xuefen': '1', 'jidian': '3.00', 'zongping': '80', 'type': '正常考试'}, {'courseName': '微机原理与应用B', 'xuefen': '2.5', 'jidian': '2.80', 'zongping': '75', 'type': '重修'}, {'courseName': '瑜伽(3)', 'xuefen': '0.5', 'jidian': '2.80', 'zongping': '77', 'type': '正常考试'}]
+
         return data
 
 

@@ -5,13 +5,13 @@ from flask_restful import reqparse, Resource
 
 
 from App.apis.api_constant import data_error, data_response
-from App.apis.common_return import check_root, testUser
-from App.apis.jwxt.utils.utils_cache import encrypt, login_required, check_captcha
-from App.apis.jwxt.utils.utils_cumt_id import Ids
+from App.apis.common_return import  testUser
+from App.apis.jwxt.utils.utils_cache import login_required
 from App.apis.jwxt.utils.utils_data_processing import marshal_grade, marshal_exam, marshal_room, \
-    marshal_course, marshal_new_kb, marshal_kb
+    marshal_course, marshal_kb, marshal_make_up_gardes
 from App.apis.jwxt.utils.utils_request import get_kblist, get_grade, get_exam, get_single_jd, get_average_jd, \
-    get_empty_room, get_special_course
+    get_empty_room, get_special_course, get_make_up_grades
+from App.apis.new_login.utils.utils_cache import new_login_required
 
 parse_login = reqparse.RequestParser()
 parse_login.add_argument("username", type=str, help='请提交正确的参数Key', required=True, location=['json'])
@@ -45,74 +45,74 @@ login_error = {
 }
 
 
-class Login(Resource):
-    def post(self):
-        args = parse_login.parse_args()
-        username = args.get("username")
-        password = args.get("password")
-        if check_root(username, password):
-            return testUser.login_return()
-        # 验证码识别
-        try:
-            if check_captcha(username):
-                id_pro = Ids(username, password)
-                if id_pro.login_pro():
-
-                    info_pro = {
-                        "username": username,
-                        "password": password
-                    }
-                    token = encrypt(info_pro)
-                    l1_pro = id_pro.get_self_info()
-                    d1_pro = {
-                        "name": l1_pro[0],
-                        "college": l1_pro[1],
-                        "classname": l1_pro[3],
-                        "token": token
-                    }
-                    info_pro.update({"token": token})
-                    return {
-                            "code": 0,
-                            "data": d1_pro,
-                            "msg": "登录成功"
-                        }
-                else:
-                    return {
-                        "code": 1,
-                        "data": "",
-                        "msg": "请重试"
-                    }
-
-            id = Ids(username, password)
-            data = id.login()
-            info = {
-                "username": username,
-                "password": password
-             }
-            token = encrypt(info)
-            l1 = id.get_self_info()
-            d1 = {
-                "name": l1[0],
-                "college": l1[1],
-                "classname": l1[3],
-                "token": token
-            }
-            info.update({"token": token})
-            if data:
-                return {
-                    "code": 0,
-                    "data": d1,
-                    "msg": "登录成功"
-                }
-            else:
-                return login_error
-        except Exception as e:
-            logging.info(e)
-            return login_error
+# class Login(Resource):
+#     def post(self):
+#         args = parse_login.parse_args()
+#         username = args.get("username")
+#         password = args.get("password")
+#         if check_root(username, password):
+#             return testUser.login_return()
+#         # 验证码识别
+#         try:
+#             if check_captcha(username):
+#                 id_pro = Ids(username, password)
+#                 if id_pro.login_pro():
+#
+#                     info_pro = {
+#                         "username": username,
+#                         "password": password
+#                     }
+#                     token = encrypt(info_pro)
+#                     l1_pro = id_pro.get_self_info()
+#                     d1_pro = {
+#                         "name": l1_pro[0],
+#                         "college": l1_pro[1],
+#                         "classname": l1_pro[3],
+#                         "token": token
+#                     }
+#                     info_pro.update({"token": token})
+#                     return {
+#                             "code": 0,
+#                             "data": d1_pro,
+#                             "msg": "登录成功"
+#                         }
+#                 else:
+#                     return {
+#                         "code": 1,
+#                         "data": "",
+#                         "msg": "请重试"
+#                     }
+#
+#             id = Ids(username, password)
+#             data = id.login()
+#             info = {
+#                 "username": username,
+#                 "password": password
+#              }
+#             token = encrypt(info)
+#             l1 = id.get_self_info()
+#             d1 = {
+#                 "name": l1[0],
+#                 "college": l1[1],
+#                 "classname": l1[3],
+#                 "token": token
+#             }
+#             info.update({"token": token})
+#             if data:
+#                 return {
+#                     "code": 0,
+#                     "data": d1,
+#                     "msg": "登录成功"
+#                 }
+#             else:
+#                 return login_error
+#         except Exception as e:
+#             logging.info(e)
+#             return login_error
 
 
 class KB(Resource):
-    @login_required
+    @new_login_required
     def get(self):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
@@ -121,7 +121,7 @@ class KB(Resource):
             return testUser.kb_return()
         try:
             if g.is_cook:
-                data = get_kblist(xnm, xqm, g.cook)
+                data = get_kblist(xnm, xqm, g.jwxt_cook)
                 msg = marshal_kb(data)
                 if data:
                     return data_response(200, "抓取成功", data)
@@ -133,7 +133,7 @@ class KB(Resource):
 
 
 class Grades(Resource):
-    @login_required
+    @new_login_required
     def get(self):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
@@ -142,14 +142,30 @@ class Grades(Resource):
             return testUser.grades_return()
         try:
             if g.is_cook:
-                data = get_grade(xnm, xqm, g.cook)
+                data = get_grade(xnm, xqm, g.jwxt_cook)
                 pre_data = marshal_grade(data)
                 if data:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": pre_data
-                    }
+                    return data_response(200, '请求成功', pre_data)
+            else:
+                return data_error
+        except Exception as e:
+            logging.info(e)
+            return data_error
+
+class MakeUpGrades(Resource):
+    @new_login_required
+    def get(self):
+        args = parse_info.parse_args()
+        xnm = args.get('xnm')
+        xqm = args.get('xqm')
+        if g.test:
+            return testUser.makeup_return()
+        try:
+            if g.is_cook:
+                data = get_make_up_grades(xnm, xqm, g.jwxt_cook)
+                pre_data = marshal_make_up_gardes(data)
+                if data:
+                    return data_response(200, '请求成功', pre_data)
             else:
                 return data_error
         except Exception as e:
@@ -158,7 +174,7 @@ class Grades(Resource):
 
 
 class Exams(Resource):
-    @login_required
+    @new_login_required
     def get(self):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
@@ -167,14 +183,10 @@ class Exams(Resource):
             return testUser.exams_return()
         try:
             if g.is_cook:
-                data = get_exam(xnm, xqm, g.cook)
+                data = get_exam(xnm, xqm, g.jwxt_cook)
                 pre_data = marshal_exam(data)
                 if data:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": pre_data
-                    }
+                    return data_response(200, '请求成功', pre_data)
             else:
                 return data_error
         except Exception as e:
@@ -183,7 +195,7 @@ class Exams(Resource):
 
 
 class SingleJd(Resource):
-    @login_required
+    @new_login_required
     def get(self):
         args = parse_info.parse_args()
         xnm = args.get('xnm')
@@ -191,14 +203,10 @@ class SingleJd(Resource):
 
         try:
             if g.is_cook:
-                data = get_single_jd('08183007', xnm, xqm, g.cook)
+                data = get_single_jd('08183007', xnm, xqm, g.jwxt_cook)
 
                 if data:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": data
-                    }
+                    return data_response(200, '请求成功', data)
             else:
                 return data_error
         except Exception as e:
@@ -207,17 +215,13 @@ class SingleJd(Resource):
 
 
 class AverageJd(Resource):
-    @login_required
+    @new_login_required
     def get(self):
         try:
             if g.is_cook:
-                data = get_average_jd('08183007', g.cook)
+                data = get_average_jd('08183007', g.jwxt_cook)
                 if data:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": data
-                    }
+                    return data_response(200, '请求成功', data)
             else:
                 return data_error
         except Exception as e:
@@ -226,7 +230,7 @@ class AverageJd(Resource):
 
 
 class EmptyRoom(Resource):
-    @login_required
+    @new_login_required
     def post(self):
         args = parse_room.parse_args()
         xnm = args.get('xnm')
@@ -237,14 +241,10 @@ class EmptyRoom(Resource):
         weekday = args.get('weekday')
         try:
             if g.is_cook:
-                data = get_empty_room(xnm, xqm, build, section, week, weekday, g.cook)
+                data = get_empty_room(xnm, xqm, build, section, week, weekday, g.jwxt_cook)
                 msg = marshal_room(data)
                 if data:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": msg
-                    }
+                    return data_response(200, '请求成功', msg)
             else:
                 return data_error
         except Exception as e:
@@ -253,7 +253,7 @@ class EmptyRoom(Resource):
 
 
 class SpecialCourse(Resource):
-    @login_required
+    @new_login_required
     def post(self):
         args = parse_class.parse_args()
         xnm = args.get('xnm')
@@ -265,14 +265,10 @@ class SpecialCourse(Resource):
         teacher = args.get('teacher')
         try:
             if g.is_cook:
-                data = get_special_course(xnm, xqm, _id, weekday, week, section, teacher, g.cook)
+                data = get_special_course(xnm, xqm, _id, weekday, week, section, teacher, g.jwxt_cook)
                 msg = marshal_course(data)
                 if data['items']:
-                    return {
-                        "status": 200,
-                        "msg": "抓取成功",
-                        "data": msg
-                    }
+                    return data_response(200, '请求成功', msg)
             else:
                 return data_error
         except Exception as e:

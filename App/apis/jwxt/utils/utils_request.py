@@ -232,3 +232,33 @@ def get_special_course(xnm, xqm, _id, weekday, week, section, teacher, cook):
     a = requests.post(url=url, data=form_data, headers=headers).json()
     # print(a)
     return a
+
+def get_make_up_grades(xnm, xqm, cook):
+    # 考试查询（含补考 但只有总成绩）
+    if xnm == '0':
+        xnm = ''
+    if xqm == '1':  # 第一学期
+        xqm = '3'
+    if xqm == '2':  # 第二学期
+        xqm = '12'
+    if xqm == '0':  # 全部学期
+        xqm = ''
+    url = "http://jwxt.cumt.edu.cn/jwglxt/cjcx/cjcx_cxDgXscj.html?doType=query&gnmkdm=N100801"
+    headers = {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Cookie': cook
+    }
+    form_data = {
+        'xnm': xnm,
+        'xqm': xqm,
+        '_search': 'false',
+        'nd': int(time.time()),
+        'queryModel.showCount': '500',
+        'queryModel.currentPage': '1',
+        'queryModel.sortName': '',
+        'queryModel.sortOrder': 'asc',
+        'time': '1'
+    }
+
+    a = requests.post(url=url, data=form_data, headers = headers)
+    return a.json()

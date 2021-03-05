@@ -3,10 +3,10 @@ import logging
 from flask import g
 from flask_restful import Resource, reqparse
 
-from App.apis.api_constant import data_error
+from App.apis.api_constant import data_error, data_response
 from App.apis.common_return import testUser
 from App.apis.daily.utils import pc, get_home_image, get_multiple_sd_news, get_single_sd_news, get_multiple_rw_news, \
-     get_multiple_xs_news, get_single_xs_news, get_multiple_xx_news, su_login_required
+     get_multiple_xs_news, get_single_xs_news, get_multiple_xx_news
 
 parse_df = reqparse.RequestParser()
 parse_df.add_argument("home", type=str, help='请提交正确的参数Key', required=True, location=['args'])
@@ -27,31 +27,10 @@ class DianFei(Resource):
 
         data = pc(home, num)
         if data:
-            return {
-                "status": 200,
-                "msg": "ok",
-                "data": data
-            }
+            return data_response(200, "ok", data)
         else:
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
-
-class AutoDianFei(Resource):
-    @su_login_required
-    def get(self):
-        try:
-            if g.testing:
-                return testUser.autodianfei_return()
-            data = g.s_data
-            if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
-        except Exception as e:
-            logging.info(e)
-            return data_error
 
 
 class HomeImage(Resource):
@@ -59,14 +38,10 @@ class HomeImage(Resource):
         try:
             data = get_home_image()
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class SdNews(Resource):
@@ -76,14 +51,10 @@ class SdNews(Resource):
         try:
             data = get_multiple_sd_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class SdNew(Resource):
@@ -93,14 +64,10 @@ class SdNew(Resource):
         try:
             data = get_single_sd_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class RwNews(Resource):
@@ -110,14 +77,10 @@ class RwNews(Resource):
         try:
             data = get_multiple_rw_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class XsNews(Resource):
@@ -127,14 +90,10 @@ class XsNews(Resource):
         try:
             data = get_multiple_xs_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class XsNew(Resource):
@@ -144,14 +103,10 @@ class XsNew(Resource):
         try:
             data = get_single_xs_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")
 
 
 class XxNews(Resource):
@@ -161,11 +116,7 @@ class XxNews(Resource):
         try:
             data = get_multiple_xx_news(page)
             if data:
-                return {
-                    "status": 200,
-                    "msg": "ok",
-                    "data": data
-                }
+                return data_response(200, "ok", data)
         except Exception as e:
             logging.info(e)
-            return data_error
+            return data_response(404, "抓取失败", "null")

@@ -29,9 +29,12 @@ class newLogin(Resource):
             user = newIds(username, password)
             u_login = user.login()
             if u_login:
-                return login_response(0, '登陆成功', encrypt({"username": username, "password": password}))
+                data = user.login_with_self_info()
+                data.update({"token":encrypt({"username": username, "password": password})})
+                return login_response(0, '登陆成功',data)
             else:
-                return login_response(1, '登录失败,请检查用户名或密码', 'null', 404)
+                return login_response(1, '登录失败,请检查用户名或密码', 'null', 401)
+
         except Exception as e:
             logging.info(e)
             return login_response(1, e, 'null', 404)
@@ -44,7 +47,7 @@ class simpleBalance(Resource):
             if g.test:
                 return testUser.simpleBalance_return()
             if g.is_cook:
-                data = get_balance_simple(g.sess_cook)
+                data = get_balance_simple(g.portal_cook)
                 msg = marshal_simple_balance(data)
                 return data_response(200, '请求成功', msg)
             else:
@@ -61,7 +64,7 @@ class simpleLibrary(Resource):
             if g.test:
                 return testUser.simplelibrary_return()
             if g.is_cook:
-                data = get_library_simple(g.sess_cook)
+                data = get_library_simple(g.portal_cook)
                 msg = marshal_simple_library(data)
                 return data_response(200, '请求成功', msg)
             else:
@@ -78,7 +81,7 @@ class simpleBalanceHistory(Resource):
             if g.test:
                 return testUser.simplebalancehistory_return()
             if g.is_cook:
-                data = get_balance_history_simple(g.sess_cook)
+                data = get_balance_history_simple(g.portal_cook)
                 msg = marshal_simple_balance_history(data)
                 return data_response(200, '请求成功', msg)
             else:

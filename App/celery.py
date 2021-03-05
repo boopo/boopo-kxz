@@ -1,9 +1,9 @@
+import logging
 from time import sleep, time
 
 import requests
 from bs4 import BeautifulSoup
 from celery import Celery
-from flask import current_app
 
 from App.apis.new_login.utils.utils_encry import get_token
 from App.ext import redis_client
@@ -98,20 +98,19 @@ def new_login():
     from App.ext import redis_third
     redis_third.set(name="celery", value="异步操作")
     return "okk"
-
+# 异步调用融合门户登录 同步爬取 图书馆 一卡通
 @celery_app.task()
 def new_id_login(username, password):
     a = time()
-    print("正在异步调用")
+    logging.info("正在异步调用")
     print(username+password)
     user = newIds_delay(username,password)
     if user.login():
-        print("成功")
+        logging.info("success"+username)
     else:
-        print("失败")
+        logging.info("error"+username)
     b = time()
-    print("用时")
-    print(b-a)
+    logging.info("time: "+b-a+" user: "+ username)
     return "ok"
 
 

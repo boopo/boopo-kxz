@@ -1,3 +1,4 @@
+import logging
 import re
 import time
 
@@ -11,20 +12,6 @@ from App.ext import redis_client
 from App._settings import SecretKey
 
 
-class CookieCache:
-    def __init__(self, username):
-        self.username = username
-
-    def set(self, cook):
-        l1 = [self.username, cook]
-        redis_client.set(name=l1[0], value=l1[1], ex=43200)
-        return True
-
-    def get(self):
-        data = redis_client.get(self.username)
-        return str(data, encoding='utf-8')
-
-
 def encrypt(body):  # 加密算法
     token_dict = {
         'iat': time.time(),
@@ -35,19 +22,18 @@ def encrypt(body):  # 加密算法
     }
 
     jwt_token = jwt.encode(token_dict, SecretKey, algorithm="HS256", headers=headers).decode('ascii')
-
     return jwt_token
 
 
 def decrypt(token):  # 解密算法
-
+    if token is None:
+        return False
     try:
-        #           需要解析的 jwt        密钥                使用和加密时相同的算法
         data = jwt.decode(token, SecretKey, algorithms=['HS256'])
         return data
     except Exception as e:
-        print(e)
-        return 'error'
+        logging.info(e)
+        return False
 
 
 def login_required(fun):  # 装饰器用，验证token，读取缓存，验证缓存，实现登录
@@ -78,7 +64,6 @@ def login_required(fun):  # 装饰器用，验证token，读取缓存，验证�
             g.is_cook = True
             # print("登录操作", username)
             return fun(*args, **kwargs)
-
     return wrapper
 
 

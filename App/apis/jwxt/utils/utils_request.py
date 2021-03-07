@@ -28,7 +28,7 @@ def get_kblist(xnm, xqm, cook):
 
 def get_grade(xnm, xqm, cook):
     # 成绩查询
-    if xnm == '0':
+    if xnm == '0':  # 全部学年
         xnm = ''
     if xqm == '2':
         xqm = '12'  # 第二学期
@@ -235,7 +235,7 @@ def get_special_course(xnm, xqm, _id, weekday, week, section, teacher, cook):
 
 def get_make_up_grades(xnm, xqm, cook):
     # 考试查询（含补考 但只有总成绩）
-    if xnm == '0':
+    if xnm == '0':  # 全部学年
         xnm = ''
     if xqm == '1':  # 第一学期
         xqm = '3'

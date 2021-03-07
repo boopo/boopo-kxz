@@ -646,3 +646,336 @@ INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to qui
 INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 00:01:24] "[33mGET /new/historyBalance HTTP/1.1[0m" 404 -
 INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 00:01:42] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
 INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 00:01:46] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:35:12] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:36:24] "[37mGET /jwxt/grade?xnm=2019&xqm=2 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:37:16] "[37mGET /jwxt/exam?xnm=2019&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:37:35] "[37mGET /new/simpleBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:37:50] "[33mGET /new/libraryHistoryList HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:41:55] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:42:05] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:42:06] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:42:12] "[37mGET /jwxt/grades?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:43:05] "[37mGET /new/simpleLibrary HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:45:49] "[37mGET /jwxt/grades?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:45:51] "[37mGET /jwxt/grades?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:46:15] "[37mGET /lib/libraryHistoryList HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:46:30] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:47:06] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:47:52] "[37mGET /new/simpleBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:48:09] "[37mGET /lib/libraryHistoryList HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:48:18] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\card\\card_api.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:49:12] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\card\\card_api.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_request.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:50:02] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_request.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:50:34] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_request.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:51:52] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 14:57:09] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_request.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_cache.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_cache.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:01:35] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:01:42] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:03:42] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:05:12] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:06:05] "[35m[1mGET /card/historyBalance HTTP/1.1[0m" 500 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:07:53] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:08:50] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:08:59] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_cache.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:09:40] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:10:07] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:10:30] "[37mGET /lib/libraryHistoryList HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:10:59] "[37mGET /jwxt/exam?xnm=2019&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:12:14] "[37mGET /new/simpleBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:12:20] "[37mGET /card/historyBalance HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:12:29] "[37mGET /jwxt/grade?xnm=2019&xqm=2 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:12:37] "[37mGET /new/simpleHistory HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:13:24] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:16:04] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\new_login\\utils\\utils_new_id.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:16:55] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:17:11] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [06/Mar/2021 15:20:29] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:23:29] "[33mGET /daily/xx_news?page=1 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:23:37] "[37mGET /daily/xx_news?page=0 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:23:46] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:24:02] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:24:31] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:24:45] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:25:21] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:25:58] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:26:45] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:28:08] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:28:27] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:28:38] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:30:11] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:30:41] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:32:53] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:33:09] "[37mGET /daily/xx_news?page=3 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:33:37] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:34:03] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:34:45] "[33mGET /daily/xx_news?page=3 HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:35:20] "[37mGET /daily/xx_news?page=3 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:35:53] "[37mGET /daily/xx_news?page=3 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:35:59] "[37mGET /daily/xx_news?page=3 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:37:00] "[37mGET /daily/xx_news?page=3 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:37:15] "[37mGET /daily/xx_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:45:54] "[37mGET /daily/sd_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:46:13] "[37mGET /daily/xx_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:46:35] "[37mGET /daily/xs_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:47:20] "[37mGET /daily/rw_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 11:48:00] "[33mGET /daily/rw_new?url=http://www.cumt.edu.cn/d3/ab/c19677a578475/page.htm HTTP/1.1[0m" 404 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 14:55:32] "[37mGET /daily/xx_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 14:56:17] "[37mGET /daily/xx_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 15:01:01] "[37mGET /daily/sd_news?page=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\daily\\utils.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 15:03:07] "[37mGET /daily/sd_new?url=http://xwzx.cumt.edu.cn/01/d4/c513a590292/page.htm HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 15:03:49] "[37mGET /daily/sd_new?url=http://xwzx.cumt.edu.cn/01/bb/c513a590267/page.htm HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113  * Detected change in 'C:\\Users\\Noir\\PycharmProjects\\cumt-kxz\\App\\apis\\common_return.py', reloading
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 17:50:07] "[31m[1mGET /new/login HTTP/1.1[0m" 405 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 17:50:10] "[37mPOST /new/login HTTP/1.1[0m" 200 -
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 17:50:47] "[37mGET /jwxt/kb?xnm=2020&xqm=1 HTTP/1.1[0m" 200 -
+INFO _internal.py: 113  * Restarting with stat
+WARNING _internal.py: 113  * Debugger is active!
+INFO _internal.py: 113  * Debugger PIN: 181-901-684
+INFO _internal.py: 113  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 113 127.0.0.1 - - [07/Mar/2021 18:30:16] "[37mGET /daily/xx_news?page=1 HTTP/1.1[0m" 200 -

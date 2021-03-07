@@ -22,7 +22,7 @@ parse_history.add_argument("rows", type=str, help='请输入多少行', required
 
 class chargeBalance(Resource):
     @new_login_required
-    def get(self):
+    def post(self):
         args = parse_charge.parse_args()
         money = args.get("money")
         try:

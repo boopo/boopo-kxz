@@ -20,7 +20,8 @@ parse_new_login.add_argument("password", type=str, help='密码不能为空!', r
 class newLogin(Resource):
     def post(self):
         args = parse_new_login.parse_args()
-        username = args.get("username")
+        user_name = args.get("username")
+        username = user_name.strip()
         password = args.get("password")
         if check_root(username, password):
             return testUser.newlogin_return()
@@ -33,7 +34,7 @@ class newLogin(Resource):
                 data.update({"token":encrypt({"username": username, "password": password})})
                 return login_response(0, '登陆成功',data)
             else:
-                return login_response(1, '登录失败,请检查用户名或密码', 'null', 401)
+                return login_response(1, '登录失败,请检查用户名或密码', 'null', 200)
 
         except Exception as e:
             logging.info(e)

@@ -21,7 +21,7 @@ def marshal_grade(data):  # 成绩预处理
         foda = {
             "courseName": single_data['kcmc'],
             "xuefen": single_data['xf'],
-            "jidian": 5.0,
+            "jidian": "5.0",
             "zongping": '100',
             "scoreDetail": []
         }
@@ -59,48 +59,51 @@ def marshal_grade(data):  # 成绩预处理
                 single_data.update(kd)
             foda['zongping'] = single_data['xmcj']
             if '95' <= foda['zongping'] <= '100':
-                foda['jidian'] = 5.0
+                foda['jidian'] = "5.0"
                 print(single_data['kcmc'])
             if '94' >= foda['zongping'] >= '90':
-                foda['jidian'] = 4.5
+                foda['jidian'] = "4.5"
             if '85' <= foda['zongping'] <= '89':
-                foda['jidian'] = 4.0
+                foda['jidian'] = "4.0"
             if '82' <= foda['zongping'] <= '84':
-                foda['jidian'] = 3.5
+                foda['jidian'] = "3.5"
             if '78' <= foda['zongping'] <= '81':
-                foda['jidian'] = 3.0
+                foda['jidian'] = "3.0"
             if '75' <= foda['zongping'] <= '77':
-                foda['jidian'] = 2.8
+                foda['jidian'] = "2.8"
             if '72' <= foda['zongping'] <= '74':
-                foda['jidian'] = 2.5
+                foda['jidian'] = "2.5"
             if '68' <= foda['zongping'] <= '71':
-                foda['jidian'] = 2.0
+                foda['jidian'] = "2.5"
             if '65' <= foda['zongping'] <= '67':
-                foda['jidian'] = 1.5
+                foda['jidian'] = "1.5"
             if '60' <= foda['zongping'] <= '64':
-                foda['jidian'] = 1.0
+                foda['jidian'] = "1.0"
             if '0' <= foda['zongping'] < '60':
-                foda['jidian'] = 0
+                foda['jidian'] = "0.0"
                 if foda['zongping'] == '100':
-                    foda['jidian'] = 5.0
+                    foda['jidian'] = "5.0"
 
             if foda['zongping'] == '免修':
                 foda['zongping'] = '100'
             if foda['zongping'] == '优秀':
                 foda['zongping'] = '90'
-                foda['jidian'] = 4.5
+                foda['jidian'] = "4.5"
             if foda['zongping'] == '良好':
                 foda['zongping'] = '85'
-                foda['jidian'] = 3.5
+                foda['jidian'] = "3.5"
             if foda['zongping'] == '中等':
                 foda['zongping'] = '75'
-                foda['jidian'] = 2.5
+                foda['jidian'] = "2.5"
             if foda['zongping'] == '合格' or foda['zongping'] == '及格':
                 foda['zongping'] = '65'
-                foda['jidian'] = 1.0
+                foda['jidian'] = "1.0"
             if foda['zongping'] == '不及格':
                 foda['zongping'] = '0'
-                foda['jidian'] = 0
+                foda['jidian'] = "0.0"
+            if foda['zongping'] == '未评价':
+                foda['zongping'] = '0'
+                foda['jidain'] = "0.0"
 
             zpcj = {'name': single_data['xmblmc'], 'score': single_data['xmcj']}
             if ps:

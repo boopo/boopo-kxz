@@ -1,6 +1,6 @@
 from flask_restful import Api
 
-from App.apis.library.library_api import Library, OnShelf, BookImage
+from App.apis.library.library_api import Library, OnShelf, BookImage, libraryList, libraryHistoryList, libraryFavorite
 
 library_api = Api(prefix='/lib')
 

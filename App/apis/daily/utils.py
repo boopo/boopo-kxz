@@ -65,11 +65,20 @@ def get_multiple_sd_news(page=''):  # 视点新闻列表
     rs = soup.find('ul', class_='news_list list2')
     l1 = []
     for single in rs.find_all('li'):
-        l1.append({
-            "title": single.a.text,
-            "link": "http://www.cumt.edu.cn" + single.span.a['href'],
-            "time": single.span.next_sibling.next_sibling.text
-        })
+        if "http" in single.span.a['href']:
+            l1.append({
+                "title": single.a.text,
+                "link": single.span.a['href'],
+                "time": single.span.next_sibling.next_sibling.text,
+                "location": "https://api.kxz.atcumt.com/daily/sd_new?url=" + single.span.a['href']
+            })
+        else:
+            l1.append({
+                "title": single.a.text,
+                "link": "http://www.cumt.edu.cn" + single.span.a['href'],
+                "time": single.span.next_sibling.next_sibling.text,
+                "location": "https://api.kxz.atcumt.com/daily/sd_new?url=http://www.cumt.edu.cn" + single.span.a['href']
+            })
     return l1
 
 
@@ -94,6 +103,7 @@ def get_single_sd_news(url):  # 单个视点新闻详情
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, 'html5lib')
     rs = soup.find_all('p', style="text-indent:2em;text-align:left;font-size:16px;")  # 查询文章
+    rss = soup.find_all('p', style="text-align:left;text-indent:2em;font-size:16px;")
     detail = soup.find('div', class_='news_xx')  # 查询作者，时间，浏览次数
     detail_detail = detail.find_all('span')  # 同一标签先所有子标签，
     foot = soup.find('p', class_='arti_metas')  # 同上
@@ -107,6 +117,8 @@ def get_single_sd_news(url):  # 单个视点新闻详情
     for single in foot_detail:
         fd.append(single.text)
     for single in rs:
+        content.append(single.text)
+    for single in rss:
         content.append(single.text)
     # json 序列化
     ls = {
@@ -131,11 +143,18 @@ def get_multiple_xs_news(page=''):  # 学术聚焦列表
     rs_detail = rs.find_all('li')
     rd = []
     for single in rs_detail:
-        rd.append({
-            "title": single.span.a['title'],
-            "link": "http://www.cumt.edu.cn" + single.span.a['href'],
-            "time": single.span.next_sibling.next_sibling.text
-        })
+        if "http" in single.span.a['href']:
+            rd.append({
+                "title": single.span.a['title'],
+                "link":  single.span.a['href'],
+                "time":  single.span.next_sibling.next_sibling.text
+            })
+        else:
+            rd.append({
+                "title": single.span.a['title'],
+                "link": "http://www.cumt.edu.cn" + single.span.a['href'],
+                "time": single.span.next_sibling.next_sibling.text
+            })
     return rd
 
 
@@ -174,12 +193,25 @@ def get_multiple_xx_news(page=''):  # 信息公告列表
     r.encoding = r.apparent_encoding
     soup = BeautifulSoup(r.text, 'html5lib')
     rs = soup.find_all('span', class_="news_title")
+    rs1 = soup.find_all('span', class_="news_meta")
     l1 = []
     for single in rs:
-        l1.append({
-            "title": single.a.text,
-            "link": "http://www.cumt.edu.cn" + single.a['href']
-        })
+        if "http" in single.a['href']:
+            l1.append({
+                "title": single.a.text,
+                "link": single.a['href']
+            })
+        else:
+            l1.append({
+                "title": single.a.text,
+                "link": "http://www.cumt.edu.cn" + single.a['href']
+            })
+    l2 = []
+    for s2 in rs1:
+        l2.append(s2.text)
+
+    for index in range(len(l1)):
+        l1[index].update({"time": l2[index]})
     return l1
 
 
@@ -200,7 +232,7 @@ def get_single_rw_news(url):  # 单个人文讲堂详情
     return rd
 
 
-def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
+def get_multiple_rw_news(page=''):  # 人文讲堂列表
     url = "http://www.cumt.edu.cn/19677/list" + page + ".htm"
     r = requests.get(url=url, headers=headers)
     r.encoding = r.apparent_encoding
@@ -210,8 +242,9 @@ def get_multiple_rw_news(page=''):  # 人文讲堂聚合查询
     for single in rs.find_all('li'):
         l1.append({
             "title": single.span.a['title'],
+            "link": "http://www.cumt.edu.cn" + single.span.a['href'],
             "time": single.span.next_sibling.next_sibling.text,
-            "detail": get_single_rw_news("http://www.cumt.edu.cn" + single.span.a['href'])  # 在次查询单个人文讲堂信息
+
         })
     return l1
 

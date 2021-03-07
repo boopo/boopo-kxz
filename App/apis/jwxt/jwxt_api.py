@@ -6,7 +6,6 @@ from flask_restful import reqparse, Resource
 
 from App.apis.api_constant import data_error, data_response
 from App.apis.common_return import  testUser
-from App.apis.jwxt.utils.utils_cache import login_required
 from App.apis.jwxt.utils.utils_data_processing import marshal_grade, marshal_exam, marshal_room, \
     marshal_course, marshal_kb, marshal_make_up_gardes
 from App.apis.jwxt.utils.utils_request import get_kblist, get_grade, get_exam, get_single_jd, get_average_jd, \

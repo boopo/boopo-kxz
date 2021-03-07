@@ -12,34 +12,20 @@ def check_root(username, password):
 
 class testUser:
     @staticmethod
-    def login_return():
-        # /jwxt/login
-        data = {
-            "code": 0,
-            "data": {
-                "name": "游客",
-                "college": "计算机科学与技术学院",
-                "classname": "xx-xx班",
-                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTM4MDc0MzMuOTI0MzEzOCwiZGF0YSI6eyJ1c2VybmFtZSI6IjEyMzQ1Njc4IiwicGFzc3dvcmQiOiIxMjM0NTY3OCJ9fQ.1g8ZxM-xPZxsXv-pwAP3-Ju8G5psoQtZHY1B-2GYyR8"
-            },
-            "msg": "登录成功"
-        }
-        return data
-
-    @staticmethod
     def kb_return():
         data = {
-         "msg": "抓取成功",
-         "data": {
-         "kbList": [
+    "status": 200,
+    "msg": "抓取成功",
+    "data": {
+        "kbList": [
             {
                 "cd_id": "sgw0000698",
                 "cdmc": "博3-B103",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-4",
                 "jcs": "1-2",
@@ -57,15 +43,13 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "1007",
-                "pageable": True,
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -76,19 +60,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
-                "rangeable": True,
+
                 "rk": "3",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
                     "status": 0,
-                    "usable": False
+
                 },
                 "xf": "3.5",
                 "xkbz": "无",
@@ -97,7 +81,7 @@ class testUser:
                 "xqdm": "0",
                 "xqh1": "2,",
                 "xqh_id": "2",
-                "xqj": "2",
+                "xqj": "1",
                 "xqjmc": "星期一",
                 "xqm": "3",
                 "xqmc": "南湖校区",
@@ -115,10 +99,10 @@ class testUser:
                 "cd_id": "sgw0001000",
                 "cdmc": "计-25机房",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-4节",
                 "jcor": "1-4",
                 "jcs": "1-4",
@@ -136,14 +120,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "15",
                 "oldzc": "516096",
 
+                "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -161,12 +146,12 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
                     "status": 0,
-                    "usable":False
+
                 },
                 "xf": "3",
                 "xkbz": "无",
@@ -193,10 +178,10 @@ class testUser:
                 "cd_id": "sgw0001051",
                 "cdmc": "博1-B502",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -214,14 +199,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
                 "oldzc": "4047",
-    "pkbj": "1",
+
+                "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -239,12 +225,12 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "status": 0
+
                 },
                 "xf": "2.5",
                 "xkbz": "无",
@@ -271,10 +257,10 @@ class testUser:
                 "cd_id": "sgw0001051",
                 "cdmc": "博1-B502",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -292,7 +278,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
                 "oldzc": "32",
 
@@ -300,7 +286,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -312,17 +298,17 @@ class testUser:
                     "totalResult": 0
                 },
 
+                "rk": "8",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
-                    "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "roleValues": ""
+
                 },
                 "xf": "2.5",
                 "xkbz": "无",
@@ -349,10 +335,10 @@ class testUser:
                 "cd_id": "sgw0001227",
                 "cdmc": "博1-A102",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -370,7 +356,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
                 "oldzc": "520192",
 
@@ -378,7 +364,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -396,12 +382,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
-                    "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "roleValues": ""
+
                 },
                 "xf": "2",
                 "xkbz": "无",
@@ -427,10 +412,10 @@ class testUser:
                 "cd_id": "sgw0000458",
                 "cdmc": "博1-C101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "7-8节",
                 "jcor": "7-8",
                 "jcs": "7-8",
@@ -448,7 +433,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "192",
                 "oldzc": "32750",
 
@@ -456,7 +441,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -474,12 +459,12 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "status": 0
+
                 },
                 "xf": "3",
                 "xkbz": "无",
@@ -506,10 +491,10 @@ class testUser:
                 "cd_id": "sgw0000698",
                 "cdmc": "博3-B103",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-2",
                 "jcs": "1-2",
@@ -527,7 +512,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "1007",
 
@@ -535,7 +520,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -553,12 +538,12 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "status": 0
+
                 },
                 "xf": "3.5",
                 "xkbz": "无",
@@ -585,10 +570,10 @@ class testUser:
                 "cd_id": "sgw0000653",
                 "cdmc": "博5-C302",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "3-4",
                 "jcs": "3-4",
@@ -606,7 +591,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
                 "oldzc": "495",
 
@@ -614,7 +599,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -632,12 +617,12 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "monitor": False,
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
-                    "usable": False
+                    "status": 0
+
                 },
                 "xf": "2.0",
                 "xkbz": "无",
@@ -664,10 +649,10 @@ class testUser:
                 "cd_id": "sgw0000166",
                 "cdmc": "博5-B206",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "3-4",
                 "jcs": "3-4",
@@ -685,14 +670,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
                 "oldzc": "523264",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
-                    "entityOrField": False,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -709,10 +695,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
-                    "roleCount": 0,
+                   "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "1.0",
                 "xkbz": "无",
@@ -739,10 +726,10 @@ class testUser:
                 "cd_id": "sgw0001151",
                 "cdmc": "博4-A101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -760,7 +747,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
                 "oldzc": "523776",
 
@@ -768,6 +755,7 @@ class testUser:
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -789,7 +777,8 @@ class testUser:
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "2.5",
                 "xkbz": "无",
@@ -816,10 +805,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -837,13 +826,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "7",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -854,16 +845,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "4",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "2.0",
                 "xkbz": "无",
@@ -890,10 +884,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -911,13 +905,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "616",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -928,16 +924,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "4",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
                     "status": 0,
+
                 },
                 "xf": "2.0",
                 "xkbz": "无",
@@ -964,10 +963,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -985,13 +984,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "384",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1002,16 +1003,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "4",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "2.0",
                 "xkbz": "无",
@@ -1038,10 +1042,10 @@ class testUser:
                 "cd_id": "sgw0000152",
                 "cdmc": "博4-C307",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1059,13 +1063,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "261120",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1076,16 +1082,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "13",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "2",
                 "xkbz": "无",
@@ -1112,10 +1121,10 @@ class testUser:
                 "cd_id": "sgw0000458",
                 "cdmc": "博1-C101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-2",
                 "jcs": "1-2",
@@ -1133,13 +1142,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "32751",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1150,16 +1161,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "6",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
                     "status": 0,
+
                 },
                 "xf": "3.5",
                 "xkbz": "无",
@@ -1186,10 +1200,10 @@ class testUser:
                 "cd_id": "sgw0001227",
                 "cdmc": "博1-A102",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "3-4",
                 "jcs": "3-4",
@@ -1207,13 +1221,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
                 "oldzc": "523264",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1224,16 +1240,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "2",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
+
                 },
                 "xf": "2",
                 "xkbz": "无",
@@ -1259,10 +1278,10 @@ class testUser:
                 "cd_id": "sgw0000925",
                 "cdmc": "博2-B201",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1280,13 +1299,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "2048",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1297,16 +1318,18 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "3",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+
                 },
                 "xf": "3.5",
                 "xkbz": "无",
@@ -1333,10 +1356,10 @@ class testUser:
                 "cd_id": "sgw0000524",
                 "cdmc": "博1-B503",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-4",
                 "jcs": "1-2",
@@ -1354,13 +1377,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "2023",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1371,16 +1396,19 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "8",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
                     "status": 0
+
                 },
                 "xf": "2.5",
                 "xkbz": "无",
@@ -1407,10 +1435,10 @@ class testUser:
                 "cd_id": "sgw0001000",
                 "cdmc": "计-25机房",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-4节",
                 "jcor": "1-4",
                 "jcs": "1-4",
@@ -1428,11 +1456,16 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
+                "oldjc": "15",
+                "oldzc": "516096",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
+                    "currentResult": 0,
 
+                    "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
                     "pageSize": 15,
@@ -1442,6 +1475,7 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "9",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
@@ -1449,7 +1483,10 @@ class testUser:
                 "totalResult": "0",
                 "userModel": {
 
+                    "roleCount": 0,
+                    "roleKeys": "",
                     "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "3",
@@ -1477,10 +1514,10 @@ class testUser:
                 "cd_id": "sgw0000698",
                 "cdmc": "博3-B103",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "1-4",
                 "jcs": "3-4",
@@ -1498,8 +1535,9 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
+                "oldzc": "999",
 
                 "pkbj": "1",
                 "queryModel": {
@@ -1523,6 +1561,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "3.5",
@@ -1550,10 +1593,10 @@ class testUser:
                 "cd_id": "49350D138FFD03FEE053C0A8666203FE",
                 "cdmc": "体育场",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -1571,8 +1614,25 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
+                "oldzc": "16359",
+
+                "pkbj": "1",
+                "queryModel": {
+                    "currentPage": 1,
+                    "currentResult": 0,
+
+                    "limit": 15,
+                    "offset": 0,
+                    "pageNo": 0,
+                    "pageSize": 15,
+                    "showCount": 10,
+                    "sorts": [],
+                    "totalCount": 0,
+                    "totalPage": 0,
+                    "totalResult": 0
+                },
 
                 "rk": "1",
                 "rsdzjs": 0,
@@ -1580,6 +1640,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "0.5",
@@ -1607,10 +1672,10 @@ class testUser:
                 "cd_id": "sgw0000458",
                 "cdmc": "博1-C101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "7-8节",
                 "jcor": "7-8",
                 "jcs": "7-8",
@@ -1628,13 +1693,14 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "192",
-                "oldzc": "16358",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -1645,16 +1711,18 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
+
                 "rk": "5",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
                     "roleCount": 0,
                     "roleKeys": "",
-                    "roleValues": "",
-                    "status": 0,
+                    "roleValues": ""
+
                 },
                 "xf": "3",
                 "xkbz": "无",
@@ -1681,10 +1749,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1702,12 +1770,19 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
+                "oldzc": "7",
 
+                "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
+                    "currentResult": 0,
 
+                    "limit": 15,
+                    "offset": 0,
+                    "pageNo": 0,
+                    "pageSize": 15,
                     "showCount": 10,
                     "sorts": [],
                     "totalCount": 0,
@@ -1715,14 +1790,17 @@ class testUser:
                     "totalResult": 0
                 },
 
+                "rk": "4",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
 
+                    "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "2.0",
@@ -1750,10 +1828,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1771,12 +1849,14 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "288",
 
+                "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
+                    "currentResult": 0,
 
                     "limit": 15,
                     "offset": 0,
@@ -1789,16 +1869,17 @@ class testUser:
                     "totalResult": 0
                 },
 
+                "rk": "4",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
 
+                    "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
-
+                    "status": 0
                 },
                 "xf": "2.0",
                 "xkbz": "无",
@@ -1825,10 +1906,10 @@ class testUser:
                 "cd_id": "sgw0000685",
                 "cdmc": "图-107",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1846,7 +1927,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "192",
 
@@ -1904,10 +1985,10 @@ class testUser:
                 "cd_id": "sgw0000152",
                 "cdmc": "博4-C307",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -1925,7 +2006,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "244736",
 
@@ -1955,7 +2036,7 @@ class testUser:
                     "roleCount": 0,
                     "roleKeys": "",
                     "roleValues": "",
-                    "status": 0,
+                    "status": 0
 
                 },
                 "xf": "2",
@@ -1983,10 +2064,10 @@ class testUser:
                 "cd_id": "sgw0000152",
                 "cdmc": "博4-C307",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "9-10节",
                 "jcor": "9-10",
                 "jcs": "9-10",
@@ -2004,7 +2085,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "768",
                 "oldzc": "16384",
 
@@ -2030,6 +2111,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "2",
@@ -2057,10 +2143,10 @@ class testUser:
                 "cd_id": "sgw0000653",
                 "cdmc": "博5-C302",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-2",
                 "jcs": "1-2",
@@ -2078,7 +2164,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "503",
 
@@ -2096,12 +2182,18 @@ class testUser:
                     "totalPage": 0,
                     "totalResult": 0
                 },
-               "rk": "11",
+
+                "rk": "11",
                 "rsdzjs": 0,
                 "skfsmc": "面授讲课",
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "2.0",
@@ -2129,10 +2221,10 @@ class testUser:
                 "cd_id": "sgw0000166",
                 "cdmc": "博5-B206",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-2节",
                 "jcor": "1-2",
                 "jcs": "1-2",
@@ -2150,7 +2242,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "3",
                 "oldzc": "195584",
 
@@ -2176,6 +2268,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "1.0",
@@ -2203,10 +2300,10 @@ class testUser:
                 "cd_id": "sgw0000458",
                 "cdmc": "博1-C101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "3-4",
                 "jcs": "3-4",
@@ -2224,7 +2321,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
                 "oldzc": "32759",
 
@@ -2250,6 +2347,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "3.5",
@@ -2277,10 +2379,10 @@ class testUser:
                 "cd_id": "sgw0001151",
                 "cdmc": "博4-A101",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "5-6节",
                 "jcor": "5-6",
                 "jcs": "5-6",
@@ -2298,7 +2400,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "48",
                 "oldzc": "458496",
 
@@ -2324,6 +2426,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0
 
                 },
                 "xf": "2.5",
@@ -2351,10 +2458,10 @@ class testUser:
                 "cd_id": "sgw0000665",
                 "cdmc": "计-37机房",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "1-4节",
                 "jcor": "1-4",
                 "jcs": "1-4",
@@ -2372,7 +2479,7 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "15",
                 "oldzc": "169984",
 
@@ -2398,6 +2505,10 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": ""
 
                 },
                 "xf": "0.5",
@@ -2425,10 +2536,10 @@ class testUser:
                 "cd_id": "sgw0000698",
                 "cdmc": "博3-B103",
                 "cxbj": "0",
-                "date": "二○二一年二月十九日",
-                "dateDigit": "2021年2月19日",
-                "dateDigitSeparator": "2021-2-19",
-                "day": "19",
+                "date": "二○二一年三月六日",
+                "dateDigit": "2021年3月6日",
+                "dateDigitSeparator": "2021-3-6",
+                "day": "6",
                 "jc": "3-4节",
                 "jcor": "1-4",
                 "jcs": "3-4",
@@ -2446,13 +2557,15 @@ class testUser:
                 "kkzt": "1",
                 "listnav": "false",
                 "localeKey": "zh_CN",
-                "month": "2",
+                "month": "3",
                 "oldjc": "12",
                 "oldzc": "512",
+
                 "pkbj": "1",
                 "queryModel": {
                     "currentPage": 1,
                     "currentResult": 0,
+
                     "limit": 15,
                     "offset": 0,
                     "pageNo": 0,
@@ -2470,6 +2583,11 @@ class testUser:
                 "sxbj": "1",
                 "totalResult": "0",
                 "userModel": {
+
+                    "roleCount": 0,
+                    "roleKeys": "",
+                    "roleValues": "",
+                    "status": 0,
 
                 },
                 "xf": "3.5",
@@ -2495,7 +2613,8 @@ class testUser:
             }
         ],
         "zckbsfxssj": "1",
-        "sfxsd": "1"
+        "sfxsd": "1",
+        "xnxqsfkz": "false"
     }
 }
 
@@ -2813,9 +2932,14 @@ class testUser:
     @staticmethod
     def newlogin_return():
         data = {
-        "code": 0,
-        "msg": "登陆成功",
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTM4MDc0MzMuOTI0MzEzOCwiZGF0YSI6eyJ1c2VybmFtZSI6IjEyMzQ1Njc4IiwicGFzc3dvcmQiOiIxMjM0NTY3OCJ9fQ.1g8ZxM-xPZxsXv-pwAP3-Ju8G5psoQtZHY1B-2GYyR8"
+            "code": 0,
+            "data": {
+                "name": "游客",
+                "college": "计算机科学与技术学院",
+                "classname": "xx-xx班",
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTUxMTA0NTIuNDAyNjg2NCwiZGF0YSI6eyJ1c2VybmFtZSI6IjEyMzQ1Njc4IiwicGFzc3dvcmQiOiIxMjM0NTY3OCJ9fQ.EEOr8vWHQWH-Y3OdhKW9fCTIyPEvTOwIfDxNAgyttOI"
+            },
+            "msg": "登录成功"
         }
         return data
 
@@ -2933,6 +3057,8 @@ class testUser:
         data = [{'courseName': 'Web应用开发技术B', 'xuefen': '2', 'jidian': '4.50', 'zongping': '94', 'type': '正常考试'}, {'courseName': '数字信号处理', 'xuefen': '3', 'jidian': '2.50', 'zongping': '73', 'type': '重修'}, {'courseName': '近距离无线通信技术', 'xuefen': '2.0', 'jidian': '2.00', 'zongping': '69', 'type': '正常考试'}, {'courseName': '通信原理', 'xuefen': '3.5', 'jidian': '1.00', 'zongping': '64', 'type': '重修'}, {'courseName': '无线通信基础', 'xuefen': '2', 'jidian': '1.00', 'zongping': '60', 'type': '补考一'}, {'courseName': '专业实习实训（生产实习）', 'xuefen': '4', 'jidian': '2.50', 'zongping': '72', 'type': '正常考试'}, {'courseName': '电子信息学科前沿讲座', 'xuefen': '1', 'jidian': '3.00', 'zongping': '80', 'type': '正常考试'}, {'courseName': '微机原理与应用B', 'xuefen': '2.5', 'jidian': '2.80', 'zongping': '75', 'type': '重修'}, {'courseName': '瑜伽(3)', 'xuefen': '0.5', 'jidian': '2.80', 'zongping': '77', 'type': '正常考试'}]
 
         return data
+
+
 
 
 

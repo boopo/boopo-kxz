@@ -2622,14 +2622,638 @@ class testUser:
 
     @staticmethod
     def grades_return():
-        data = {
+        data ={
     "status": 200,
-    "msg": "抓取成功",
+    "msg": "请求成功",
     "data": [
+        {
+            "courseName": "电工技术与电子技术A(1)",
+            "xuefen": "2.5",
+            "jidian": "4.5",
+            "zongping": "92",
+            "scoreDetail": [
+                {
+                    "name": "平时(50%)",
+                    "score": "95.5"
+                },
+                {
+                    "name": "期末(50%)",
+                    "score": "89"
+                },
+                {
+                    "name": "总评",
+                    "score": "92"
+                }
+            ]
+        },
+        {
+            "courseName": "电工技术与电子技术实验A(1)",
+            "xuefen": "0.5",
+            "jidian": "4.5",
+            "zongping": "91",
+            "scoreDetail": [
+                {
+                    "name": "期末(100%)",
+                    "score": "91"
+                },
+                {
+                    "name": "总评",
+                    "score": "91"
+                }
+            ]
+        },
+        {
+            "courseName": "离散数学",
+            "xuefen": "3",
+            "jidian": "5.0",
+            "zongping": "95",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "92"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "96"
+                },
+                {
+                    "name": "总评",
+                    "score": "95"
+                }
+            ]
+        },
+        {
+            "courseName": "数据结构",
+            "xuefen": "3",
+            "jidian": "4.0",
+            "zongping": "87",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "90"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "86"
+                },
+                {
+                    "name": "总评",
+                    "score": "87"
+                }
+            ]
+        },
+        {
+            "courseName": "数据结构实验",
+            "xuefen": "0.5",
+            "jidian": "5.0",
+            "zongping": "100",
+            "scoreDetail": [
+                {
+                    "name": "平时(50%)",
+                    "score": "100"
+                },
+                {
+                    "name": "期末(50%)",
+                    "score": "100"
+                },
+                {
+                    "name": "总评",
+                    "score": "100"
+                }
+            ]
+        },
+        {
+            "courseName": "高等数学A（3）(16版，",
+            "xuefen": "3",
+            "jidian": "3.0",
+            "zongping": "80",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "97"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "73"
+                },
+                {
+                    "name": "总评",
+                    "score": "80"
+                }
+            ]
+        },
+        {
+            "courseName": "认识实习",
+            "xuefen": "1",
+            "jidian": "2.5",
+            "zongping": "72",
+            "scoreDetail": [
+                {
+                    "name": "期末(100%)",
+                    "score": "中等"
+                },
+                {
+                    "name": "总评",
+                    "score": "72"
+                }
+            ]
+        },
+        {
+            "courseName": "高等数学A（4）(16版，",
+            "xuefen": "3",
+            "jidian": "1.5",
+            "zongping": "67",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "80"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "62"
+                },
+                {
+                    "name": "总评",
+                    "score": "67"
+                }
+            ]
+        },
+        {
+            "courseName": "英语实践（2）",
+            "xuefen": "0.5",
+            "jidian": "4.5",
+            "zongping": "90",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "96"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "92"
+                },
+                {
+                    "name": "总评",
+                    "score": "优秀"
+                }
+            ]
+        },
+        {
+            "courseName": "大学物理B（1）(16版，",
+            "xuefen": "3.5",
+            "jidian": "4.5",
+            "zongping": "94",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "100"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "91"
+                },
+                {
+                    "name": "总评",
+                    "score": "94"
+                }
+            ]
+        },
+        {
+            "courseName": "物理实验（1）",
+            "xuefen": "1.0",
+            "jidian": "4.0",
+            "zongping": "87",
+            "scoreDetail": [
+                {
+                    "name": "期末(100%)",
+                    "score": "86.7"
+                },
+                {
+                    "name": "总评",
+                    "score": "87"
+                }
+            ]
+        },
+        {
+            "courseName": "创业基础",
+            "xuefen": "2.0",
+            "jidian": "4.0",
+            "zongping": "89",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "99.4"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "85"
+                },
+                {
+                    "name": "总评",
+                    "score": "89"
+                }
+            ]
+        },
+        {
+            "courseName": "园林艺术概论",
+            "xuefen": "2.0",
+            "jidian": "4.0",
+            "zongping": "87",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "99.4"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "81"
+                },
+                {
+                    "name": "总评",
+                    "score": "87"
+                }
+            ]
+        },
+        {
+            "courseName": "综合英语（2）(16版，",
+            "xuefen": "2.0",
+            "jidian": "2.8",
+            "zongping": "76",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "97.3"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "61"
+                },
+                {
+                    "name": "总评",
+                    "score": "76"
+                }
+            ]
+        },
+        {
+            "courseName": "英语口语（2）(16版，",
+            "xuefen": "0.5",
+            "jidian": "5.0",
+            "zongping": "98",
+            "scoreDetail": [
+                {
+                    "name": "平时(50%)",
+                    "score": "99"
+                },
+                {
+                    "name": "期末(50%)",
+                    "score": "96"
+                },
+                {
+                    "name": "总评",
+                    "score": "98"
+                }
+            ]
+        },
+        {
+            "courseName": "越野行走(2)",
+            "xuefen": "0.5",
+            "jidian": "4.0",
+            "zongping": "88",
+            "scoreDetail": [
+                {
+                    "name": "期中(40%)",
+                    "score": "85"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "90"
+                },
+                {
+                    "name": "总评",
+                    "score": "88"
+                }
+            ]
+        },
+        {
+            "courseName": "大学生涯导论",
+            "xuefen": "0.5",
+            "jidian": "5.0",
+            "zongping": "95",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "100"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "93"
+                },
+                {
+                    "name": "总评",
+                    "score": "95"
+                }
+            ]
+        },
+        {
+            "courseName": "英语实践（1）",
+            "xuefen": "0.5",
+            "jidian": "4.5",
+            "zongping": "90",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "96"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "93"
+                },
+                {
+                    "name": "总评",
+                    "score": "优秀"
+                }
+            ]
+        },
+        {
+            "courseName": "信息学科概论",
+            "xuefen": "2",
+            "jidian": "4.5",
+            "zongping": "92",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "83"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "96"
+                },
+                {
+                    "name": "总评",
+                    "score": "92"
+                }
+            ]
+        },
+        {
+            "courseName": "综合英语（1）(16版，",
+            "xuefen": "2.0",
+            "jidian": "3.0",
+            "zongping": "79",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "97.1"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "67"
+                },
+                {
+                    "name": "总评",
+                    "score": "79"
+                }
+            ]
+        },
+        {
+            "courseName": "高级语言程序设计",
+            "xuefen": "3.5",
+            "jidian": "3.5",
+            "zongping": "83",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "99"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "76"
+                },
+                {
+                    "name": "总评",
+                    "score": "83"
+                }
+            ]
+        },
+        {
+            "courseName": "高级语言程序设计实验",
+            "xuefen": "1.0",
+            "jidian": "4.0",
+            "zongping": "89",
+            "scoreDetail": [
+                {
+                    "name": "平时(70%)",
+                    "score": "93"
+                },
+                {
+                    "name": "期末(30%)",
+                    "score": "80"
+                },
+                {
+                    "name": "总评",
+                    "score": "89"
+                }
+            ]
+        },
+        {
+            "courseName": "计算机基础训练",
+            "xuefen": "0.5",
+            "jidian": "4.5",
+            "zongping": "94",
+            "scoreDetail": [
+                {
+                    "name": "期末(100%)",
+                    "score": "93.6"
+                },
+                {
+                    "name": "总评",
+                    "score": "94"
+                }
+            ]
+        },
+        {
+            "courseName": "英语口语（1）(16版，",
+            "xuefen": "0.5",
+            "jidian": "4.0",
+            "zongping": "85",
+            "scoreDetail": [
+                {
+                    "name": "平时(50%)",
+                    "score": "82"
+                },
+                {
+                    "name": "期末(50%)",
+                    "score": "87"
+                },
+                {
+                    "name": "总评",
+                    "score": "85"
+                }
+            ]
+        },
+        {
+            "courseName": "军事训练",
+            "xuefen": "2.0",
+            "jidian": "3.5",
+            "zongping": "85",
+            "scoreDetail": [
+                {
+                    "name": "平时(0%)",
+                    "score": "84"
+                },
+                {
+                    "name": "期末(100%)",
+                    "score": "良好"
+                },
+                {
+                    "name": "总评",
+                    "score": "良好"
+                }
+            ]
+        },
+        {
+            "courseName": "高等数学A（1）(16版，",
+            "xuefen": "2",
+            "jidian": "2.5",
+            "zongping": "73",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "100"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "62"
+                },
+                {
+                    "name": "总评",
+                    "score": "73"
+                }
+            ]
+        },
+        {
+            "courseName": "高等数学A（2）(16版，",
+            "xuefen": "3",
+            "jidian": "2.5",
+            "zongping": "72",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "100"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "54"
+                },
+                {
+                    "name": "总评",
+                    "score": "72"
+                }
+            ]
+        },
+        {
+            "courseName": "中国近现代史纲要",
+            "xuefen": "3.0",
+            "jidian": "4.0",
+            "zongping": "86",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "89"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "84"
+                },
+                {
+                    "name": "总评",
+                    "score": "86"
+                }
+            ]
+        },
+        {
+            "courseName": "思想道德修养与法律基础",
+            "xuefen": "3.0",
+            "jidian": "3.5",
+            "zongping": "82",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "90.5"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "77"
+                },
+                {
+                    "name": "总评",
+                    "score": "82"
+                }
+            ]
+        },
+        {
+            "courseName": "军事理论",
+            "xuefen": "2.0",
+            "jidian": "4.0",
+            "zongping": "86",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "86"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "86"
+                },
+                {
+                    "name": "总评",
+                    "score": "86"
+                }
+            ]
+        },
+        {
+            "courseName": "大学生心理健康教育",
+            "xuefen": "0.5",
+            "jidian": "3.5",
+            "zongping": "84",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "86"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "83"
+                },
+                {
+                    "name": "总评",
+                    "score": "84"
+                }
+            ]
+        },
+        {
+            "courseName": "网球(1)",
+            "xuefen": "0.5",
+            "jidian": "3.0",
+            "zongping": "78",
+            "scoreDetail": [
+                {
+                    "name": "期中(40%)",
+                    "score": "73"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "82"
+                },
+                {
+                    "name": "总评",
+                    "score": "78"
+                }
+            ]
+        },
         {
             "courseName": "生态文化影视鉴赏",
             "xuefen": "2",
-            "jidian": 4.0,
+            "jidian": "4.0",
             "zongping": "89",
             "scoreDetail": [
                 {
@@ -2649,7 +3273,7 @@ class testUser:
         {
             "courseName": "电工技术与电子技术实验A(2)",
             "xuefen": "1.0",
-            "jidian": 4.0,
+            "jidian": "4.0",
             "zongping": "86",
             "scoreDetail": [
                 {
@@ -2665,7 +3289,7 @@ class testUser:
         {
             "courseName": "程序设计综合实践",
             "xuefen": "3",
-            "jidian": 4.5,
+            "jidian": "4.5",
             "zongping": "91",
             "scoreDetail": [
                 {
@@ -2681,7 +3305,7 @@ class testUser:
         {
             "courseName": "计算机组成原理实验",
             "xuefen": "0.5",
-            "jidian": 3.0,
+            "jidian": "3.0",
             "zongping": "81",
             "scoreDetail": [
                 {
@@ -2701,7 +3325,7 @@ class testUser:
         {
             "courseName": "计算机组成原理",
             "xuefen": "2.5",
-            "jidian": 4.0,
+            "jidian": "4.0",
             "zongping": "85",
             "scoreDetail": [
                 {
@@ -2721,7 +3345,7 @@ class testUser:
         {
             "courseName": "文献检索与利用",
             "xuefen": "2.0",
-            "jidian": 5.0,
+            "jidian": "5.0",
             "zongping": "97",
             "scoreDetail": [
                 {
@@ -2741,7 +3365,7 @@ class testUser:
         {
             "courseName": "大学物理B（2）",
             "xuefen": "3.5",
-            "jidian": 4.5,
+            "jidian": "4.5",
             "zongping": "90",
             "scoreDetail": [
                 {
@@ -2761,7 +3385,7 @@ class testUser:
         {
             "courseName": "物理实验（2）",
             "xuefen": "1.0",
-            "jidian": 3.5,
+            "jidian": "3.5",
             "zongping": "82",
             "scoreDetail": [
                 {
@@ -2775,9 +3399,29 @@ class testUser:
             ]
         },
         {
+            "courseName": "电工技术与电子技术A(2)",
+            "xuefen": "3.5",
+            "jidian": "2.8",
+            "zongping": "75",
+            "scoreDetail": [
+                {
+                    "name": "平时(40%)",
+                    "score": "89.6"
+                },
+                {
+                    "name": "期末(60%)",
+                    "score": "66"
+                },
+                {
+                    "name": "总评",
+                    "score": "75"
+                }
+            ]
+        },
+        {
             "courseName": "综合英语（3）",
             "xuefen": "2.0",
-            "jidian": 4.0,
+            "jidian": "4.0",
             "zongping": "85",
             "scoreDetail": [
                 {
@@ -2797,7 +3441,7 @@ class testUser:
         {
             "courseName": "英语实践（3）",
             "xuefen": "1.0",
-            "jidian": 3.5,
+            "jidian": "3.5",
             "zongping": "85",
             "scoreDetail": [
                 {
@@ -2817,7 +3461,7 @@ class testUser:
         {
             "courseName": "形势与政策",
             "xuefen": "2.0",
-            "jidian": 4.5,
+            "jidian": "4.5",
             "zongping": "91",
             "scoreDetail": [
                 {
@@ -2837,7 +3481,7 @@ class testUser:
         {
             "courseName": "毛泽东思想和中国特色社会主义理论体系概论",
             "xuefen": "3.0",
-            "jidian": 3.0,
+            "jidian": "3.0",
             "zongping": "80",
             "scoreDetail": [
                 {
@@ -2857,7 +3501,7 @@ class testUser:
         {
             "courseName": "羽毛球(3)",
             "xuefen": "0.5",
-            "jidian": 3.0,
+            "jidian": "3.0",
             "zongping": "81",
             "scoreDetail": [
                 {
@@ -2873,10 +3517,29 @@ class testUser:
                     "score": "81"
                 }
             ]
-        }
-
+        },
+        {
+            "courseName": "线性代数(16版，",
+            "xuefen": "2.5",
+            "jidian": "2.8",
+            "zongping": "77",
+            "scoreDetail": [
+                {
+                    "name": "平时(30%)",
+                    "score": "96"
+                },
+                {
+                    "name": "期末(70%)",
+                    "score": "69"
+                },
+                {
+                    "name": "总评",
+                    "score": "77"
+                }
             ]
         }
+    ]
+}
         return data
 
     @staticmethod

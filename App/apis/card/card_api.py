@@ -17,9 +17,6 @@ parse_history.add_argument("page", type=str, help='请输入第几页', required
 parse_history.add_argument("rows", type=str, help='请输入多少行', required=True, location=['json'])
 
 
-
-
-
 class chargeBalance(Resource):
     @new_login_required
     def post(self):
